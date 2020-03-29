@@ -1,9 +1,3 @@
-,,,,,Fine Particulate Matter (PM2.5) : Summarize
-Topic: Environment
-Subtopic: Air Quality
-Indicator Name: Fine Particulate Matter (PM2.5)
-Indicator Description: 
-
 Year,GeoTypeName,Borough,Geography,Geography ID,Indicator Name,10th Percentile (mcg per cubic meter),90th Percentile (mcg per cubic meter),Mean (mcg per cubic meter),Notes 10th Percentile,Notes 90th Percentile,Notes Mean,
 Annual Average 2018,Citywide,New York City, New York City,1,Fine Particulate Matter (PM2.5),6.1,8.1,7.0,,,,
 Annual Average 2018,Borough,Bronx, Bronx,1,Fine Particulate Matter (PM2.5),6.6,7.8,7.3,,,,
@@ -146,12 +140,3 @@ Annual Average 2018,Neighborhood (Community District),Manhattan, Upper West Side
 Annual Average 2018,Neighborhood (Community District),Manhattan, Washington Heights and Inwood (CD12),112,Fine Particulate Matter (PM2.5),6.9,7.9,7.3,,,,
 Annual Average 2018,Neighborhood (Community District),Bronx, Williamsbridge and Baychester (CD12),212,Fine Particulate Matter (PM2.5),6.8,7.2,7.0,,,,
 Annual Average 2018,Neighborhood (Community District),Queens, Woodside and Sunnyside (CD2),402,Fine Particulate Matter (PM2.5),7.3,10.1,8.6,,,,
-
-Name:Fine Particulate Matter (PM2.5),Measure:Mean (mcg per cubic meter),How Calculated:<p>Air samples collected at specific NYCCAS monitoring sites along with information about emissions sources were incorporated into a statistical model that predicted pollutant concentrations at all locations in NYC for the specified time period. The results were then assigned to the appropriate NYC neighborhood and averaged. In NYC fine particulate matter is measured in units of micrograms per cubic meter of air.</p>,Source(s):New York City Community Air Su,Year:Annual Average 2018,
-Name:Fine Particulate Matter (PM2.5),Measure:10th Percentile (mcg per cubic meter),How Calculated:<p>Air samples collected at specific NYCCAS monitoring sites along with information about emissions sources were incorporated into a statistical model that predicted pollutant concentrations at all locations in NYC for the specific time period. The results were then assigned to the appropriate NYC neighborhood and the 10th percentile identified. In NYC fine particulate matter is measured in units of micrograms per cubic meter of air.</p>,Source(s):New York City Community Air Su,Year:Annual Average 2018,
-Name:Fine Particulate Matter (PM2.5),Measure:90th Percentile (mcg per cubic meter),How Calculated:<p>Air samples collected at specific NYCCAS monitoring sites along with information about emissions sources were incorporated into a statistical model that predicted pollutant concentrations at all locations in NYC for the specific time period. The results were then assigned to the appropriate NYC neighborhood and the 90th percentile identified. In NYC fine particulate matter is measured in units of micrograms per cubic meter of air.</p>,Source(s):New York City Community Air Su,Year:Annual Average 2018,
-
-NYC Department of Health and Mental Hygiene
-Environment & Health Data Portal
-More information can be found at: http://nyc.gov/health/tracking
-Accessed 03/28/2020
