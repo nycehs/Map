@@ -1,0 +1,29 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": "container",
+    "height": "container",
+    "data": {
+      "url": "CD_simplified_wPM.geojson",
+      "format": {"property": "features"}
+    },
+    "transform": [{
+      "lookup": "id",
+      "from": {
+        "data": {
+          "url": "PM_summary_CD.csv"
+        },
+        "key": "Geography ID",
+        "fields": ["Year","Mean (mcg per cubic meter)"]
+      }
+    }],
+    "mark": "geoshape",
+    "encoding": {
+      "color": {
+        "field": "Mean (mcg per cubic meter)",
+        "type": "quantitative"
+      },
+      "tooltip": [
+        {"field": "properties.GEONAME", "type": "nominal", "title":"CD"}
+      ]
+    }
+  }
