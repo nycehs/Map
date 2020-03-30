@@ -1,0 +1,14 @@
+
+
+
+"mark": "geoshape",
+    "encoding": {
+      "color": {
+        "condition":{
+          "test":"datum.Mean===null","value":"grey"},
+          "field":"Mean","type":"quantitative"},
+        
+      "tooltip": [
+        {"field": "properties.GEONAME", "type": "nominal", "title":"CD"}
+      ]
+    }

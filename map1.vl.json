@@ -3,27 +3,30 @@
     "width": 400,
     "height": 400,
     "data": {
-      "url": "CD_simplified_wPM.geojson",
+      "url": "ZCTA.geo.json",
       "format": {"property": "features"}
     },
     "transform": [{
-      "lookup": "id",
+      "lookup": "properties.MODZCTA",
       "from": {
         "data": {
-          "url": "PM_summary_CD.csv"
+          "url": "FakeZCTAData.csv"
         },
-        "key": "Geography ID",
-        "fields": ["Year","Mean (mcg per cubic meter)"]
+        "key": "zcta",
+        "fields": ["time","cases","rate","pctpos"]
       }
     }],
     "mark": "geoshape",
     "encoding": {
       "color": {
-        "field": "Mean (mcg per cubic meter)",
-        "type": "quantitative"
+          "field":"cases","type":"quantitative"
       },
+        
       "tooltip": [
-        {"field": "properties.GEONAME", "type": "nominal", "title":"CD"}
+        {"field": "zcta", "type": "nominal", "title":"ZipCode"},
+        {"field": "cases", "type": "quantitative", "title":"Cases"},
+        {"field": "rate", "type": "quantitative", "title":"Rate"},
+        {"field": "pctpos", "type": "quantitative", "title":"Percent Positive"}
       ]
     }
   }
