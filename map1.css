@@ -5,7 +5,13 @@ body {
     margin: 8px;
     font-family: "Roboto",sans-serif;
 }
+.map-container {
+    width: 95vmin;
 
+}
+.center-me {
+    margin: 0 auto;
+  }
 .vis {
     height: 95vmin;
     width: 95vmin;
