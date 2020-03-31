@@ -29,7 +29,7 @@
       "color": {
           "field":"cases",
           "type":"quantitative",
-          "scale": {"scheme": "Viridis"},
+          "scale": {"scheme": "purples"},
           "legend": {
               "title": "Case Count",
               "orient":"top-left"
@@ -38,8 +38,8 @@
         
       "tooltip": [
         {"field": "zcta", "type": "nominal", "title":"ZipCode"},
-        {"field": "cases", "type": "quantitative", "title":"Cases"},
-        {"field": "rate", "type": "quantitative", "title":"Rate"},
+        {"field": "cases", "type": "quantitative", "title":"Case Count"},
+        {"field": "rate", "type": "quantitative", "title":"Rate per 100k"},
         {"field": "pctpos", "type": "quantitative", "title":"Percent Positive"}
       ]
     }
