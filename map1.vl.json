@@ -1,7 +1,11 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-    "width": 400,
-    "height": 400,
+    "width": "container",
+    "height": "container",
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
     "data": {
       "url": "ZCTA.geo.json",
       "format": {"property": "features"}
@@ -13,13 +17,23 @@
           "url": "FakeZCTAData.csv"
         },
         "key": "zcta",
-        "fields": ["time","cases","rate","pctpos"]
+        "fields": ["zcta","time","cases","rate","pctpos"]
       }
     }],
-    "mark": "geoshape",
+    "mark": {
+      "type": "geoshape",
+      "stroke": "#c7c7c7",
+      "strokeWidth": 0.5
+    },
     "encoding": {
       "color": {
-          "field":"cases","type":"quantitative"
+          "field":"cases",
+          "type":"quantitative",
+          "scale": {"scheme": "Viridis"},
+          "legend": {
+              "title": "Case Count",
+              "orient":"top-left"
+          }
       },
         
       "tooltip": [

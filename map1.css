@@ -1,7 +1,12 @@
 
-.vis {
-    height: 400px;
-    width: 100%;
-  }
 
-  
+body {
+    display: block;
+    margin: 8px;
+    font-family: "Open Sans",sans-serif;
+}
+
+.vis {
+    height: 95vmin;
+    width: 95vmin;
+  }
