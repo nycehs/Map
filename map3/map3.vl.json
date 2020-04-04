@@ -7,15 +7,15 @@
       "contains": "padding"
     },
     "data": {
-      "url": "zcta.topo.json",
-      "format": {"type": "topojson",
-        "feature": "collection"}
+      "name": "zctajson",
+      "format": {"type":"json","property": "features"}
     },
     "transform": [{
       "lookup": "properties.MODZCTA",
       "from": {
         "data": {
-          "url": "FakeZCTAData.csv"
+          "name": "datacsv",
+          "format": {"type": "csv"}
         },
         "key": "zcta",
         "fields": ["zcta","time","cases","rate","pctpos"]
@@ -39,7 +39,7 @@
       },
         
       "tooltip": [
-        {"field": "zcta", "type": "nominal", "title":"ZIP Code"},
+        {"field": "zcta", "type": "nominal", "title":"ZipCode"},
         {"field": "cases", "type": "quantitative", "title":"Case Count"},
         {"field": "rate", "type": "quantitative", "title":"Rate per 100k"},
         {"field": "pctpos", "type": "quantitative", "title":"Percent Positive"}

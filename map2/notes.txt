@@ -1,0 +1,35 @@
+
+
+L.geoJSON(data, {
+    style: function (feature) {
+        return {color: feature.properties.color};
+    }
+}).bindPopup(function (layer) {
+    return layer.feature.properties.description;
+}).addTo(map);
+
+
+"mark": "geoshape",
+    "encoding": {
+      "color": {
+        "condition":{
+          "test":"datum.Mean===null","value":"grey"},
+          "field":"Mean","type":"quantitative"},
+        
+      "tooltip": [
+        {"field": "properties.GEONAME", "type": "nominal", "title":"CD"}
+      ]
+    }
+
+// another color encoding, this time binned with arbitrary cutpoints
+
+"color": {
+          "bin":true,
+          "field":"cases",
+          "type":"quantitative",
+          "scale": {"bins":[0,25,50,100,140,180,200],"scheme": "purples"},
+          "legend": {
+              "title": "Case Count",
+              "orient":"top-left"
+          }
+      },
