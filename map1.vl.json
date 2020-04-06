@@ -15,34 +15,45 @@
       "lookup": "properties.MODZCTA",
       "from": {
         "data": {
-          "url": "FakeZCTAData.csv"
+          "url": "FAKE_ZCTA_DATA.csv"
         },
-        "key": "zcta",
-        "fields": ["zcta","time","cases","rate","pctpos"]
+        "key": "MODIFIED_ZCTA",
+        "fields": ["MODIFIED_ZCTA","NEIGHBORHOOD_NAME","BOROUGH_GROUP","COVID_CASE_COUNT","COVID_CASE_RATE","PERCENT_POSITIVE","POP_DENOMINATOR"]
       }
     }],
+  "selection": {
+    "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
+  },
     "mark": {
       "type": "geoshape",
-      "stroke": "#c7c7c7",
-      "strokeWidth": 0.5
+      "stroke": "#444444"
     },
     "encoding": {
       "color": {
           "bin":false,
-          "field":"cases",
+          "field":"COVID_CASE_COUNT",
           "type":"quantitative",
-          "scale": {"scheme": "purples"},
+          "scale": {"scheme": {"name":"redpurple","extent":[0.0,1]}},
           "legend": {
               "title": "Case Count",
-              "orient":"top-left"
+              "titleFontSize": 10,
+              "orient":"top-left",
+              "gradientLength": 100
           }
+      },
+      "strokeWidth":{
+        "condition": [
+          {"selection": "highlight", "value": 2}
+        ],
+        "value": 0.5
       },
         
       "tooltip": [
-        {"field": "zcta", "type": "nominal", "title":"ZIP Code"},
-        {"field": "cases", "type": "quantitative", "title":"Case Count"},
-        {"field": "rate", "type": "quantitative", "title":"Rate per 100k"},
-        {"field": "pctpos", "type": "quantitative", "title":"Percent Positive"}
+        {"field": "MODIFIED_ZCTA", "type": "nominal", "title":"ZIP Code"},
+        {"field": "NEIGHBORHOOD_NAME", "type":"nominal", "title":"Neighborhood"},
+        {"field": "COVID_CASE_COUNT", "type": "quantitative", "title":"Case Count"},
+        {"field": "COVID_CASE_RATE", "type": "quantitative", "title":"Rate per 100k"},
+        {"field": "PERCENT_POSITIVE", "type": "quantitative", "title":"Percent Positive"}
       ]
     }
   }
