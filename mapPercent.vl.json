@@ -33,7 +33,7 @@
             "bin":false,
             "field":"PERCENT_POSITIVE",
             "type":"quantitative",
-            "scale": {"scheme": {"name":"greens","extent":[0.0,1.0]}},
+            "scale": {"scheme": {"name":"greens","extent":[0.0,1.25]}},
             "legend": {
                 "title": "Percent Positive",
                 "titleFontSize": 10,

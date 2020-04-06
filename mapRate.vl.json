@@ -33,7 +33,7 @@
             "bin":false,
             "field":"COVID_CASE_RATE",
             "type":"quantitative",
-            "scale": {"scheme": {"name":"blues","extent":[0.0,1.0]}},
+            "scale": {"scheme": {"name":"blues","extent":[0.2,1.25]}},
             "legend": {
                 "title": "Case Rate per 100k",
                 "titleFontSize": 10,
