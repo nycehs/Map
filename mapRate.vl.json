@@ -26,7 +26,7 @@
     },
     "mark": {
       "type": "geoshape",
-      "stroke": "#444444"
+      "stroke": "#FFFFFF"
     },
     "encoding": {
         "color": {
