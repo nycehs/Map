@@ -1,10 +1,13 @@
 
-
 body {
-    display: block;
-    margin: 0 auto;
-    font-family: "Roboto",sans-serif;
+    margin: 0;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333;
+    background-color: #fff;
 }
+
 .map-container {
     width: 100vmin;
 }
@@ -12,7 +15,7 @@ body {
     margin: 0 auto;
   }
 .vis {
-    height: 95vmin;
+    height: 100vmin;
     width: 90vmin;
   }
 .background {
