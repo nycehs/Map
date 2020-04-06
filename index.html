@@ -26,6 +26,17 @@
   <div class="map-subtitle">
     <p>More nuanced messaging about the map below, telling you further useful details to help the general public interpret the information</p>
   </div>
+  <form name="chooser">
+    <p>Choose a variable to map:</p>
+    <div class="map-chooser" id="mapRadio">
+      <input type="radio" id="count" name="mapRadioGroup" value="Case Count" checked>
+        <label for="count">Case Count</label>
+      <input type="radio" id="rate" name="mapRadioGroup" value="Case Rate">
+        <label for="rate">Case Rate</label>
+      <input type="radio" id="percent" name="mapRadioGroup" value="Percent Positive">
+        <label for="percent">Percent Positive</label>
+    </div>
+  </form>  
   <div class="vis" id="map"></div>
   <div class="map-footer"><p>Source: NYC Department of Health and Mental Hygiene</p></div>
 </div>

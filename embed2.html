@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Covid-19 Draft Map</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+  <!-- Import vega-embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="map1.js"></script>
+  <link href="embed2.css" rel="stylesheet">
+  <style>.background {fill: transparent; stroke: transparent !important;}</style>
+</head>
+<body>
+
+    <div class="map-container center-me">
+        <form name="chooser">
+            <p>Choose a variable to map:</p>
+            <div class="map-chooser" id="mapRadio">
+              <input type="radio" id="count" name="mapRadioGroup" value="Case Count" checked>
+                <label for="count">Case Count</label>
+              <input type="radio" id="rate" name="mapRadioGroup" value="Case Rate">
+                <label for="rate">Case Rate</label>
+              <input type="radio" id="percent" name="mapRadioGroup" value="Percent Positive">
+                <label for="percent">Percent Positive</label>
+            </div>
+          </form> 
+        <div class="vis" id="map"></div>
+    </div>
+
+</div>
+</body>
+</html>
