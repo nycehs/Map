@@ -26,14 +26,14 @@
   },
     "mark": {
       "type": "geoshape",
-      "stroke": "#444444"
+      "stroke": "#FFFFFF"
     },
     "encoding": {
       "color": {
           "bin":false,
           "field":"COVID_CASE_COUNT",
           "type":"quantitative",
-          "scale": {"scheme": {"name":"redpurple","extent":[0.0,1]}},
+          "scale": {"scheme": {"name":"redpurple","extent":[0.2,1.25]}},
           "legend": {
               "title": "Case Count",
               "titleFontSize": 10,
@@ -52,8 +52,8 @@
         {"field": "MODIFIED_ZCTA", "type": "nominal", "title":"ZIP Code"},
         {"field": "NEIGHBORHOOD_NAME", "type":"nominal", "title":"Neighborhood"},
         {"field": "COVID_CASE_COUNT", "type": "quantitative", "title":"Case Count"},
-        {"field": "COVID_CASE_RATE", "type": "quantitative", "title":"Rate per 100k"},
-        {"field": "PERCENT_POSITIVE", "type": "quantitative", "title":"Percent Positive"}
+        {"field": "COVID_CASE_RATE", "type": "quantitative", "title":"Rate per 100,000"},
+        {"field": "PERCENT_POSITIVE", "type": "quantitative", "title":"Percent of people tested who tested positive"}
       ]
     }
   }
