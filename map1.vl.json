@@ -6,13 +6,13 @@
   "layer":[
     {
     "data":{
-    "url": "zcta.topo.json",
+    "url": "MODZCTA_2010_WGS1984.topo.json",
     "format": {"type": "topojson", "feature": "collection"}
     },
     "mark": {"type": "geoshape", "stroke": "#ffffff","fill":"lightgray"}
   },{
   "data": {
-    "url": "zcta.topo.json",
+    "url": "MODZCTA_2010_WGS1984.topo.json",
     "format": {"type": "topojson", "feature": "collection"}
   },
   "transform": [
@@ -57,7 +57,7 @@
     },
     "tooltip": [
       {
-        "field": "properties.zcta_label",
+        "field": "properties.label",
         "type": "nominal",
         "title": "ZIP Code"
       },

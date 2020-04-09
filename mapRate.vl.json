@@ -9,13 +9,13 @@
     "layer":[
       {
       "data":{
-      "url": "zcta.topo.json",
+      "url": "MODZCTA_2010_WGS1984.topo.json",
       "format": {"type": "topojson", "feature": "collection"}
       },
       "mark": {"type": "geoshape", "stroke": "#ffffff","fill":"lightgray"}
     },{
     "data": {
-      "url": "zcta.topo.json",
+      "url": "MODZCTA_2010_WGS1984.topo.json",
       "format": {"type": "topojson",
         "feature": "collection"}
     },
@@ -57,7 +57,7 @@
       },
         
       "tooltip": [
-        {"field": "MODIFIED_ZCTA", "type": "nominal", "title":"ZIP Code"},
+        {"field": "properties.label", "type": "nominal", "title":"ZIP Code"},
         {"field": "NEIGHBORHOOD_NAME", "type":"nominal", "title":"Neighborhood"},
         {"field": "COVID_CASE_COUNT", "type": "quantitative", "title":"Case Count"},
         {"field": "COVID_CASE_RATE", "type": "quantitative", "title":"Rate per 100k"},
