@@ -6,6 +6,14 @@
       "type": "fit",
       "contains": "padding"
     },
+    "layer":[
+      {
+      "data":{
+      "url": "zcta.topo.json",
+      "format": {"type": "topojson", "feature": "collection"}
+      },
+      "mark": {"type": "geoshape", "stroke": "#ffffff","fill":"lightgray"}
+    },{
     "data": {
       "url": "zcta.topo.json",
       "format": {"type": "topojson",
@@ -57,3 +65,5 @@
       ]
     }
   }
+]
+}

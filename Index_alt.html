@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Corrects IE Compatibility Mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Coronavirus in NYC</title>
+
+    <!--
+    CSS is all hosted by the Core-Repo. Links will need to be updated for each project once merged or deployed.
+    This is also the case for main.js further below.
+    -->
+
+    <!--Fontawesome Icons-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/fontawesome/css/all.min.css">
+    <!--NYC Core Framework Theme-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/css/theme.css">
+    <!--Custom additions for Portal items-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/css/custom.css">
+
+
+    <!--Custom data story CSS-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/css/datastories.css">
+
+</head>
+
+
+
+<body>
+
+    <!-- For keyboard users -->
+    <a class="sr-only sr-only-focusable skip-menu" href="#sidebar">Skip Header</a>
+
+    <header id="global-header" role="banner">
+
+        <div class="bg-black text-white" id="nyc-top-header">
+
+            <div class="container-fluid wide">
+
+                <div class="row py-1 align-items-center justify-content-between">
+
+                    <div class="col-auto">
+                        <p class="d-none d-md-flex fs-md">
+                            <a class="text-reset" href="https://www1.nyc.gov/">
+                                <strong>nyc.gov</strong>
+                            </a>
+                        </p>
+                    </div>
+                    <!-- .col -->
+
+                    <div class="col-auto">
+
+                        <ul class="extensible-list horizontal fs-md">
+                            <li>
+                                <a class="text-reset" href="https://www1.nyc.gov/site/doh/index.page">
+                                    <strong>Department of Health</strong>
+                                </a>
+                            </li>
+
+
+
+                            <li>
+                                <a href="https://www1.nyc.gov/" title="Go to nyc.gov">
+                                    <img class="d-block" src="https://nycehs.github.io/Portal-Core-Repo/images/nyc-bubble-logo.svg" width="45" alt="NYC Logo">
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+                    <!-- .col -->
+
+                </div>
+                <!-- .row -->
+
+            </div>
+            <!-- .container-fluid -->
+
+        </div>
+        <!-- #nyc-top-header -->
+
+        <div class="wrap-header">
+
+            <div class="container-fluid">
+
+                <div class="row align-items-center">
+
+                    
+                    <!-- .col -->
+
+                    <div class="col border-top border-bottom">
+
+                        <div class="align-items-center justify-content-between">
+
+                            <!-- Mobile Toggle Buttons -->
+
+                            <ul class="extensible-list horizontal justify-content-between my-2">
+                                <li><a href="https://www1.nyc.gov/site/doh/health/health-topics/coronavirus.page">
+                                    <button class="no-btn-style mr-auto" type="button">
+                                            <i class="fas fa-arrow-circle-left"></i>&nbsp;back to the Health Department's coronavirus page
+                                    </button></a>
+                                </li>
+
+                                <li>
+                                        <button class="no-btn-style float-right" type="button" data-toggle="collapse"
+                                        data-target="#global-language" aria-controls="global-language"
+                                        aria-expanded="false">
+                                        <span class="fas fa-language fa-lg" ></span>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            
+
+                        </div>
+                        <!-- .d-flex -->
+
+                    </div>
+                    <!-- .col -->
+
+                </div>
+                <!-- .row -->
+
+            </div>
+            <!-- .container-fluid -->
+
+        </div>
+        <!-- .wrap-header -->
+
+        <div class="container-fluid border-top collapse" id="global-language">
+            <div class="narrow py-2">
+                <div id="google_translate_element"></div>
+            </div>
+        </div>
+
+        <div class="container-fluid border-top collapse" id="global-search">
+            <form class="narrow py-2" aria-label="Search" role="search">
+                <div class="input-group">
+                    <label class="sr-only" for="global-search-bar">Search</label>
+                    <input class="form-control form-control-lg" id="global-search-bar" placeholder="Search">
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary btn-lg" type="button" title="Search">
+                            <span class="sr-only">Search</span>
+                            <span class="fas fa-arrow-right" ></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </header>
+    <!-- #global-header -->
+
+
+    <body class="scrollspy-container" data-spy="scroll" data-target="#myScrollspy" data-offset="20" >
+    <main role="main">
+
+
+
+            <div class="container-fluid my-auto">
+                <div class="medium my-3 text-left">
+                    <h1 class="display-4 titleheader py-3" style="color:black!important;">DRAFT: Coronavirus in NYC</h1>
+                </div>
+            </div>
+            <!-- .container -->
+
+
+
+
+       
+
+
+
+
+
+
+        <article class="container-fluid" id="skip-header-target">
+
+            <div class="row">
+
+                <div class="col-xl-2">
+
+
+                </div>
+                <!-- .col -->
+
+
+                <!--start main content section-->
+                <div class="col-xl-8 overflow-hidden fs-rg" id="primary-content">
+
+                    <div class="my-4">
+                        
+
+                        <div class="narrow my-2">
+                            <div class="span6 about-description"><div class="span6 about-description"><p>The data presented below reflect the most recent information the Health Department has collected about people who have tested positive for COVID-19 in NYC. We are discouraging people with mild to moderate symptoms from being tested at this time, so the data primarily represent people with more severe illness. All data included below are preliminary and subject to change. </p>
+                                <p> This page will be updated daily.</p> 
+                                <H2>Cases, Hospitalizations and Deaths</H2>
+                                <iframe title="" aria-label="Summary table showing NYC's covid-19 confirmed cases, hospitalizations, deaths and date of update." id="datawrapper-chart-MBAaS" src="//datawrapper.dwcdn.net/MBAaS/8/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="217"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                </script>
+                                
+                                <div class="chartwrap">
+                                <h2>Daily Counts</h2>
+                                <p>This chart shows the number of positive cases by diagnosis date, hospitalizations by admission date and deaths by date of death from COVID-19 on a daily basis since March 3. </p>
+                                <p>As of March 31, the NYC Health Department is now reporting the number of COVID-19 cases by diagnosis date, instead of report date. Diagnosis date is the date that someone went to their doctor and had a swab taken for testing. We were previously using the date the infection was reported to the Health Department. Diagnosis date is more reflective of when people are getting sick and being tested.</p>
+                                <p>Due to this change, case counts per day reported previously will not match current daily counts. Information about cases over the last week will be incomplete until the laboratories and hospitals report the results for people who were tested, which can take a few days to a week.</p>
+                                
+                                <p> Hover over bars to see exact values.</p>
+                                <div style="border-right: 3px solid #a9a9a9;">
+                                <div style="font-weight: bold; font-size: .75rem; background-color: rgba(192,192,192,0.3);float:right; padding:4px; border-radius: 3px;">Due to delays in reporting,<br> recent data are incomplete.</div><br><br><br>
+                                
+                                <iframe title="" aria-label="Bar chart showing daily cases, hospitalizations and deaths due to covid-19 in NYC." id="datawrapper-chart-4SfjZ" src="//datawrapper.dwcdn.net/4SfjZ/7/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                </script>
+                                </div>
+                                </div>
+
+                                <div class="chartwrap">
+                                <h2>Inpatient Admissions Through the Emergency Department</h2>
+                                <p>This graph shows data on patients admitted to the hospital through the emergency room with clinical signs and symptoms consistent with COVID-19 illness, including flu-like illnesses and pneumonia. Not all of these patients will have COVID-19, but this graph can show trends of respiratory disease being reported citywide.</p>
+                            </p>
+                                <iframe title="" aria-label="Line chart showing emergency department hospital admission rate, by age, for influenza-like illness and pneumonia." id="datawrapper-chart-Y6iGC" src="//datawrapper.dwcdn.net/Y6iGC/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="450"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                </script>
+                                </div>
+
+                            
+                            <!--Removing rates by Boro since it's in the map/table-->
+                            <!--
+                                <h2>Rates by Borough</h2>
+                                <p>This chart shows the number of positive cases per 100,000 people in each borough. It indicates the spread of COVID-19 relative to each borough’s population.</p>
+                                <iframe title="" aria-label="Table showing the rate of confirmed covid-19 cases by borough in NYC." id="datawrapper-chart-kx0E2" src="//datawrapper.dwcdn.net/kx0E2/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="306"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                </script>
+                                <br><br><br>
+                                -->
+                                <div class="chartwrap">
+                                <h2>Cases by ZIP Code of Residence</h2>
+                                <p>The below map and searchable chart provide population rates of positive cases and the percent of tests with positive results. The number of reported positive cases per ZIP code may be affected by that area’s population size, access to health care and access to testing. For example, an area with a low total case number but a high percent of positive cases could reflect more people with mild symptoms not getting tested.</p>
+
+                                 <p>View data as:
+                                <input type="radio" name="zip" onclick="umap()" id="umap" checked="checked"> <label for="umap">Map</label> &nbsp;&nbsp;
+                                <input type="radio" name="zip" onclick="utable()" id="utable"/> <label for="utable">Table</label> &nbsp;&nbsp;
+                                <hr>
+                                
+                                <div id="ifMap" style="display:block">
+                                <iframe id="covidmap" title="" aria-label="Map showing confirmed cases, confirmed case rate per 100,000 people, and percent of tests that were positive, by NYC ZIP code." src="http://127.0.0.1:5500/embed3.html" scrolling="no" frameborder="0" style="position: relative; width: 90vmin; height: 95vmin;"></iframe>
+                                </div>
+                               
+                                <div id="ifTable" style="display:none">
+                                <iframe title="" aria-label="Table showing ZIP code, neighborhood name, borough, number of cases, case rate, and percent of tests that are positive." id="datawrapper-chart-zsnEP" src="//datawrapper.dwcdn.net/zsnEP/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="508"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                </script>
+                                </div>
+                            </div>
+
+<script>
+function setCovidMapContainerHeight() {
+  // set variables for the two elements
+  var iframeContainer = document.querySelector('#covidmap');
+  var innerMapContainer = document.querySelector('#covidmap > html');
+
+  //get height value of innerMap
+  var mapRect = innerMapContainer.getBoundingClientRect();
+  var mapHeight = mapRect.height;
+  var mapHeightString = mapHeight.toString();
+  var styleHeight = mapHeightString + 'px';
+  //set height of iframe as map height
+  iframeContainer.style.height = styleHeight;
+}
+
+// set map height on initial load;
+document.addEventListener('DOMContentLoaded', setCovidMapContainerHeight);
+
+// add event handler on the window resize event, and attach map height function.
+document.addEventListener('resize', setCovidMapContainerHeight);
+</script>
+
+                                
+
+                            
+                                    <div class="chartwrap">
+                                    <h2>Case, hospitalization, and death rate</h2>
+
+                                    
+                                    <p>View data by:
+                                    <input type="radio" name="rates" onclick="uage()" id="uage" checked="checked"> <label for="uage">Age</label> &nbsp;&nbsp;
+                                    <input type="radio" name="rates" onclick="usex()" id="usex"/> <label for="usex">Sex</label> &nbsp;&nbsp;
+                                    <input type="radio" name="rates" onclick="upoverty()" id="upoverty"/> <label for="upoverty">Neighborhood poverty</label> &nbsp;&nbsp;
+
+                                    <hr>
+                                    
+                                    <div id="ifAge" style="display:block">
+
+                                        <iframe title="" aria-label="Bar chart showing case, hospitalization and death rates by age of covid-19 in NYC." id="datawrapper-chart-ukFTg" src="//datawrapper.dwcdn.net/ukFTg/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                        </script>
+                                    </div>
+                                    <div id="ifSex" style="display:none">
+
+                                        <iframe title="" aria-label="Bar chart showing case, hospitalization and death rates by sex of covid-19" id="datawrapper-chart-HGjpH" src="//datawrapper.dwcdn.net/HGjpH/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                        </script>
+                                    </div>
+                                    <div id="ifPoverty" style="display:none">
+
+                                        <iframe title="" aria-label="Bar chart showing case, hospitalization and death rates by neighborhood poverty level" id="datawrapper-chart-vPDci" src="//datawrapper.dwcdn.net/vPDci/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="538"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                        </script>
+                                    </div>
+                                </div>
+                                    
+                                    
+                                    
+                          
+
+                            
+
+
+                                <div class="chartwrap">
+                                <h2>Death rates</h2>
+                                    
+                                    <p>View data by:
+                            <input type="radio" name="deaths" onclick="uboro()" id="uboro" checked="checked"> <label for="uboro">Borough</label> &nbsp;&nbsp;
+                            <input type="radio" name="deaths" onclick="uulc()" id="uulc"/> <label for="uulc">Underlying conditions</label>&nbsp;
+                            <input type="radio" name="deaths" onclick="ure()" id="ure"/> <label for="ure">Race/Ethnicity</label>
+
+                                    <hr>
+                            <div id="ifBoro" style="display:block">
+
+                            <iframe title="" aria-label="A grouped column chart showing death rates, by age and borough of residence" id="datawrapper-chart-cb52c" src="//datawrapper.dwcdn.net/cb52c/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="478"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                            </script>
+                            </div>
+
+                            
+                            <div id="ifULC" style="display:none">                       
+
+                                <p>Underlying conditions can include lung disease, asthma, heart disease, a weakened immune system, obesity, diabetes, kidney disease, liver disease and cancer.</p>
+                                <iframe title="" aria-label="Bar chart showing total deaths by age group, with underlying conditions, without underlying conditions, and unknown" id="datawrapper-chart-34Tp7" src="//datawrapper.dwcdn.net/34Tp7/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="282"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                            </script>
+                            </div>
+
+                            <div id="ifRE" style="display:none">                       
+                                <iframe title="" aria-label="Split Bars" id="datawrapper-chart-fu2ZT" src="//datawrapper.dwcdn.net/fu2ZT/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="225"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}})}();
+                                </script>
+                                <em>These data are incomplete: less than half of non-hospitalized and hospitalized cases include data on the patient's race and ethnicity, and only 2 out of 3 death records include data on the patient's race and ethnicity.</em>
+                            </div>
+                        </div>     
+
+                        <script>
+                                function umap() {
+                                console.log('fired');
+                                document.getElementById('ifTable').style.display = "none";
+                                document.getElementById('ifMap').style.display = "block";
+                                    }
+                                
+                                function utable() {
+                                document.getElementById('ifTable').style.display = "block";
+                                document.getElementById('ifMap').style.display = "none";
+                                    }
+                            
+                                function uage() {
+                                console.log('fired');
+                                document.getElementById('ifSex').style.display = "none";
+                                document.getElementById('ifPoverty').style.display = "none";
+                                document.getElementById('ifAge').style.display = "block";
+                                    }
+                                
+                                function usex() {
+                                document.getElementById('ifSex').style.display = "block";
+                                document.getElementById('ifAge').style.display = "none";
+                                document.getElementById('ifPoverty').style.display = "none";
+                                    }
+                                
+                                function upoverty() {
+                                document.getElementById('ifPoverty').style.display = "block";
+                                document.getElementById('ifSex').style.display = "none";
+                                document.getElementById('ifAge').style.display = "none";
+                                }
+
+                                function uboro() {
+                                console.log('fired');
+                                document.getElementById('ifRE').style.display = "none";
+                                document.getElementById('ifULC').style.display = "none";
+                                document.getElementById('ifBoro').style.display = "block";
+                                    }
+                                
+                                function uulc() {
+                                document.getElementById('ifULC').style.display = "block";
+                                document.getElementById('ifRE').style.display = "none";
+                                document.getElementById('ifBoro').style.display = "none";
+                                    }
+                                
+                                function ure() {
+                                document.getElementById('ifRE').style.display = "block";
+                                document.getElementById('ifBoro').style.display = "none";
+                                document.getElementById('ifULC').style.display = "none";
+                                }
+                                </script>  
+
+                            <style>
+                                .chartwrap {
+                                    border-left: 10px solid #f2f2f2;
+                                    padding-left: 10px; 
+                                    margin-top: 65px;
+                                }
+                            </style>
+
+
+
+
+                            
+                            
+
+                      <!--.narrow content section-->
+                    </div>
+                    <!-- .my-4 -->
+
+                </div>
+                <!-- .col -->
+
+
+                <!--right-hand column for extra resources and links-->
+                <div class="col-xl-2">
+
+                    <div class="narrow py-3 mt-n3 mt-xl-0 sticky-top fs-sm" style="z-index: 0">
+
+                    </div>
+                    <!-- .my-3 -->
+
+                </div>
+                <!-- .col -->
+
+            </div>
+            <!-- .row -->
+
+        </article>
+        <!-- #primary-content -->
+
+    <style>
+    #covidalert {
+        background-color: #bf6900;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    </style>
+
+    </main>
+
+    <footer class="bg-black" id="global-footer" role="contentinfo">
+
+            <h2 class="sr-only">
+                Page Footer
+            </h2>
+     
+            <div class="bg-opacity-black-25 text-white" id="nyc-footer">
+     
+                <div class="container py-3 d-none" id="languages">
+     
+                    <div class="row fs-md">
+     
+                        <div class="col-6 col-md-4 col-lg mb-2 mb-lg-0">
+                            <ul class="extensible-list">
+                                <li><a class="lang-select text-reset" href="#" data-lang="ar">عربى</a></li>
+                                <li><a class="lang-select text-reset" href="#" data-lang="bn">বাঙালি</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg mb-2 mb-lg-0">
+                            <ul class="extensible-list">
+                                <li><a class="lang-select text-reset" href="#" data-lang="zh-CN">中文</a></li>
+                                <li><a class="lang-select text-reset" href="#" data-lang="fr">français</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg mb-2 mb-lg-0">
+                            <ul class="extensible-list">
+                                <li><a class="lang-select text-reset" href="#" data-lang="ht">Kreyòl Ayisyen</a></li>
+                                <li><a class="lang-select text-reset" href="#" data-lang="ko">한국어</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg mb-2 mb-lg-0">
+                            <ul class="extensible-list">
+                                <li><a class="lang-select text-reset" href="#" data-lang="pl">Polskie</a></li>
+                                <li><a class="lang-select text-reset" href="#" data-lang="ru">русский</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6 col-md-4 col-lg">
+                            <ul class="extensible-list">
+                                <li><a class="lang-select text-reset" href="#" data-lang="es">Español</a></li>
+                                <li><a class="lang-select text-reset" href="#" data-lang="ur">اردو</a></li>
+                            </ul>
+                        </div>
+                    </div>
+     
+                </div>
+                <!-- #languages -->
+     
+                <div class="container py-3" id="languages">
+     
+                    <ul class="fs-md" role="list">
+                        <li><a class="lang-select text-reset" href="#" data-lang="ar">عربى</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="bn">বাঙালি</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="zh-CN">中文</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="fr">français</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="ht">Kreyòl Ayisyen</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="ko">한국어</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="pl">Polskie</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="ru">русский</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="es">Español</a></li>
+                        <li><a class="lang-select text-reset" href="#" data-lang="ur">اردو</a></li>
+                    </ul>
+     
+                </div>
+                <!-- #languages -->
+     
+                <hr class="opacity-10" aria-hidden="true">
+     
+                <div class="container py-3">
+     
+                    <div class="row">
+     
+                        <div class="col-md-6 col-lg-8 mb-3 mb-lg-0">
+     
+                            <nav class="row fs-md" role="navigation">
+     
+                                <div class="col-lg mb-3 mb-lg-0">
+     
+                                    <ul class="extensible-list">
+                                        <li>
+                                            <a class="text-reset" href="http://www1.nyc.gov/nyc-resources/agencies.page">
+                                                <strong>City Agencies</strong>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="text-reset" href="https://a858-nycnotify.nyc.gov/notifynyc/">
+                                                <strong>Notify NYC</strong>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="text-reset"
+                                                href="http://www1.nyc.gov/connect/mobile-applications.page">
+                                                <strong>NYC Mobile Apps</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- .col -->
+     
+                                <div class="col-lg mb-3 mb-lg-0">
+     
+                                    <ul class="extensible-list">
+                                        <li>
+                                            <a class="text-reset" href="http://www1.nyc.gov/home/contact-us.page">
+                                                <strong>Contact NYC Government</strong>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="text-reset" href="https://a856-citystore.nyc.gov/">
+                                                <strong>CityStore</strong>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="text-reset" href="http://maps.nyc.gov/doitt/nycitymap/">
+                                                <strong>Maps</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+     
+                                </div>
+                                <!-- .col -->
+     
+                                <div class="col-lg mb-3 mb-lg-0">
+     
+                                    <ul class="extensible-list">
+                                        <li>
+                                            <a class="text-reset"
+                                                href="https://a127-ess.nyc.gov/psp/prdess/?cmd=login&languageCd=ENG&">
+                                                <strong>City Employees</strong>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="text-reset" href="http://www1.nyc.gov/connect/social-media.page">
+                                                <strong>Stay Connected</strong>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="text-reset"
+                                                href="http://www1.nyc.gov/nyc-resources/resident-toolkit.page">
+                                                <strong>Resident Toolkit</strong>
+                                            </a>
+                                        </li>
+                                    </ul>
+     
+                                </div>
+                                <!-- .col -->
+     
+                            </nav>
+     
+                        </div>
+                        <!-- .col -->
+     
+                        <div class="col-md-6 col-lg-4">
+     
+                            <a class="mb-2" href="https://www1.nyc.gov" title="Go to nyc.gov" target="_blank">
+                                <img class="mb-2" src="https://nycehs.github.io/Portal-Core-Repo/images/nyc-bubble-logo.svg" width="90" alt="NYC Logo">
+                            </a>
+                            <p class="fs-sm">City of New York - 2019 All Rights Reserved. NYC is a trademark and service
+                                mark of the City of New York.</p>
+     
+                            <ul class="extensible-list horizontal fs-sm">
+                                <li>
+                                    <a class="text-reset" href="http://www1.nyc.gov/home/privacy-policy.page">Privacy
+                                        Policy</a>
+                                </li>
+                                <li>
+                                    <a class="text-reset" href="http://www1.nyc.gov/home/terms-of-use.page">Terms
+                                        of Use</a>
+                                </li>
+                                <li>
+                                    <a class="text-reset" href="http://www1.nyc.gov/site/mopd/index.page"
+                                        title="Mayor's Office for People with Disabilities">
+                                        <span class="sr-only">Mayor's Office for People with Disabilities</span>
+                                        <span class="fab fa-lg fa-accessible-icon"></span>
+                                    </a>
+                                </li>
+                            </ul>
+     
+                        </div>
+                        <!-- .col -->
+     
+                    </div>
+                    <!-- .row -->
+     
+                </div>
+                <!-- .container -->
+     
+            </div>
+            <!-- #nyc-bottom-footer -->
+     
+        </footer>
+
+</body>
+    <!-- #content -->
+
+
+
+    <!-- jQuery (full, compressed version) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Popper.js and Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <!-- Google Translate -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en'
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- NYC template JS (RTL, search and language toggle, back to top)  -->
+    <script src="https://nycehs.github.io/Portal-Core-Repo/js/main.js"></script>
+
+
+
+</body>
+
+</html>

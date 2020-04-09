@@ -5,7 +5,7 @@ Counts encoding:
           "bin":false,
           "field":"COVID_CASE_COUNT",
           "type":"quantitative",
-          "scale": {"scheme": {"name":"redpurple","extent":[0.0,1.25]}},
+          "scale": {"scheme": {"name":"redpurple","extent":[0.2,1.25]}},
           "legend": {
               "title": "Case Count",
               "titleFontSize": 10,
@@ -73,3 +73,12 @@ Vega patch:
  */
  // note this is only a partial patch, since it doesn't change the legend title etc
  // so I'm going to make multiple specs.
+
+
+ // this condition works to grey out the unpopulated areas of the modzcta layer, as part of the color encoding
+
+ "condition": {
+          "test": "datum.properties.MODZCTA === 99999",
+          "value": "lightgray"
+        }
+
