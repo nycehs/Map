@@ -50,7 +50,8 @@
           "titleFontSize": 10,
           "orient": "top-left",
           "symbolLimit": 5,
-          "symbolOpacity": 0.5
+          "symbolOpacity": 0.5,
+          "values":[10,50,100,500,1000]
 
         }
       },
