@@ -19,26 +19,28 @@ window.onload =listenRadios;
 function listenRadios() {
   radios = document.querySelectorAll('input[type=radio][name="mapRadioGroup"]');
   radios.forEach(radio => radio.addEventListener('change', () => {
-    if (radio.value==='Case Count') {countMapCreate()}
-    else if (radio.value==='Case Rate') {rateMapCreate()}
+    if (radio.value==='Case Rate') {rateMapCreate()}
+    else if (radio.value==='Case Count') {countMapCreate()}
     else {percentMapCreate()}  // for if chosenField is Percent Positive
     ;
   }));
 }
   
 //this function creates the map
-function countMapCreate() {
-vegaEmbed('#map', countSpec, opt).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    viewObj = result.view;
-  }).catch(console.error);
-}
 function rateMapCreate() {
   vegaEmbed('#map', rateSpec, opt).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       viewObj = result.view;
     }).catch(console.error);
   }
+
+function countMapCreate() {
+vegaEmbed('#map', countSpec, opt).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    viewObj = result.view;
+  }).catch(console.error);
+}
+
   function percentMapCreate() {
     vegaEmbed('#map', percentSpec, opt).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -46,4 +48,4 @@ function rateMapCreate() {
       }).catch(console.error);
     }
 
-countMapCreate();
+rateMapCreate();
