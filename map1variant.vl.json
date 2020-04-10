@@ -36,7 +36,7 @@
     "selection": {
       "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
     },
-    "mark": {"type": "circle", "stroke": "#ffffff","fill":"red","fillOpacity": 0.5},
+    "mark": {"type": "circle", "stroke": "#8A2BE2","fill":"red","fillOpacity": 0.5},
     "encoding": {
         "latitude":{"field":"lat","type": "quantitative"},
         "longitude":{"field":"lon","type": "quantitative"},
@@ -56,7 +56,7 @@
         }
       },
       "strokeWidth": {
-        "condition": [{"selection": "highlight", "value": 3}],
+        "condition": [{"selection": "highlight", "value": 2}],
         "value": 0.5
       },
       "tooltip": [
