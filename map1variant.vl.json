@@ -36,7 +36,7 @@
     "selection": {
       "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
     },
-    "mark": {"type": "circle", "stroke": "#ffffff"},
+    "mark": {"type": "circle", "stroke": "#ffffff","fill":"red","fillOpacity": 0.5},
     "encoding": {
         "latitude":{"field":"lat","type": "quantitative"},
         "longitude":{"field":"lon","type": "quantitative"},
@@ -48,7 +48,11 @@
         "legend": {
           "title": "Case Count",
           "titleFontSize": 10,
-          "orient": "top-left"
+          "orient": "top-left",
+          "symbolLimit": 5,
+          "symbolOpacity": 0.5,
+          "values":[10,50,100,500,1000]
+
         }
       },
       "strokeWidth": {
