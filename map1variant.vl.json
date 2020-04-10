@@ -44,7 +44,7 @@
         "bin": false,
         "field": "COVID_CASE_COUNT",
         "type": "quantitative",
-        "scale": {"range": [0, 1000]},
+        "scale": {"range": [0, 400]},
         "legend": {
           "title": "Case Count",
           "titleFontSize": 10,
@@ -52,7 +52,7 @@
         }
       },
       "strokeWidth": {
-        "condition": [{"selection": "highlight", "value": 2}],
+        "condition": [{"selection": "highlight", "value": 3}],
         "value": 0.5
       },
       "tooltip": [
