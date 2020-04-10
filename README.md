@@ -9,3 +9,5 @@ Here is a new view of counts that avoids some of the issues showing counts in a 
 https://nycehs.github.io/Map/circle.html
 
 ...more soon.
+
+Many thanks to the team behind the fantastic Open-Source project Vega.js and Vega-Lite: https://vega.github.io/vega-lite/
