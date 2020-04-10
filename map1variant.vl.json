@@ -12,12 +12,11 @@
       "mark": {"type": "geoshape", "stroke": "#ffffff","fill":"lightgray"}
     },{
     "data": {
-      "url": "MODZCTA_2010_WGS1984.topo.json",
-      "format": {"type": "topojson", "feature": "collection"}
+      "url": "zcta_points.csv"
     },
     "transform": [
       {
-        "lookup": "properties.MODZCTA",
+        "lookup": "MODZCTA",
         "from": {
           "data": {"url": "FAKE_ZCTA_DATA.csv"},
           "key": "MODIFIED_ZCTA",
@@ -37,18 +36,19 @@
     "selection": {
       "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
     },
-    "mark": {"type": "geoshape", "stroke": "#ffffff"},
+    "mark": {"type": "circle", "stroke": "#ffffff"},
     "encoding": {
-      "color": {
+        "latitude":{"field":"lat","type": "quantitative"},
+        "longitude":{"field":"lon","type": "quantitative"},
+      "size": {
         "bin": false,
         "field": "COVID_CASE_COUNT",
         "type": "quantitative",
-        "scale": {"scheme": {"name": "redpurple", "extent": [0.2, 1.25]}},
+        "scale": {"range": [0, 1000]},
         "legend": {
           "title": "Case Count",
           "titleFontSize": 10,
-          "orient": "top-left",
-          "gradientLength": 100
+          "orient": "top-left"
         }
       },
       "strokeWidth": {
@@ -57,7 +57,7 @@
       },
       "tooltip": [
         {
-          "field": "properties.label",
+          "field": "label",
           "type": "nominal",
           "title": "ZIP Code"
         },
