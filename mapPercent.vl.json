@@ -43,7 +43,7 @@
             "type":"quantitative",
             "scale": {"scheme": {"name":"blues","extent":[0.0,1.25]}},
             "legend": {
-                "title": "Percent positive",
+                "title": "Percent positive tests",
                 "titleFontSize": 10,
                 "orient":"top-left",
                 "gradientLength": 100
