@@ -26,7 +26,7 @@
           "url": "FAKE_ZCTA_DATA.csv"
         },
         "key": "MODIFIED_ZCTA",
-        "fields": ["MODIFIED_ZCTA","NEIGHBORHOOD_NAME","BOROUGH_GROUP","COVID_CASE_COUNT","COVID_CASE_RATE","PERCENT_POSITIVE","POP_DENOMINATOR"]
+        "fields": ["MODIFIED_ZCTA","NEIGHBORHOOD_NAME","BOROUGH_GROUP","COVID_CASE_COUNT","COVID_CASE_RATE","PERCENT_POSITIVE","COVID_DEATH_COUNT","COVID_DEATH_RATE","POP_DENOMINATOR"]
       }
     }],
     "selection": {
@@ -41,9 +41,9 @@
             "bin":false,
             "field":"PERCENT_POSITIVE",
             "type":"quantitative",
-            "scale": {"scheme": {"name":"purplered","extent":[0.0,1.25]}},
+            "scale": {"scheme": {"name":"blues","extent":[0.0,1.25]}},
             "legend": {
-                "title": "Percent Positive",
+                "title": "Percent positive",
                 "titleFontSize": 10,
                 "orient":"top-left",
                 "gradientLength": 100
@@ -57,11 +57,40 @@
       },
         
       "tooltip": [
-        {"field": "properties.label", "type": "nominal", "title":"ZIP Code"},
-        {"field": "NEIGHBORHOOD_NAME", "type":"nominal", "title":"Neighborhood"},
-        {"field": "COVID_CASE_COUNT", "type": "quantitative", "title":"Case Count"},
-        {"field": "COVID_CASE_RATE", "type": "quantitative", "title":"Rate per 100k"},
-        {"field": "PERCENT_POSITIVE", "type": "quantitative", "title":"Percent Positive"}
+        {
+          "field": "properties.label",
+          "type": "nominal",
+          "title": "ZIP Code"
+        },
+        {
+          "field": "NEIGHBORHOOD_NAME",
+          "type": "nominal",
+          "title": "Neighborhood"
+        },
+        {
+          "field": "COVID_CASE_COUNT",
+          "type": "quantitative",
+          "title": "Case Count"
+        },
+        {
+          "field": "COVID_CASE_RATE",
+          "type": "quantitative",
+          "title": "Rate per 100,000"
+        },
+        {
+          "field": "PERCENT_POSITIVE",
+          "type": "quantitative",
+          "title": "Percent of people tested who tested positive"
+        },
+        {"field": "COVID_DEATH_COUNT",
+        "type": "quantitative",
+        "title": "Deaths"
+        },
+        {
+          "field": "COVID_DEATH_RATE",
+          "type": "quantitative",
+          "title": "Death rate per 100,000"
+        }
       ]
     }
   }

@@ -39,11 +39,11 @@
     "encoding": {
         "color": {
             "bin":false,
-            "field":"COVID_CASE_RATE",
+            "field":"COVID_DEATH_COUNT",
             "type":"quantitative",
-            "scale": {"scheme": {"name":"redpurple","extent":[0.2,1.25]}},
+            "scale": {"scheme": {"name":"purplered","extent":[0.2,1.25]}},
             "legend": {
-                "title": "Case Rate per 100k",
+                "title": "Deaths",
                 "titleFontSize": 10,
                 "orient":"top-left",
                 "gradientLength": 100
