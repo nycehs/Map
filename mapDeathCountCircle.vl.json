@@ -18,7 +18,7 @@
       {
         "lookup": "MODZCTA",
         "from": {
-          "data": {"url": "ZCTA_DATA.csv"},
+          "data": {"url": "FAKE_ZCTA_DATA.csv"},
           "key": "MODIFIED_ZCTA",
           "fields": [
             "MODIFIED_ZCTA",
@@ -63,7 +63,7 @@
       },
       "tooltip": [
         {
-          "field": "properties.label",
+          "field": "MODIFIED_ZCTA",
           "type": "nominal",
           "title": "ZIP Code"
         },
