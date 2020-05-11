@@ -18,7 +18,7 @@
       {
         "lookup": "MODZCTA",
         "from": {
-          "data": {"url": "FAKE_ZCTA_DATA.csv"},
+          "data": {"url": "ZCTA_DATA.csv"},
           "key": "MODIFIED_ZCTA",
           "fields": [
             "MODIFIED_ZCTA",
