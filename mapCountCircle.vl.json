@@ -27,7 +27,9 @@
             "COVID_CASE_COUNT",
             "COVID_CASE_RATE",
             "PERCENT_POSITIVE",
-            "POP_DENOMINATOR"
+            "POP_DENOMINATOR",
+            "COVID_DEATH_COUNT",
+            "COVID_DEATH_RATE"
           ]
         },
         "default": "no data"
@@ -84,6 +86,15 @@
           "field": "PERCENT_POSITIVE",
           "type": "quantitative",
           "title": "Percent of people tested who tested positive"
+        },
+        {"field": "COVID_DEATH_COUNT",
+        "type": "quantitative",
+        "title": "Deaths"
+        },
+        {
+          "field": "COVID_DEATH_RATE",
+          "type": "quantitative",
+          "title": "Deaths per 100,000"
         }
       ]
     }
