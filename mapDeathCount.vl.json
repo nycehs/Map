@@ -75,7 +75,7 @@
         {
           "field": "COVID_CASE_RATE",
           "type": "quantitative",
-          "title": "Rate per 100,000"
+          "title": "Cases per 100,000"
         },
         {
           "field": "PERCENT_POSITIVE",
@@ -89,7 +89,7 @@
         {
           "field": "COVID_DEATH_RATE",
           "type": "quantitative",
-          "title": "Death rate per 100,000"
+          "title": "Deaths per 100,000"
         }
       ]
     }

@@ -61,7 +61,7 @@
       },
       "tooltip": [
         {
-          "field": "label",
+          "field": "properties.label",
           "type": "nominal",
           "title": "ZIP Code"
         },
@@ -78,7 +78,7 @@
         {
           "field": "COVID_CASE_RATE",
           "type": "quantitative",
-          "title": "Rate per 100,000"
+          "title": "Cases per 100,000"
         },
         {
           "field": "PERCENT_POSITIVE",
