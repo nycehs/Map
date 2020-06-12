@@ -26,7 +26,7 @@
           "url": "FAKE-4-WEEK.csv"
         },
         "key": "modzcta",
-        "fields": ["modzcta","deathrate_4week"]
+        "fields": ["modzcta","deathrate_4week","neighborhood_name"]
       }
     }],
     "selection": {
@@ -43,7 +43,7 @@
             "type":"quantitative",
             "scale": {"scheme": {"name":"redpurple","extent":[0.2,1.25]}},
             "legend": {
-                "title": "Death Rate per 100k",
+                "title": "4-week deaths per 100k",
                 "titleFontSize": 10,
                 "orient":"top-left",
                 "gradientLength": 100
@@ -63,28 +63,9 @@
           "title": "ZIP Code"
         },
         {
-          "field": "NEIGHBORHOOD_NAME",
+          "field": "neighborhood_name",
           "type": "nominal",
           "title": "Neighborhood"
-        },
-        {
-          "field": "COVID_CASE_COUNT",
-          "type": "quantitative",
-          "title": "Case Count"
-        },
-        {
-          "field": "COVID_CASE_RATE",
-          "type": "quantitative",
-          "title": "Cases per 100,000"
-        },
-        {
-          "field": "PERCENT_POSITIVE",
-          "type": "quantitative",
-          "title": "Percent of people tested who tested positive"
-        },
-        {"field": "COVID_DEATH_COUNT",
-        "type": "quantitative",
-        "title": "Deaths"
         },
         {
           "field": "deathrate_4week",

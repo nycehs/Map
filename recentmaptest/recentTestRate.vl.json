@@ -26,7 +26,7 @@
           "url": "FAKE-4-WEEK.csv"
         },
         "key": "modzcta",
-        "fields": ["modzcta","rate_4week","neighborhood_name"]
+        "fields": ["modzcta","testingrate_4week","neighborhood_name"]
       }
     }],
     "selection": {
@@ -39,11 +39,11 @@
     "encoding": {
         "color": {
             "bin":false,
-            "field":"rate_4week",
+            "field":"testingrate_4week",
             "type":"quantitative",
-            "scale": {"scheme": {"name":"redpurple","extent":[0.2,1.25]}},
+            "scale": {"scheme": {"name":"redpurple","extent":[0.2,3.0]}},
             "legend": {
-                "title": "4-week cases per 100k",
+                "title": "4-week tests per 100k",
                 "titleFontSize": 10,
                 "orient":"top-left",
                 "gradientLength": 100
@@ -68,9 +68,9 @@
           "title": "Neighborhood"
         },
         {
-          "field": "rate_4week",
+          "field": "testingrate_4week",
           "type": "quantitative",
-          "title": "Cases per 100,000"
+          "title": "Tests per 100,000"
         }
       ]
     }
