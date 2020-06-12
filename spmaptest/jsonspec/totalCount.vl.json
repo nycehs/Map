@@ -1,0 +1,71 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": "container",
+    "height": "container",
+    "autosize": {"type": "fit", "contains": "padding"},
+    "layer":[
+      {
+      "data":{
+      "url": "MODZCTA_2010_WGS1984.topo.json",
+      "format": {"type": "topojson", "feature": "collection"}
+      },
+      "mark": {"type": "geoshape", "stroke": "#ffffff","fill":"lightgray"}
+    },{
+    "data": {
+      "url": "zcta_points.csv"
+    },
+    "transform": [
+      {
+        "lookup": "MODZCTA",
+        "from": {
+          "data": {"url": "by-modzcta.csv"},
+          "key": "modzcta_first",
+          "fields": [
+            "modzcta_first",
+            "num_test_all"
+          ]
+        },
+        "default": "no data"
+      }
+    ],
+    "selection": {
+      "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
+    },
+    "mark": {"type": "circle","fill":"#ff7f67","fillOpacity": 0.75},
+    "encoding": {
+        "latitude":{"field":"lat","type": "quantitative"},
+        "longitude":{"field":"lon","type": "quantitative"},
+      "size": {
+        "bin": false,
+        "field": "num_test_all",
+        "type": "quantitative",
+        "scale": {"range": [0, 2000]},
+        "legend": {
+          "title": "Number tested",
+          "titleFontSize": 10,
+          "orient": "top-left",
+          "symbolLimit": 5,
+          "symbolOpacity": 0.5,
+          "values":[100,500,1500]
+
+        }
+      },
+      "strokeWidth": {
+        "condition": [{"selection": "highlight", "value": 2}],
+        "value": 0.5
+      },
+      "tooltip": [
+        {
+          "field": "modzcta_first",
+          "type": "nominal",
+          "title": "ZIP"
+        },
+        {
+          "field": "num_test_all",
+          "type": "quantitative",
+          "title": "Number tested"
+        }
+      ]
+    }
+  }]
+  }
