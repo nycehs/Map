@@ -25,8 +25,8 @@
         "data": {
           "url": "FAKE-4-WEEK.csv"
         },
-        "key": "modzcta",
-        "fields": ["modzcta","deathrate_4week","neighborhood_name"]
+        "key": "MODIFIED_ZCTA",
+        "fields": ["MODIFIED_ZCTA","COVID_DEATH_RATE_4WEEK","NEIGHBORHOOD_NAME"]
       }
     }],
     "selection": {
@@ -39,7 +39,7 @@
     "encoding": {
         "color": {
             "bin":false,
-            "field":"deathrate_4week",
+            "field":"COVID_DEATH_RATE_4WEEK",
             "type":"quantitative",
             "scale": {"scheme": {"name":"redpurple","extent":[0.2,1.25]}},
             "legend": {
@@ -63,12 +63,12 @@
           "title": "ZIP Code"
         },
         {
-          "field": "neighborhood_name",
+          "field": "NEIGHBORHOOD_NAME",
           "type": "nominal",
           "title": "Neighborhood"
         },
         {
-          "field": "deathrate_4week",
+          "field": "COVID_DEATH_RATE_4WEEK",
           "type": "quantitative",
           "title": "Deaths per 100,000"
         }

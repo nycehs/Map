@@ -19,11 +19,11 @@
         "lookup": "MODZCTA",
         "from": {
           "data": {"url": "FAKE-4-WEEK.csv"},
-          "key": "modzcta",
+          "key": "MODIFIED_ZCTA",
           "fields": [
-            "modzcta",
-            "neighborhood_name",
-            "count_4week"
+            "MODIFIED_ZCTA",
+            "NEIGHBORHOOD_NAME",
+            "COVID_CASE_COUNT_4WEEK"
          
           ]
         },
@@ -39,7 +39,7 @@
         "longitude":{"field":"lon","type": "quantitative"},
       "size": {
         "bin": false,
-        "field": "count_4week",
+        "field": "COVID_CASE_COUNT_4WEEK",
         "type": "quantitative",
         "scale": {"range": [0, 600]},
         "legend": {
@@ -58,17 +58,17 @@
       },
       "tooltip": [
         {
-          "field": "modzcta",
+          "field": "MODIFIED_ZCTA",
           "type": "nominal",
           "title": "ZIP Code"
         },
         {
-          "field": "neighborhood_name",
+          "field": "NEIGHBORHOOD_NAME",
           "type": "nominal",
           "title": "Neighborhood"
         },
         {
-          "field": "count_4week",
+          "field": "COVID_CASE_COUNT_4WEEK",
           "type": "quantitative",
           "title": "Cases"
         }
