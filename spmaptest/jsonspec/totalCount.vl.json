@@ -39,14 +39,14 @@
         "bin": false,
         "field": "num_test_all",
         "type": "quantitative",
-        "scale": {"range": [0, 2000]},
+        "scale": {"range": [0, 1500]},
         "legend": {
           "title": "Number tested",
           "titleFontSize": 10,
           "orient": "top-left",
           "symbolLimit": 5,
           "symbolOpacity": 0.5,
-          "values":[100,500,1500]
+          "values":[100,1000,5000]
 
         }
       },
