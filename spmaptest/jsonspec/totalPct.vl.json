@@ -67,7 +67,7 @@
         {
           "field": "per_pos_all",
           "type": "nominal",
-          "title": "Percent positive: overall"
+          "title": "Percent positive"
         }
       ]
     }
