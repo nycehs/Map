@@ -28,7 +28,7 @@
         "key": "modzcta_first",
         "fields": [
           "modzcta_first",
-          "per_pos_all"]
+          "PERCENT_POSITIVE"]
       }
     }],
     "selection": {
@@ -41,7 +41,7 @@
     "encoding": {
         "color": {
             "bin":false,
-            "field":"per_pos_all",
+            "field":"PERCENT_POSITIVE",
             "type":"quantitative",
             "scale": {"scheme": {"name":"purples","extent":[0.2,1.2]}},
             "legend": {
@@ -65,7 +65,7 @@
           "title": "ZIP Code"
         },
         {
-          "field": "per_pos_all",
+          "field": "PERCENT_POSITIVE",
           "type": "nominal",
           "title": "Percent positive"
         }

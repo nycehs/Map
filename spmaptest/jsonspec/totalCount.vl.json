@@ -22,7 +22,7 @@
           "key": "modzcta_first",
           "fields": [
             "modzcta_first",
-            "num_test_all"
+            "NUM_PEOP_TEST"
           ]
         },
         "default": "no data"
@@ -37,11 +37,11 @@
         "longitude":{"field":"lon","type": "quantitative"},
       "size": {
         "bin": false,
-        "field": "num_test_all",
+        "field": "NUM_PEOP_TEST",
         "type": "quantitative",
-        "scale": {"range": [0, 1500]},
+        "scale": {"range": [0, 1000]},
         "legend": {
-          "title": "Number tested",
+          "title": "People tested",
           "titleFontSize": 10,
           "orient": "top-left",
           "symbolLimit": 5,
@@ -61,9 +61,9 @@
           "title": "ZIP"
         },
         {
-          "field": "num_test_all",
+          "field": "NUM_PEOP_TEST",
           "type": "quantitative",
-          "title": "Number tested"
+          "title": "People tested"
         }
       ]
     }

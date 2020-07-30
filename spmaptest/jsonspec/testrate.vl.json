@@ -28,7 +28,7 @@
         "key": "modzcta_first",
         "fields": [
           "modzcta_first",
-          "rate_test_all"]
+          "TEST_RATE"]
       }
     }],
     "selection": {
@@ -41,7 +41,7 @@
     "encoding": {
         "color": {
             "bin":false,
-            "field":"rate_test_all",
+            "field":"TEST_RATE",
             "type":"quantitative",
             "scale": {"scheme": {"name":"purples","extent":[0.2,3]}},
             "legend": {
@@ -65,7 +65,7 @@
           "title": "ZIP Code"
         },
         {
-          "field": "rate_test_all",
+          "field": "TEST_RATE",
           "type": "nominal",
           "title": "Tests per 100,000"
         }
