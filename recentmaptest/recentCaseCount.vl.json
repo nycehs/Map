@@ -48,7 +48,7 @@
           "orient": "top-left",
           "symbolLimit": 5,
           "symbolOpacity": 0.5,
-          "values":[10,250,500]
+          "values":[10,50,150]
 
         }
       },
