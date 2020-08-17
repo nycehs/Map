@@ -56,4 +56,4 @@ function percentMapCreate() {
 
 
 
-rateMapCreate();
+percentMapCreate();

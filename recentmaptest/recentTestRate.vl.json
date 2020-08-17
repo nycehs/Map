@@ -41,7 +41,7 @@
             "bin":false,
             "field":"TESTING_RATE_4WEEK",
             "type":"quantitative",
-            "scale": {"scheme": {"name":"redpurple","extent":[0.2,1.5]}},
+            "scale": {"scheme": {"name":"greens","extent":[0.2,1.5]}},
             "legend": {
                 "title": "4-week tests per 100k",
                 "titleFontSize": 10,
