@@ -23,7 +23,7 @@
       "lookup": "properties.MODZCTA",
       "from": {
         "data": {
-          "url": "FAKE-4-WEEK.csv"
+          "url": "4-WEEK.csv"
         },
         "key": "MODIFIED_ZCTA",
         "fields": ["MODIFIED_ZCTA","COVID_CASE_RATE_4WEEK","NEIGHBORHOOD_NAME"]
