@@ -45,7 +45,7 @@
             "type":"quantitative",
             "scale": {"scheme": {"name":"purples","extent":[0.2,3]}},
             "legend": {
-                "title": "Tests per 100,000",
+                "title": "People tested per 100k",
                 "titleFontSize": 10,
                 "orient":"top-left",
                 "gradientLength": 100
@@ -67,7 +67,7 @@
         {
           "field": "TEST_RATE",
           "type": "nominal",
-          "title": "Tests per 100,000"
+          "title": "People tested per 100k"
         }
       ]
     }
