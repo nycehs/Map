@@ -1,0 +1,79 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+    "width": "container",
+    "height": "container",
+    "autosize": {
+      "type": "fit",
+      "contains": "padding"
+    },
+    "layer":[
+      {
+      "data":{
+      "url": "MODZCTA_2010_WGS1984.topo.json",
+      "format": {"type": "topojson", "feature": "collection"}
+      },
+      "mark": {"type": "geoshape", "stroke": "#ffffff","fill":"lightgray"}
+    },{
+    "data": {
+      "url": "MODZCTA_2010_WGS1984.topo.json",
+      "format": {"type": "topojson",
+        "feature": "collection"}
+    },
+    "transform": [{
+      "lookup": "properties.MODZCTA",
+      "from": {
+        "data": {
+          "url": "4-WEEK.csv"
+        },
+        "key": "MODIFIED_ZCTA",
+        "fields": ["MODIFIED_ZCTA","PERCENT_POSITIVE_4WEEK","NEIGHBORHOOD_NAME"]
+      }
+    }],
+    "selection": {
+      "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
+    },
+    "mark": {
+      "type": "geoshape",
+      "stroke": "#FFFFFF"
+    },
+    "encoding": {
+        "color": {
+            "bin":false,
+            "field":"PERCENT_POSITIVE_4WEEK",
+            "type":"quantitative",
+            "scale": {"scheme": {"name":"blues","extent":[0.0,1.0]}},
+            "legend": {
+                "title": "4-week percent positive",
+                "titleFontSize": 10,
+                "orient":"top-left",
+                "gradientLength": 100
+            }
+        }   ,
+      "strokeWidth":{
+        "condition": [
+          {"selection": "highlight", "value": 2}
+        ],
+        "value": 0.5
+      },
+        
+      "tooltip": [
+        {
+          "field": "properties.label",
+          "type": "nominal",
+          "title": "ZIP Code"
+        },
+        {
+          "field": "NEIGHBORHOOD_NAME",
+          "type": "nominal",
+          "title": "Neighborhood"
+        },
+        {
+          "field": "PERCENT_POSITIVE_4WEEK",
+          "type": "quantitative",
+          "title": "Percent positive"
+        }
+      ]
+    }
+  }
+]
+}

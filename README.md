@@ -1,14 +1,8 @@
 # Map
-This repository is for testing a simple data map using vega-lite. 
-View the sample: https://nycehs.github.io/Map/
+This repository is for testing simple data maps using vega-lite. 
+View a sample: https://nycehs.github.io/Map/main/main.html
 
-View the embed code with chooser: https://nycehs.github.io/Map/embed2.html
-...and without chooser: https://nycehs.github.io/Map/embed.html
-
-Here is a new view of counts that avoids some of the issues showing counts in a choropleth (thanks for the inspiration NYTimes and a million geographers): 
-https://nycehs.github.io/Map/circle.html
-
-...more soon.
+It includes a  view of counts that avoids some of the issues showing counts in a choropleth (thanks for the inspiration NYTimes and a million geographers).
 
 Thanks to Gretchen Culp for the Modified ZCTA shapefile, soon to be available on NYC Open Data.
 
