@@ -18,7 +18,7 @@
       {
         "lookup": "MODZCTA",
         "from": {
-          "data": {"url": "4-WEEK.csv"},
+          "data": {"url": "https://raw.githubusercontent.com/nychealth/coronavirus-data/master/recent/recent-4-week-by-modzcta.csv"},
           "key": "MODIFIED_ZCTA",
           "fields": [
             "MODIFIED_ZCTA",
