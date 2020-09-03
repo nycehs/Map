@@ -31,9 +31,7 @@
           "PERCENT_POSITIVE"]
       }
     }],
-    "selection": {
-      "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
-    },
+
     "mark": {
       "type": "geoshape",
       "stroke": "#FFFFFF"
@@ -53,7 +51,6 @@
         }   ,
       "strokeWidth":{
         "condition": [
-          {"selection": "highlight", "value": 2}
         ],
         "value": 0.5
       },

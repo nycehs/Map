@@ -28,9 +28,7 @@
         "default": "no data"
       }
     ],
-    "selection": {
-      "highlight": {"type": "single", "empty": "none", "on": "mouseover"}
-    },
+
     "mark": {"type": "circle","fill":"#ff7f67","fillOpacity": 0.75},
     "encoding": {
         "latitude":{"field":"lat","type": "quantitative"},
@@ -51,7 +49,6 @@
         }
       },
       "strokeWidth": {
-        "condition": [{"selection": "highlight", "value": 2}],
         "value": 0.5
       },
       "tooltip": [
