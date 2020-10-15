@@ -90,7 +90,7 @@
           {
             "field": "percentpositivity_14day",
             "type": "quantitative",
-            "title": "Percent positive:"
+            "title": "Percent positive"
           },
           {
             "field": "people_tested",
@@ -105,7 +105,7 @@
           {
             "field": "daterange",
             "type": "nominal",
-            "title": "Date range:"
+            "title": "Dates"
           }
         ]
       }
