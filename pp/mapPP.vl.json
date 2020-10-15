@@ -80,7 +80,7 @@
           {
             "field": "properties.label",
             "type": "nominal",
-            "title": "ZIP Code"
+            "title": "ZIP code"
           },
           {
             "field": "modzcta_name",
@@ -100,7 +100,7 @@
           {
             "field": "cases",
             "type": "quantitative",
-            "title": "New casec (reported to date)"
+            "title": "New cases (reported to date)"
           },
           {
             "field": "daterange",
