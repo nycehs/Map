@@ -10,9 +10,28 @@
 
 </head>
 
+<script>
+    function showboroughs() {
+        var x = document.getElementById("boroughs");
+        var y = document.getElementById("boroughsbutton");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            y.innerHTML = "Hide boroughs"
+        } else {
+            x.style.display = "none";
+            y.innerHTML = "Show boroughs";
+        }
+    }
+</script>
+
 
 
 <body>
+    <a id="boroughsbutton" target="_self" onclick="showboroughs()" class="toplink2 boroughs"
+        rel="nofollow noopener noreferrer"> Show
+        boroughs </a>
+    &nbsp;
+
     <a target="_self" href="curve1.html" class="toplink inactivelink" rel="nofollow noopener noreferrer"> Cases </a>
     &nbsp;
 
@@ -28,45 +47,49 @@
     <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
     </script>
 
-    <div class="smallmultiple">
-        <iframe title="Bronx- deaths " aria-label="Interactive line chart" id="datawrapper-chart-d6jfG"
-            src="https://datawrapper.dwcdn.net/d6jfG/6/" scrolling="no" frameborder="0"
-            style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-        <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-        </script>
+    <div id="boroughs" style="display:none;">
+        <div class="smallmultiple">
+            <iframe title="Bronx- deaths " aria-label="Interactive line chart" id="datawrapper-chart-d6jfG"
+                src="https://datawrapper.dwcdn.net/d6jfG/6/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
+            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+            </script>
+        </div>
+
+        <div class="smallmultiple">
+            <iframe title="Brooklyn- deaths" aria-label="Interactive line chart" id="datawrapper-chart-TMQo8"
+                src="https://datawrapper.dwcdn.net/TMQo8/6/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
+            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+            </script>
+        </div>
+
+        <div class="smallmultiple">
+            <iframe title="Manhattan- deaths " aria-label="Interactive line chart" id="datawrapper-chart-V9sir"
+                src="https://datawrapper.dwcdn.net/V9sir/6/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
+            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+            </script>
+        </div>
+
+        <div class="smallmultiple">
+            <iframe title="Queens - deaths" aria-label="Interactive line chart" id="datawrapper-chart-NTiCY"
+                src="https://datawrapper.dwcdn.net/NTiCY/5/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
+            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+            </script>
+        </div>
+
+        <div class="smallmultiple">
+            <iframe title="Staten Island- deaths" aria-label="Interactive line chart" id="datawrapper-chart-dncEv"
+                src="https://datawrapper.dwcdn.net/dncEv/8/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
+            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+            </script>
+        </div>
     </div>
 
-    <div class="smallmultiple">
-        <iframe title="Brooklyn- deaths" aria-label="Interactive line chart" id="datawrapper-chart-TMQo8"
-            src="https://datawrapper.dwcdn.net/TMQo8/6/" scrolling="no" frameborder="0"
-            style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-        <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-        </script>
-    </div>
 
-    <div class="smallmultiple">
-        <iframe title="Manhattan- deaths " aria-label="Interactive line chart" id="datawrapper-chart-V9sir"
-            src="https://datawrapper.dwcdn.net/V9sir/6/" scrolling="no" frameborder="0"
-            style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-        <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-        </script>
-    </div>
-
-    <div class="smallmultiple">
-        <iframe title="Queens - deaths" aria-label="Interactive line chart" id="datawrapper-chart-NTiCY"
-            src="https://datawrapper.dwcdn.net/NTiCY/5/" scrolling="no" frameborder="0"
-            style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-        <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-        </script>
-    </div>
-
-    <div class="smallmultiple">
-        <iframe title="Staten Island- deaths" aria-label="Interactive line chart" id="datawrapper-chart-dncEv"
-            src="https://datawrapper.dwcdn.net/dncEv/8/" scrolling="no" frameborder="0"
-            style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-        <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-        </script>
-    </div>
 
 
 
