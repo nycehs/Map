@@ -85,6 +85,8 @@ function showHosps() {
     document.getElementById('caseButton').classList.remove('activelink');
     document.getElementById('caseButton').classList.add('inactivelink');
     document.getElementById('deathButton').classList.remove('activelink');
+    document.getElementById('deathButton').classList.add('inactivelink');
+
 
 
     //if City view, show City Hosps
@@ -109,6 +111,7 @@ function showDeaths() {
     document.getElementById('deathButton').classList.remove('inactivelink');
     document.getElementById('deathButton').classList.add('activelink');
     document.getElementById('hospButton').classList.remove('activelink');
+    document.getElementById('hospButton').classList.add('inactivelink');
     document.getElementById('caseButton').classList.remove('activelink');
     document.getElementById('caseButton').classList.add('inactivelink');
 
