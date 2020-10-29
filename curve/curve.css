@@ -7,7 +7,7 @@
         text-decoration: none;
     }
 
-    a:hover {
+    .inactivelink:hover {
         background-color: #e7caec;
     }
 

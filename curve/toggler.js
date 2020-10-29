@@ -56,7 +56,10 @@ function showCases() {
     document.getElementById('caseButton').classList.remove('inactivelink');
     document.getElementById('caseButton').classList.add('activelink');
     document.getElementById('hospButton').classList.remove('activelink');
+    document.getElementById('hospButton').classList.add('inactivelink');
     document.getElementById('deathButton').classList.remove('activelink');
+    document.getElementById('deathButton').classList.add('inactivelink');
+
 
     //if City view, show City cases
     if (cityHosp.style.display === "block" || cityDeath.style.display === "block") {
@@ -80,6 +83,7 @@ function showHosps() {
     document.getElementById('hospButton').classList.remove('inactivelink');
     document.getElementById('hospButton').classList.add('activelink');
     document.getElementById('caseButton').classList.remove('activelink');
+    document.getElementById('caseButton').classList.add('inactivelink');
     document.getElementById('deathButton').classList.remove('activelink');
 
 
@@ -106,6 +110,8 @@ function showDeaths() {
     document.getElementById('deathButton').classList.add('activelink');
     document.getElementById('hospButton').classList.remove('activelink');
     document.getElementById('caseButton').classList.remove('activelink');
+    document.getElementById('caseButton').classList.add('inactivelink');
+
 
     //if City view, show City Deaths
     if (cityCase.style.display === "block" || cityHosp.style.display === "block") {
