@@ -13,14 +13,17 @@
 
 <script>
     function showboroughs() {
-        var x = document.getElementById("boroughs");
-        var y = document.getElementById("boroughsbutton");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.innerHTML = "Hide boroughs"
+        var boro = document.getElementById("boroughs");
+        var city = document.getElementById('Citywide');
+        var button = document.getElementById("boroughsbutton");
+        if (boro.style.display === "none") {
+            boro.style.display = "block";
+            city.style.display = "none";
+            button.innerHTML = "Show Citywide"
         } else {
-            x.style.display = "none";
-            y.innerHTML = "Show boroughs";
+            boro.style.display = "none";
+            city.style.display = 'block';
+            button.innerHTML = "Show boroughs";
 
         }
     }
@@ -42,11 +45,14 @@
     <a target="_self" href="curve3.html" class="toplink inactivelink" rel="nofollow noopener noreferrer"> Deaths </a>
     &nbsp;
 
-    <iframe title="Cases: 7-day rolling average (Copy)" aria-label="Interactive line chart" id="datawrapper-chart-tdakA"
-        src="https://datawrapper.dwcdn.net/tdakA/4/" scrolling="no" frameborder="0"
-        style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
-    <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-    </script>
+    <div id="Citywide" style="display:block;">
+        <iframe title="Cases: 7-day rolling average (Copy)" aria-label="Interactive line chart"
+            id="datawrapper-chart-tdakA" src="https://datawrapper.dwcdn.net/tdakA/4/" scrolling="no" frameborder="0"
+            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+        <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+        </script>
+    </div>
+
 
 
     <div id="boroughs" style="display:none;">

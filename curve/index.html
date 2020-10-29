@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epi curves: COVID-19 in NYC</title>
+
+    <link href="curve.css" rel="stylesheet">
+
+
+</head>
+
+
+
+
+<body>
+    <div id="selection">
+        <a id="boroughsButton" target="_self" onclick="showBoroughs()" class="toplink2 boroughs"> Show
+            Boroughs </a>
+        &nbsp;
+
+        <a id="caseButton" target="_self" onclick="showCases()" class="toplink activelink"> Cases </a>
+        &nbsp;
+
+        <a id="hospButton" target="_self" onclick="showHosps()" class="toplink inactivelink">
+            Hospitalizations </a> &nbsp;
+
+        <a id="deathButton" target="_self" onclick="showDeaths()" class="toplink inactivelink"> Deaths </a>
+        &nbsp;
+    </div>
+
+
+    <div id="citywideCases" style="display:block;">
+        NYC CASES
+    </div>
+
+    <div id="citywideHosps" style="display:none">
+        NYC HOSPITALIZATIONS
+    </div>
+
+    <div id="citywideDeaths" style="display:none">
+        NYC DEATHS
+    </div>
+
+
+
+    <div id="boroughsCases" style="display:none;">
+        BORO CASES
+    </div>
+
+    <div id="boroughsHosps" style="display:none;">
+        BORO HOSPITALIZATIONS
+    </div>
+
+    <div id="boroughsDeaths" style="display:none">
+        BORO DEATHS
+    </div>
+
+
+
+    <script>
+        var cityCase = document.getElementById("citywideCases");
+        var cityHosp = document.getElementById('citywideHosps')
+        var cityDeath = document.getElementById('citywideDeaths')
+        var boroCase = document.getElementById('boroughsCases');
+        var boroHosp = document.getElementById('boroughsHosps');
+        var boroDeath = document.getElementById('boroughsDeaths');
+        var button = document.getElementById("boroughsButton");
+
+
+        function showBoroughs() {
+            // If NYC Cases, to Boroughs Cases
+            if (cityCase.style.display === "block") {
+                cityCase.style.display = "none";
+                boroCase.style.display = "block"
+                button.innerHTML = "Show Citywide";
+            }
+            // If Boro Cases,  to NYC Cases
+            else if (boroCase.style.display === "block") {
+                cityCase.style.display = "block";
+                boroCase.style.display = "none"
+                button.innerHTML = "Show Boroughs";
+            }
+
+            //if NYC Hosp, to Boro hosp
+            else if (cityHosp.style.display === "block") {
+                cityHosp.style.display = "none";
+                boroHosp.style.display = "block";
+                button.innerHTML = "Show Citywide";
+            }
+
+            //if Boro Hosp,  to NYC Hosp
+            else if (boroHosp.style.display === "block") {
+                boroHosp.style.display = "none";
+                cityHosp.style.display = "block";
+                button.innerHTML = "Show Boroughs";
+            }
+
+            //if NYC Death, to Boro Death
+            else if (cityDeath.style.display === "block") {
+                cityDeath.style.display = "none";
+                boroDeath.style.display = "block";
+                button.innerHTML = "Show Citywide";
+            }
+
+            //if Boro Death,  to NYC Death
+            else if (boroDeath.style.display === "block") {
+                boroDeath.style.display = "none";
+                cityDeath.style.display = "block";
+                button.innerHTML = "Show Boroughs";
+            }
+        }
+
+
+        function showCases() {
+            //if City view, show City cases
+            if (cityHosp.style.display === "block" || cityDeath.style.display === "block") {
+                cityCase.style.display = "block";
+                cityHosp.style.display = "none";
+                cityDeath.style.display = "none";
+                button.innerHTML = "Show Boroughs";
+            }
+
+            //if Boro view, show Boro cases
+            else if (boroHosp.style.display === "block" || boroDeath.style.display === "block") {
+                boroCase.style.display = "block";
+                boroHosp.style.display = "none";
+                boroDeath.style.display = "none";
+                button.innerHTML = "Show Citywide";
+            }
+        }
+
+
+        function showHosps() {
+            //if City view, show City Hosps
+            if (cityCase.style.display === "block" || cityDeath.style.display === "block") {
+                cityHosp.style.display = "block";
+                cityCase.style.display = "none";
+                cityDeath.style.display = "none";
+                button.innerHTML = "Show Boroughs";
+            }
+            //if Boro view, show Boro hosps
+            else if (boroCase.style.display === "block" || boroDeath.style.display === "block") {
+                boroHosp.style.display = "block";
+                boroCase.style.display = "none";
+                boroDeath.style.display = "none";
+                button.innerHTML = "Show Citywide";
+            }
+
+        }
+
+
+        function showDeaths() {
+            //if City view, show City Deaths
+            if (cityCase.style.display === "block" || cityHosp.style.display === "block") {
+                cityDeath.style.display = "block";
+                cityCase.style.display = "none";
+                cityHosp.style.display = "none";
+                button.innerHTML = "Show Boroughs";
+            }
+            //if Boro view, show Boro Deaths
+            else if (boroCase.style.display === "block" || boroHosp.style.display === "block") {
+                boroDeath.style.display = "block";
+                boroCase.style.display = "none";
+                boroHosp.style.display = "none";
+                button.innerHTML = "Show Citywide";
+            }
+
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

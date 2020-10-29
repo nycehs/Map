@@ -42,10 +42,10 @@
     }
 
     .boroughs {
-        background: #f9f9f9;
-        color: #5f5f5f;
+        background: #424242;
+        color: #e0e0e0;
     }
 
     .boroughs:hover{
-        background: #b6c4f3!important;
+        background: #464b79!important;
     }
