@@ -40,9 +40,8 @@
             months.</p>
         <p>The data also show the rate of people tested during the most recent seven days. A neighborhood is considered
             to have
-            adequate testing when at least 260 residents per 100,000 have been tested in the past week. This value is
-            subject to
-            change depending on future testing data.</p>
+            adequate testing when at least 260 residents per 100,000 have been tested in the past week. This metric of
+            adequate testing may change depending on future testing data.</p>
 
         <a id="ppmap" class="togglebutton highlight" onclick="show7Map(1)"> Map </a>
         &nbsp;
@@ -54,9 +53,11 @@
             borough </a>
         &nbsp;
 
+
         <a id="trtrend" class="togglebutton" onclick="showTRTrend()"> Test rate by borough
         </a>
         &nbsp;
+
 
         <div id="7daymap" style="display:block;">
             <iframe id="covidmap" title="COVID-19 map" aria-label="Map of recent percent positivity by ZIP."
@@ -73,7 +74,45 @@
         </div>
 
         <div id="monpp" style="display:none">
-            percent positive trend
+            <div class="smallmultiple">
+                <iframe aria-hidden="true" title="BRONX" aria-label="Interactive line chart"
+                    id="datawrapper-chart-TZQJb" src="https://datawrapper.dwcdn.net/TZQJb/9/" scrolling="no"
+                    frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="325"></iframe>
+                <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+                </script>
+            </div>
+
+            <div class="smallmultiple">
+                <iframe aria-hidden="true" title="BROOKLYN" aria-label="Interactive line chart"
+                    id="datawrapper-chart-Ct60w" src="https://datawrapper.dwcdn.net/Ct60w/10/" scrolling="no"
+                    frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="325"></iframe>
+                <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+                </script>
+            </div>
+
+            <div class="smallmultiple">
+                <iframe aria-hidden="true" title="MANHATTAN" aria-label="Interactive line chart"
+                    id="datawrapper-chart-1hljf" src="https://datawrapper.dwcdn.net/1hljf/9/" scrolling="no"
+                    frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="325"></iframe>
+                <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+                </script>
+            </div>
+
+            <div class="smallmultiple">
+                <iframe aria-hidden="true" title="QUEENS" aria-label="Interactive line chart"
+                    id="datawrapper-chart-hZIWT" src="https://datawrapper.dwcdn.net/hZIWT/10/" scrolling="no"
+                    frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="325"></iframe>
+                <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+                </script>
+            </div>
+
+            <div class="smallmultiple">
+                <iframe aria-hidden="true" title="STATEN ISLAND" aria-label="Interactive line chart"
+                    id="datawrapper-chart-TvMb6" src="https://datawrapper.dwcdn.net/TvMb6/9/" scrolling="no"
+                    frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="325"></iframe>
+                <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+                </script>
+            </div>
         </div>
 
         <div id="montr" style="display:none">

@@ -12,7 +12,7 @@ var geoObj = {};
 var covidObj = {};
 var viewObj = {};
 var ppSpec = "mapPP.vl.json";
-var trSpec = "mapTR.vl.json";
+var trSpec = "maptr.vl.json";
 var radios = [];
 var opt = {
   "renderer": "svg"
@@ -20,7 +20,7 @@ var opt = {
 var el = document.getElementById('#map'); // this code listens to the form with map chooser; must run after DOM loads
 
 
-window.onload = listenRadios;
+window.onload = listenRadios();
 
 function listenRadios() {
   radios = document.querySelectorAll('input[type=radio][name="mapRadioGroup"]');
