@@ -112,7 +112,7 @@
           {
             "field": "adequately_tested",
             "type": "nominal",
-            "title": "Adequately tested?"
+            "title": "Adequate testing?"
           },
           {
             "field": "daterange",

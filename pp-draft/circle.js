@@ -20,32 +20,9 @@ var opt = {
 var el = document.getElementById('#map'); // this code listens to the form with map chooser; must run after DOM loads
 
 
-window.onload = listenRadios();
-
-function listenRadios() {
-  radios = document.querySelectorAll('input[type=radio][name="mapRadioGroup"]');
-  radios.forEach(function (radio) {
-    return radio.addEventListener('change', function () {
-      if (radio.value === 'PerPos') {
-        rateMapCreate();
-      } else if (radio.value === 'TestRate') {
-        trMapCreate();
-      };
-    });
-  });
-} //this function creates the map
-
-
 
 function ppMapCreate() {
   vegaEmbed('#map', ppSpec, opt).then(function (result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    viewObj = result.view;
-  }).catch(console.error);
-}
-
-function trMapCreate() {
-  vegaEmbed('#map', trSpec, opt).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     viewObj = result.view;
   }).catch(console.error);
