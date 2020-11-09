@@ -59,11 +59,17 @@
         &nbsp;
 
         <div id="7daymap" style="display:block;">
-            map embed
+            <iframe id="covidmap" title="COVID-19 map" aria-label="Map of recent percent positivity by ZIP."
+                src="https://nycehs.github.io/Map/pp-draft/pp.html" scrolling="no" frameborder="0"
+                style="position: relative; width: 100vmin; height: 97vmin;"></iframe>
         </div>
 
         <div id="7daytable" style="display:none">
-            table embed
+            <iframe title="ZIP Monitoring: PP Plus Test Rate/Adequacy (DRAFT)" aria-label="chart"
+                id="datawrapper-chart-wjvgb" src="https://datawrapper.dwcdn.net/wjvgb/1/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="917"></iframe>
+            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+            </script>
         </div>
 
         <div id="monpp" style="display:none">
