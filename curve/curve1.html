@@ -54,11 +54,6 @@
         &nbsp;
 
 
-        <a id="trtrend" class="togglebutton" onclick="showTRTrend()"> Test rate by borough
-        </a>
-        &nbsp;
-
-
         <div id="7daymap" style="display:block;">
             <iframe id="covidmap" title="COVID-19 map" aria-label="Map of recent percent positivity by ZIP."
                 src="https://nycehs.github.io/Map/pp-draft/pp.html" scrolling="no" frameborder="0"
@@ -123,57 +118,40 @@
             var map7 = document.getElementById('7daymap');
             var table7 = document.getElementById('7daytable');
             var pptrend = document.getElementById('monpp');
-            var trtrend = document.getElementById('montr');
 
             var mapButton = document.getElementById('ppmap');
             var tableButton = document.getElementById('pptable');
             var ppButton = document.getElementById('pptrend');
-            var trButton = document.getElementById('trtrend');
 
 
             function show7Map() {
                 map7.style.display = "block";
                 table7.style.display = "none";
                 pptrend.style.display = "none";
-                trtrend.style.display = "none";
                 mapButton.classList.add('highlight');
                 tableButton.classList.remove('highlight');
                 ppButton.classList.remove('highlight');
-                trButton.classList.remove('highlight');
             }
 
             function show7Table() {
                 map7.style.display = "none";
                 table7.style.display = "block";
                 pptrend.style.display = "none";
-                trtrend.style.display = "none";
                 mapButton.classList.remove('highlight');
                 tableButton.classList.add('highlight');
                 ppButton.classList.remove('highlight');
-                trButton.classList.remove('highlight');
             }
 
             function showPPTrend() {
                 map7.style.display = "none";
                 table7.style.display = "none";
                 pptrend.style.display = "block";
-                trtrend.style.display = "none";
                 mapButton.classList.remove('highlight');
                 tableButton.classList.remove('highlight');
                 ppButton.classList.add('highlight');
-                trButton.classList.remove('highlight');
             }
 
-            function showTRTrend() {
-                map7.style.display = "none";
-                table7.style.display = "none";
-                pptrend.style.display = "none";
-                trtrend.style.display = "block";
-                mapButton.classList.remove('highlight');
-                tableButton.classList.remove('highlight');
-                ppButton.classList.remove('highlight');
-                trButton.classList.add('highlight');
-            }
+
 
 
         </script>
