@@ -34,7 +34,7 @@
           "lookup": "properties.MODZCTA",
           "from": {
             "data": {
-              "url": "mockdata-last7days-by-modzcta.csv"
+              "url": "mockplus-by-modzcta.csv"
             },
             "key": "modzcta",
             "fields": [
@@ -42,8 +42,10 @@
               "modzcta_name",
               "percentpositivity_7day",
               "people_tested",
-              "cases",
-              "daterange"
+              "people_positive",
+              "daterange",
+              "median_daily_test_rate",
+              "adequately_tested"
             ]
           }
         }
@@ -98,9 +100,19 @@
             "title": "People tested (reported to date)"
           },
           {
-            "field": "cases",
+            "field": "people_positive",
             "type": "quantitative",
-            "title": "New cases (reported to date)"
+            "title": "People positive (reported to date)"
+          },
+          {
+            "field": "median_daily_test_rate",
+            "type": "quantitative",
+            "title": "Daily tests per 100,000"
+          },
+          {
+            "field": "adequately_tested",
+            "type": "nominal",
+            "title": "Adequately tested?"
           },
           {
             "field": "daterange",

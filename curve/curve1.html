@@ -31,72 +31,114 @@
 
 
 <body>
-    <a id="boroughsbutton" target="_self" onclick="showboroughs()" class="toplink2 boroughs"
-        rel="nofollow noopener noreferrer"> Show
-        boroughs </a>
-    &nbsp;
 
-    <a target="_self" href="curve1.html" class="toplink activelink" rel="nofollow noopener noreferrer"> Cases </a>
-    &nbsp;
+    <div style="width:740px; margin: auto;">
+        <h2>Percent Positive and Test Rate by ZIP Code</h2>
+        <p>These data show the percent of people tested who tested positive, by ZIP code, for the most recent seven days
+            of
+            available data. The borough comparison charts include percent positivity by ZIP code from the past three
+            months.</p>
+        <p>The data also show the rate of people tested during the most recent seven days. A neighborhood is considered
+            to have
+            adequate testing when at least 260 residents per 100,000 have been tested in the past week. This value is
+            subject to
+            change depending on future testing data.</p>
 
-    <a target="_self" href="curve2.html" class="toplink inactivelink" rel="nofollow noopener noreferrer">
-        Hospitalizations </a> &nbsp;
+        <a id="ppmap" class="togglebutton highlight" onclick="show7Map(1)"> Map </a>
+        &nbsp;
 
-    <a target="_self" href="curve3.html" class="toplink inactivelink" rel="nofollow noopener noreferrer"> Deaths </a>
-    &nbsp;
+        <a id="pptable" class="togglebutton" onclick="show7Table()">
+            Table </a> &nbsp;
 
-    <div id="Citywide" style="display:block;">
-        <iframe title="Cases: 7-day rolling average (Copy)" aria-label="Interactive line chart"
-            id="datawrapper-chart-tdakA" src="https://datawrapper.dwcdn.net/tdakA/4/" scrolling="no" frameborder="0"
-            style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
-        <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+        <a id="pptrend" class="togglebutton" onclick="showPPTrend()"> Percent positive by
+            borough </a>
+        &nbsp;
+
+        <a id="trtrend" class="togglebutton" onclick="showTRTrend()"> Test rate by borough
+        </a>
+        &nbsp;
+
+        <div id="7daymap" style="display:block;">
+            map embed
+        </div>
+
+        <div id="7daytable" style="display:none">
+            table embed
+        </div>
+
+        <div id="monpp" style="display:none">
+            percent positive trend
+        </div>
+
+        <div id="montr" style="display:none">
+            test rate trend
+        </div>
+
+        <script>
+            var map7 = document.getElementById('7daymap');
+            var table7 = document.getElementById('7daytable');
+            var pptrend = document.getElementById('monpp');
+            var trtrend = document.getElementById('montr');
+
+            var mapButton = document.getElementById('ppmap');
+            var tableButton = document.getElementById('pptable');
+            var ppButton = document.getElementById('pptrend');
+            var trButton = document.getElementById('trtrend');
+
+
+            function show7Map() {
+                map7.style.display = "block";
+                table7.style.display = "none";
+                pptrend.style.display = "none";
+                trtrend.style.display = "none";
+                mapButton.classList.add('highlight');
+                tableButton.classList.remove('highlight');
+                ppButton.classList.remove('highlight');
+                trButton.classList.remove('highlight');
+            }
+
+            function show7Table() {
+                map7.style.display = "none";
+                table7.style.display = "block";
+                pptrend.style.display = "none";
+                trtrend.style.display = "none";
+                mapButton.classList.remove('highlight');
+                tableButton.classList.add('highlight');
+                ppButton.classList.remove('highlight');
+                trButton.classList.remove('highlight');
+            }
+
+            function showPPTrend() {
+                map7.style.display = "none";
+                table7.style.display = "none";
+                pptrend.style.display = "block";
+                trtrend.style.display = "none";
+                mapButton.classList.remove('highlight');
+                tableButton.classList.remove('highlight');
+                ppButton.classList.add('highlight');
+                trButton.classList.remove('highlight');
+            }
+
+            function showTRTrend() {
+                map7.style.display = "none";
+                table7.style.display = "none";
+                pptrend.style.display = "none";
+                trtrend.style.display = "block";
+                mapButton.classList.remove('highlight');
+                tableButton.classList.remove('highlight');
+                ppButton.classList.remove('highlight');
+                trButton.classList.add('highlight');
+            }
+
+
         </script>
-    </div>
-
-
-
-    <div id="boroughs" style="display:none;">
-        <div class="smallmultiple">
-            <iframe title="Bronx - cases" aria-label="Interactive line chart" id="datawrapper-chart-uRwEY"
-                src="https://datawrapper.dwcdn.net/uRwEY/7/" scrolling="no" frameborder="0"
-                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-            </script>
-        </div>
-
-        <div class="smallmultiple">
-            <iframe title="Brooklyn - cases" aria-label="Interactive line chart" id="datawrapper-chart-i4Uls"
-                src="https://datawrapper.dwcdn.net/i4Uls/12/" scrolling="no" frameborder="0"
-                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-            </script>
-        </div>
-
-        <div class="smallmultiple">
-            <iframe title="MN - cases (Copy)" aria-label="Interactive line chart" id="datawrapper-chart-aHZkQ"
-                src="https://datawrapper.dwcdn.net/aHZkQ/11/" scrolling="no" frameborder="0"
-                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-            </script>
-        </div>
-
-        <div class="smallmultiple">
-            <iframe title="QN - cases" aria-label="Interactive line chart" id="datawrapper-chart-m2NDw"
-                src="https://datawrapper.dwcdn.net/m2NDw/9/" scrolling="no" frameborder="0"
-                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-            </script>
-        </div>
-
-        <div class="smallmultiple">
-            <iframe title="SI - cases" aria-label="Interactive line chart" id="datawrapper-chart-SuRnT"
-                src="https://datawrapper.dwcdn.net/SuRnT/8/" scrolling="no" frameborder="0"
-                style="width: 0; min-width: 100% !important; border: none;" height="250"></iframe>
-            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
-            </script>
-        </div>
 
     </div>
+
+
+
+
+
 
 
 </body>
