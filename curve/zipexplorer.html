@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epi curves: COVID-19 in NYC</title>
+
+    <link href="curve.css" rel="stylesheet">
+
+
+</head>
+
+
+
+<body>
+
+    <div style="max-width:700px; margin: auto;">
+        <h1>COVID-19 data: ZIP Code Explorer</h2>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Enter your ZIP Code</h3>
+            <p>Get data on how COVID-19 has affected your neighborhood - and how your community is doing right now. To
+                start, enter your ZIP code in the field below.</p>
+
+            <form>
+                <label for="zipentry">Enter your ZIP code:</label>
+                <input type="text" id="zipentry" name="zipentry"><br>
+            </form>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Totals since the start of the pandemic</h3>
+            <style type="text/css">
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                }
+
+                .tg td {
+                    border-color: black;
+                    border-style: solid;
+                    border-width: 1px;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    overflow: hidden;
+                    padding: 10px 0px;
+                    word-break: normal;
+                }
+
+                .tg th {
+                    border-color: black;
+                    border-style: solid;
+                    border-width: 1px;
+                    font-family: Arial, sans-serif;
+                    font-size: 14px;
+                    font-weight: normal;
+                    overflow: hidden;
+                    padding: 10px 0px;
+                    word-break: normal;
+                }
+
+                .tg .tg-a5ip {
+                    border-color: #efefef;
+                    font-size: 14px;
+                    text-align: center;
+                    vertical-align: top
+                }
+
+                .tg .tg-ky11 {
+                    border-color: #efefef;
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-align: right;
+                    vertical-align: top
+                }
+
+                .tg .tg-fma3 {
+                    background-color: #aeb9ff;
+                    border-color: #efefef;
+                    color: #343434;
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-align: left;
+                    vertical-align: top
+                }
+
+                .tg .tg-ecub {
+                    background-color: #aeb9ff;
+                    border-color: #efefef;
+                    color: #343434;
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-align: center;
+                    vertical-align: top
+                }
+
+                .tg .tg-5xgq {
+                    border-color: #efefef;
+                    font-size: 14px;
+                    text-align: right;
+                    vertical-align: top
+                }
+            </style>
+            <table class="tg" style="table-layout: fixed; width: 695px">
+                <colgroup>
+                    <col style="width: 393px">
+                    <col style="width: 100px">
+                    <col style="width: 101px">
+                    <col style="width: 101px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th class="tg-fma3"></th>
+                        <th class="tg-ecub">11226</th>
+                        <th class="tg-ecub">Brooklyn</th>
+                        <th class="tg-ecub">NYC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tg-5xgq"><span style="font-weight:bold">Test rate</span><br>People tested per 100,000
+                            people</td>
+                        <td class="tg-a5ip">XX,XXX</td>
+                        <td class="tg-a5ip">XX,XXX</td>
+                        <td class="tg-a5ip">XX,XXX</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-5xgq"><span style="font-weight:bold">Case rate</span><br><span
+                                style="font-weight:normal">Confirmed cases per 100,000 people</span><br></td>
+                        <td class="tg-a5ip">2,917</td>
+                        <td class="tg-a5ip">2,955</td>
+                        <td class="tg-a5ip">3,184</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-ky11">Death rate<br><span style="font-weight:normal">Confirmed deaths per 100,000
+                                people</span></td>
+                        <td class="tg-a5ip">316</td>
+                        <td class="tg-a5ip">226</td>
+                        <td class="tg-a5ip">232</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-5xgq"><span style="font-weight:bold">Antibody positive</span><br><span
+                                style="font-weight:normal">Percent of people tested who tested positive for
+                                antibodies</span></td>
+                        <td class="tg-a5ip">29.9%</td>
+                        <td class="tg-a5ip">XX%</td>
+                        <td class="tg-a5ip">XX%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <div style="text-align:right; font-style: italic; font-size: 12px;"><a href="">For more cumulative data,
+                    visit COVID-19 Data:
+                    Totals</a>.</div>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Key metrics from the last 7 days</h3>
+
+            <div>
+                <div id="trbutton" class="togglebutton " style=" width: 30%;display: inline-block;">
+                    <a> Testing Rate </a>
+                </div>
+
+                <div id="ppbutton" class="togglebutton highlight" style="width: 30%;display: inline-block;">
+                    <a>
+                        Percent Positive </a>
+                </div>
+
+                <div id="crbutton" class="togglebutton" style="width: 30%;display: inline-block;">
+                    <a> Case Rate </a>
+                </div>
+
+            </div>
+
+
+
+            <div id="trmap" style="display:none;">
+
+            </div>
+
+            <div id="ppmap" style="display:block">
+                <iframe id="covidmap" title="COVID-19 map" aria-label="Map of recent percent positivity by ZIP."
+                    src="https://nycehs.github.io/Map/pp-draft/pp.html" scrolling="no" frameborder="0"
+                    style="position: relative; width: 100vmin; height: 97vmin;"></iframe>
+
+            </div>
+
+            <div id="crmap" style="display:none">
+                Map 3
+
+            </div>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Key metrics over the last 3 months</h3>
+
+            <div>
+                <div class="togglebutton" style=" width: 30%;display: inline-block;">
+                    <a> Testing Rate </a>
+                </div>
+
+                <div class="togglebutton highlight" style="width: 30%;display: inline-block;">
+                    <a>
+                        Percent Positive </a>
+                </div>
+
+                <div class="togglebutton" style="width: 30%;display: inline-block;">
+                    <a> Case Rate </a>
+                </div>
+
+            </div>
+
+            <iframe title="QUEENS (Copy)" aria-label="Interactive line chart" id="datawrapper-chart-sNV2H"
+                src="https://datawrapper.dwcdn.net/sNV2H/2/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe>
+            <script type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) for (var e in a.data["datawrapper-height"]) { var t = document.getElementById("datawrapper-chart-" + e) || document.querySelector("iframe[src*='" + e + "']"); t && (t.style.height = a.data["datawrapper-height"][e] + "px") } })) }();
+            </script>
+
+
+
+            <script>
+                var trmap = document.getElementById('trmap');
+                var ppmap = document.getElementById('ppmap');
+                var crmap = document.getElementById('crmap');
+
+                var trbutton = document.getElementById('trbutton');
+                var ppbutton = document.getElementById('ppbutton');
+                var crbutton = document.getElementById('crbutton');
+
+
+                function showTR() {
+                    trmap.style.display = "block";
+                    ppmap.style.display = "none";
+                    crmap.style.display = "none";
+                    trbutton.classList.add('highlight');
+                    ppbutton.classList.remove('highlight');
+                    crbutton.classList.remove('highlight');
+                }
+
+                function showPP() {
+                    trmap.style.display = "none";
+                    ppmap.style.display = "block";
+                    crmap.style.display = "none";
+                    trbutton.classList.remove('highlight');
+                    ppbutton.classList.add('highlight');
+                    crbutton.classList.remove('highlight');
+                }
+
+                function showCR() {
+                    trmap.style.display = "none";
+                    ppmap.style.display = "none";
+                    crmap.style.display = "block";
+                    trbutton.classList.remove('highlight');
+                    ppbutton.classList.remove('highlight');
+                    crbutton.classList.add('highlight');
+                }
+
+
+
+
+            </script>
+
+    </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
