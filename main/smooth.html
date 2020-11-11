@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Covid-19 Draft Map</title>
+
+  <!-- Import vega dependencies that are compatible with IE11-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.11/core.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.7/polyfill.js"></script>
+  <script src="https://vega.github.io/vega/assets/promise.min.js"></script>
+  <script src="https://vega.github.io/vega/assets/symbol.min.js"></script>
+  <script src="https://vega.github.io/vega/assets/fetch.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5/build-es5/vega.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@4/build-es5/vega-lite.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6/build-es5/vega-embed.js"></script>
+
+
+  <link href="embed2.css" rel="stylesheet">
+  <style>
+    .background {
+      fill: transparent;
+      stroke: transparent !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--circle.html now has all 5, with circles for case and death counts-->
+
+  <div class="map-container center-me">
+    <form name="chooser">
+      <div class="map-chooser" id="mapRadio">
+
+        <input type="radio" name="mapRadioGroup" onclick="changeMap(rateSpec)" id="caserate2" checked>
+        <label for="caserate2">Case Rate</label> &nbsp;
+
+        <input type="radio" name="mapRadioGroup" onclick="changeMap(countSpec)" id="casecount2">
+        <label for="casecount2">Case Count</label>
+
+        <input type="radio" name="mapRadioGroup" onclick="changeMap(percentSpec)" id="perpos2">
+        <label for="perpos2">Percent positive</label>
+
+        <br>
+
+        <input type="radio" name="mapRadioGroup" onclick="changeMap(deathRateSpec)" id="deathrate2">
+        <label for="deathrate2">Death Rate</label> &nbsp;
+
+        <input type="radio" name="mapRadioGroup" onclick="changeMap(deathCountSpec)" id="deathcount2">
+        <label for="deathcount2">Death Count</label>
+
+        <br>
+
+
+
+
+
+      </div>
+    </form>
+    <div class="vis" id="map"></div>
+    <br>
+  </div>
+
+  </div>
+  <script src="smooth.js"></script>
+</body>
+
+</html>
