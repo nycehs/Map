@@ -170,8 +170,6 @@ function listenRadios() {
 }
 
 
-
-
 function changeMap(spec) {
   vegaEmbed('#map', spec, opt).then(function (result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

@@ -53,12 +53,9 @@ function showBoroughs() {
 
 
 function showCases() {
-    document.getElementById('caseButton').classList.remove('inactivelink');
-    document.getElementById('caseButton').classList.add('activelink');
-    document.getElementById('hospButton').classList.remove('activelink');
-    document.getElementById('hospButton').classList.add('inactivelink');
-    document.getElementById('deathButton').classList.remove('activelink');
-    document.getElementById('deathButton').classList.add('inactivelink');
+    document.getElementById('caseButton').classList.add('highlight');
+    document.getElementById('hospButton').classList.remove('highlight');
+    document.getElementById('deathButton').classList.remove('highlight');
 
 
     //if City view, show City cases
@@ -80,12 +77,9 @@ function showCases() {
 
 
 function showHosps() {
-    document.getElementById('hospButton').classList.remove('inactivelink');
-    document.getElementById('hospButton').classList.add('activelink');
-    document.getElementById('caseButton').classList.remove('activelink');
-    document.getElementById('caseButton').classList.add('inactivelink');
-    document.getElementById('deathButton').classList.remove('activelink');
-    document.getElementById('deathButton').classList.add('inactivelink');
+    document.getElementById('hospButton').classList.add('highlight');
+    document.getElementById('caseButton').classList.remove('highlight');
+    document.getElementById('deathButton').classList.remove('highlight');
 
 
 
@@ -108,12 +102,9 @@ function showHosps() {
 
 
 function showDeaths() {
-    document.getElementById('deathButton').classList.remove('inactivelink');
-    document.getElementById('deathButton').classList.add('activelink');
-    document.getElementById('hospButton').classList.remove('activelink');
-    document.getElementById('hospButton').classList.add('inactivelink');
-    document.getElementById('caseButton').classList.remove('activelink');
-    document.getElementById('caseButton').classList.add('inactivelink');
+    document.getElementById('deathButton').classList.add('highlight');
+    document.getElementById('hospButton').classList.remove('highlight');
+    document.getElementById('caseButton').classList.remove('highlight');
 
 
     //if City view, show City Deaths
