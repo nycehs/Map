@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19: NYC Zip Code Explorer</title>
+
+    <!-- Import vega dependencies that are compatible with IE11-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.11/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.7/polyfill.js"></script>
+    <script src="https://vega.github.io/vega/assets/promise.min.js"></script>
+    <script src="https://vega.github.io/vega/assets/symbol.min.js"></script>
+    <script src="https://vega.github.io/vega/assets/fetch.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5/build-es5/vega.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4/build-es5/vega-lite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6/build-es5/vega-embed.js"></script>
+
+    <!--Fontawesome Icons-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/fontawesome/css/all.min.css">
+    <!--NYC Core Framework Theme-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/css/theme.css">
+    <!--Custom additions for Portal items-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/css/custom.css">
+
+
+    <!--Custom data story CSS-->
+    <link rel="stylesheet" href="https://nycehs.github.io/Portal-Core-Repo/css/datastories.css">
+
+    <!--Custom Explorer CSS-->
+    <link href="css\explorer.css" rel="stylesheet">
+
+
+</head>
+
+
+
+<body>
+
+    <div style="max-width:700px; margin: auto;">
+        <h1>COVID-19 data: ZIP Code Explorer</h2>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Enter your ZIP Code</h3>
+            <p>Get data on how COVID-19 has affected your neighborhood - and how your community is doing right now. To
+                start, enter your ZIP code in the field below.</p>
+
+            <form>
+                <label for="zipentry">Enter your ZIP code:</label>
+                <input type="text" id="zipentry" name="zipentry"><br>
+            </form>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Your ZIP Code: <span style="color:#ff34ce;">selected ZIP code</span></h3>
+            <div style="height: 150px; border: 1px dotted gray; width: 100%;">Neighborhood information</div>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Totals since the start of the pandemic</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Measure</th>
+                        <th scope="col">ZIP Code</th>
+                        <th scope="col">Borough</th>
+                        <th scope="col">NYC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><span style="font-weight:bold">Test rate</span><br><span
+                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">People tested per 100,000
+                                people</span>
+                        </th>
+                        <td>aaa</td>
+                        <td>bbb</td>
+                        <td>ccc</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><span style="font-weight:bold">Case rate</span><br><span
+                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Confirmed cases per 100,000
+                                people</span>
+                        </th>
+                        <td>mmm</td>
+                        <td>nnn</td>
+                        <td>ooo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><span style="font-weight:bold">Case rate</span><br><span
+                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Confirmed cases per 100,000
+                                people</span></th>
+                        <td>XXX</td>
+                        <td>YYY</td>
+                        <td>ZZZ</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+            <br>
+            <div style="text-align:right; font-style: italic; font-size: 12px;"><a href="">For more cumulative data,
+                    visit COVID-19 Data:
+                    Totals</a>.</div>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Key metrics from the last 7 days</h3>
+
+            <div>
+                <div id="trbutton" class="togglebutton " style=" width: 30%;display: inline-block;">
+                    <a> Testing Rate </a>
+                </div>
+
+                <div id="ppbutton" class="togglebutton highlight" style="width: 30%;display: inline-block;">
+                    <a>
+                        Percent Positive </a>
+                </div>
+
+                <div id="crbutton" class="togglebutton" style="width: 30%;display: inline-block;">
+                    <a> Case Rate </a>
+                </div>
+
+            </div>
+
+
+            <div class="vis" id="map"></div>
+
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Key metrics over the last 3 months</h3>
+
+            <div>
+                <div class="togglebutton highlight" style=" width: 30%;display: inline-block;">
+                    <a> Testing Rate </a>
+                </div>
+
+                <div class="togglebutton" style="width: 30%;display: inline-block;">
+                    <a>
+                        Percent Positive </a>
+                </div>
+
+                <div class="togglebutton" style="width: 30%;display: inline-block;">
+                    <a> Case Rate </a>
+                </div>
+
+            </div>
+
+            <div id="trchart">
+
+            </div>
+
+
+
+
+    </div>
+
+
+
+    <!--Explorer JS-->
+    <script src="js/explorer.js"></script>
+
+    <!-- jQuery (full, compressed version) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- Popper.js and Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+
+
+    <!-- NYC template JS (RTL, search and language toggle, back to top)  -->
+    <script src="https://nycehs.github.io/Portal-Core-Repo/js/main.js"></script>
+
+
+
+</body>
+
+</html>
