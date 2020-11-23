@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single line chart demo</title>
+    <title>Percent positive by ZIP Code</title>
 
     <!-- Import vega dependencies that are compatible with IE11-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.11/core.js"></script>
@@ -41,7 +41,6 @@
 
 
 <form id="zip-code-form">
-    <p>Still to do: remove tooltip from deselected Boros.</p>
     <label for="last-location">Enter your ZIP Code or neighborhood
         name:</label>
     <div class="autocomplete-wrapper" style="display:inline-block; width: 75%;">
@@ -233,7 +232,7 @@
     <button class="btn-primary" type="submit" style="float:right; width: 15%">Submit</button>
 </form>
 
-<p style="margin-top: 25px;">People tested (per 100,000) for:
+<p style="margin-top: 25px;">Percent positive:
     <span id="zip" style="background-color: #ff34ce; color: white; font-weight: bold;"></span>
     <span id="boro" style="background-color: gray; color: white; font-weight: bold;"></span>
     <span id="city" style="color: white; background-color: black; font-weight: bold;"></span>
@@ -268,7 +267,7 @@
 <script src="https://nycehs.github.io/Portal-Core-Repo/js/main.js"></script>
 
 <!--Explorer JS-->
-<script src="js/single.js"></script>
+<script src="js/pp.js"></script>
 
 <!--Accessible Autocomplete JS-->
 <script type="text/javascript" src="js/accessible-autocomplete.min.js"></script>
