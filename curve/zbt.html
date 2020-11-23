@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epi curves (full pandemic): COVID-19 in NYC</title>
+
+    <style>
+        html {
+            font-family: helvetica;
+        }
+
+        .togglebutton {
+            font-size: 16;
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-weight: 400;
+            background-color: #eeeeee;
+            color: #696969 !important;
+            box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0, 07);
+            cursor: pointer;
+            display: inline-block;
+
+        }
+
+        .togglebutton:hover {
+            background-color: #bce3ff;
+            text-decoration: none;
+        }
+
+
+        .highlight {
+            background-color: #429ddd !important;
+            color: #ffffff !important;
+            font-weight: 550;
+        }
+
+        .boroughs {
+            float: right;
+            background: #ccb1d1;
+            color: #3f3f3f !important;
+        }
+
+        .boroughs:hover {
+            color: #2c2c2c;
+            background: #803D8D;
+            color: #ffffff !important;
+        }
+    </style>
+
+
+</head>
+
+
+
+
+<form id="zip-code-form">
+    <label for="last-location">Enter your ZIP Code or neighborhood
+        name:</label>
+    <hr>
+
+    <div class="autocomplete-wrapper" style="display:inline-block; width: 75%;">
+        <select name="last-location" id="last-location">
+            <option value="">Enter your ZIP Code or neighborhood name</option>
+            <option value="10001">10001: Chelsea/NoMad/West Chelsea</option>
+            <option value="10002">10002: Chinatown/Lower East Side</option>
+            <option value="10003">10003: East Village/Gramercy/Greenwich Village</option>
+            <option value="10004">10004: Financial District</option>
+            <option value="10005">10005: Financial District</option>
+            <option value="10006">10006: Financial District</option>
+            <option value="10007">10007: TriBeCa</option>
+            <option value="10009">10009: Alphabet City/East Village/Stuyvesant Town-Cooper Village
+            </option>
+            <option value="10010">10010: Flatiron/Gramercy/Kips Bay</option>
+            <option value="10011">10011: Chelsea</option>
+            <option value="10012">10012: Greenwich Village/SoHo</option>
+            <option value="10013">10013: Hudson Square/Little Italy/SoHo/TriBeCa</option>
+            <option value="10014">10014: Hudson Square/Meatpacking District/West Village</option>
+            <option value="10016">10016: Kips Bay/Murray Hill/NoMad</option>
+            <option value="10017">10017: East Midtown/Murray Hill</option>
+            <option value="10018">10018: Hell's Kitchen/Midtown Manhattan</option>
+            <option value="10019">10019: Hell's Kitchen/Midtown Manhattan</option>
+            <option value="10021">10021: Lenox Hill/Upper East Side</option>
+            <option value="10022">10022: East Midtown</option>
+            <option value="10023">10023: Lincoln Square</option>
+            <option value="10024">10024: Upper West Side</option>
+            <option value="10025">10025: Manhattan Valley/Morningside Heights/Upper West Side</option>
+            <option value="10026">10026: Central Harlem (South)</option>
+            <option value="10027">10027: Central Harlem (South)/Morningside Heights/West Harlem</option>
+            <option value="10028">10028: Upper East Side/Yorkville</option>
+            <option value="10029">10029: East Harlem</option>
+            <option value="10030">10030: Central Harlem (North)</option>
+            <option value="10031">10031: Hamilton Heights/West Harlem</option>
+            <option value="10032">10032: Washington Heights (South)</option>
+            <option value="10033">10033: Washington Heights (North)/Washington Heights (South)</option>
+            <option value="10034">10034: Inwood/Washington Heights (North)</option>
+            <option value="10035">10035: East Harlem</option>
+            <option value="10036">10036: Hell's Kitchen/Midtown Manhattan</option>
+            <option value="10037">10037: Central Harlem (North)/East Harlem</option>
+            <option value="10038">10038: Chinatown/Financial District</option>
+            <option value="10039">10039: Central Harlem (North)/Washington Heights (South)</option>
+            <option value="10040">10040: Washington Heights (North)</option>
+            <option value="10044">10044: Roosevelt Island</option>
+            <option value="10065">10065: Lenox Hill/Upper East Side</option>
+            <option value="10069">10069: Lincoln Square</option>
+            <option value="10075">10075: Lenox Hill/Upper East Side</option>
+            <option value="10128">10128: Upper East Side/Yorkville</option>
+            <option value="10280">10280: Battery Park City</option>
+            <option value="10282">10282: Battery Park City</option>
+            <option value="10301">10301: Silver Lake/St. George</option>
+            <option value="10302">10302: Elm Park</option>
+            <option value="10303">10303: Graniteville/Mariner's Harbor/Port Ivory</option>
+            <option value="10304">10304: New Dorp/Todt Hill</option>
+            <option value="10305">10305: Arrochar/Midland Beach/Shore Acres/South Beach Ocean Breeze
+            </option>
+            <option value="10306">10306: Lighthouse Hill/Midland Beach/New Dorp/Oakwood</option>
+            <option value="10307">10307: Tottenville</option>
+            <option value="10308">10308: Great Kills</option>
+            <option value="10309">10309: Charleston/Prince's Bay/Woodrow</option>
+            <option value="10310">10310: Port Richmond/Randall Manor/West Brighton</option>
+            <option value="10312">10312: Annadale/Rossville</option>
+            <option value="10314">10314: Bloomfield/Freshkills Park</option>
+            <option value="10451">10451: Concourse/Melrose</option>
+            <option value="10452">10452: Concourse/Highbridge</option>
+            <option value="10453">10453: Morris Heights/Mount Hope/University Heights</option>
+            <option value="10454">10454: Mott Haven/Port Morris</option>
+            <option value="10455">10455: Mott Haven</option>
+            <option value="10456">10456: Claremont/Morrisania</option>
+            <option value="10457">10457: Belmont/Claremont/Mount Hope/Tremont</option>
+            <option value="10458">10458: Belmont/Fordham University/Kingsbridge</option>
+            <option value="10459">10459: Charlotte Gardens/Hunts Point</option>
+            <option value="10460">10460: Charlotte Gardens/Tremont/Van Nest/West Farms</option>
+            <option value="10461">10461: Morris Park/Pelham Bay/Westchester Square</option>
+            <option value="10462">10462: Parkchester/Pelham Parkway/Van Nest/Westchester Square</option>
+            <option value="10463">10463: Kingsbridge/Marble Hill/Riverdale/Spuyten Duyvil</option>
+            <option value="10464">10464: City Island</option>
+            <option value="10465">10465: Country Club/Throgs Neck</option>
+            <option value="10466">10466: Edenwald/Wakefield</option>
+            <option value="10467">10467: Allerton/Norwood/Pelham Parkway/Williamsbridge</option>
+            <option value="10468">10468: Fordham/Kingsbridge/University Heights</option>
+            <option value="10469">10469: Allerton/Baychester/Pelham Gardens/Williamsbridge</option>
+            <option value="10470">10470: Wakefield/Woodlawn</option>
+            <option value="10471">10471: Fieldston/North Riverdale/Riverdale</option>
+            <option value="10472">10472: Soundview</option>
+            <option value="10473">10473: Castle Hill/Clason Point/Soundview</option>
+            <option value="10474">10474: Hunts Point</option>
+            <option value="10475">10475: Co-op City/Edenwald</option>
+            <option value="11004">11004: Bellerose/Douglaston-Little Neck</option>
+            <option value="11101">11101: Astoria (South)/Long Island City/Sunnyside</option>
+            <option value="11102">11102: Astoria (North)</option>
+            <option value="11103">11103: Astoria (North)/Astoria (South)</option>
+            <option value="11104">11104: Sunnyside</option>
+            <option value="11105">11105: Ditmars Steinway</option>
+            <option value="11106">11106: Astoria (South)</option>
+            <option value="11109">11109: Long Island City</option>
+            <option value="11201">11201: Brooklyn Heights/DUMBO/Downtown Brooklyn</option>
+            <option value="11203">11203: East Flatbush (North)/East Flatbush (South)</option>
+            <option value="11204">11204: Bensonhurst/Mapleton</option>
+            <option value="11205">11205: Bedford-Stuyvesant (West)/Clinton Hill/Fort Greene</option>
+            <option value="11206">11206: Williamsburg (South)</option>
+            <option value="11207">11207: Cypress Hills/East New York</option>
+            <option value="11208">11208: Cypress Hills/East New York</option>
+            <option value="11209">11209: Bay Ridge/Fort Hamilton</option>
+            <option value="11210">11210: Flatlands/Midwood</option>
+            <option value="11211">11211: East Williamsburg/Williamsburg (North)/Williamsburg (South)
+            </option>
+            <option value="11212">11212: Ocean Hill-Brownsville</option>
+            <option value="11213">11213: Crown Heights (East)</option>
+            <option value="11214">11214: Bath Beach/Bensonhurst/Gravesend</option>
+            <option value="11215">11215: Gowanus/Park Slope/Windsor Terrace</option>
+            <option value="11216">11216: Bedford-Stuyvesant (West)/Crown Heights (West)</option>
+            <option value="11217">11217: Boerum Hill/Park Slope</option>
+            <option value="11218">11218: Kensington/Windsor Terrace</option>
+            <option value="11219">11219: Borough Park</option>
+            <option value="11220">11220: Sunset Park</option>
+            <option value="11221">11221: Bedford-Stuyvesant (East)/Bushwick</option>
+            <option value="11222">11222: Greenpoint</option>
+            <option value="11223">11223: Gravesend/Homecrest</option>
+            <option value="11224">11224: Brighton Beach/Coney Island/Seagate</option>
+            <option value="11225">11225: Crown Heights (West)/Prospect Lefferts Gardens</option>
+            <option value="11226">11226: Flatbush/Prospect Lefferts Gardens</option>
+            <option value="11228">11228: Bath Beach/Dyker Heights</option>
+            <option value="11229">11229: Gerritsen Beach/Homecrest/Sheepshead Bay</option>
+            <option value="11230">11230: Midwood</option>
+            <option value="11231">11231: Carroll Gardens/Cobble Hill/Red Hook</option>
+            <option value="11232">11232: Sunset Park</option>
+            <option value="11233">11233: Bedford-Stuyvesant (East)/Ocean Hill-Brownsville</option>
+            <option value="11234">11234: Bergen Beach/Flatlands/Marine Park/Mill Basin</option>
+            <option value="11235">11235: Brighton Beach/Manhattan Beach/Sheepshead Bay</option>
+            <option value="11236">11236: Canarsie</option>
+            <option value="11237">11237: Bushwick/East Williamsburg</option>
+            <option value="11238">11238: Clinton Hill/Prospect Heights</option>
+            <option value="11239">11239: East New York</option>
+            <option value="11354">11354: Flushing/Murray Hill</option>
+            <option value="11355">11355: Flushing/Murray Hill/Queensboro Hill</option>
+            <option value="11356">11356: College Point</option>
+            <option value="11357">11357: Whitestone</option>
+            <option value="11358">11358: Auburndale/Murray Hill</option>
+            <option value="11360">11360: Bayside (North)</option>
+            <option value="11361">11361: Bayside (North)/Bayside (South)</option>
+            <option value="11362">11362: Douglaston-Little Neck</option>
+            <option value="11363">11363: Douglaston-Little Neck</option>
+            <option value="11364">11364: Bayside (South)/Oakland Gardens</option>
+            <option value="11365">11365: Auburndale/Fresh Meadows/Pomonok/Utopia</option>
+            <option value="11366">11366: Fresh Meadows/Hillcrest</option>
+            <option value="11367">11367: Kew Gardens Hills/Pomonok</option>
+            <option value="11368">11368: Corona/North Corona</option>
+            <option value="11369">11369: Airport/East Elmhurst</option>
+            <option value="11370">11370: Jackson Heights/Rikers Island</option>
+            <option value="11372">11372: Jackson Heights</option>
+            <option value="11373">11373: Elmhurst</option>
+            <option value="11374">11374: Rego Park</option>
+            <option value="11375">11375: Forest Hills</option>
+            <option value="11377">11377: Woodside</option>
+            <option value="11378">11378: Maspeth</option>
+            <option value="11379">11379: Middle Village</option>
+            <option value="11385">11385: Glendale/Ridgewood</option>
+            <option value="11411">11411: Cambria Heights</option>
+            <option value="11412">11412: St. Albans</option>
+            <option value="11413">11413: Laurelton/Rosedale</option>
+            <option value="11414">11414: Hamilton Beach/Howard Beach/Lindenwood</option>
+            <option value="11415">11415: Kew Gardens</option>
+            <option value="11416">11416: Ozone Park</option>
+            <option value="11417">11417: Ozone Park</option>
+            <option value="11418">11418: Richmond Hill</option>
+            <option value="11419">11419: Richmond Hill/South Ozone Park</option>
+            <option value="11420">11420: South Ozone Park</option>
+            <option value="11421">11421: Woodhaven</option>
+            <option value="11422">11422: Rosedale</option>
+            <option value="11423">11423: Hollis/Holliswood</option>
+            <option value="11426">11426: Bellerose</option>
+            <option value="11427">11427: Bellerose/Hollis Hills/Holliswood</option>
+            <option value="11428">11428: Queens Village</option>
+            <option value="11429">11429: Queens Village</option>
+            <option value="11432">11432: Hillcrest/Jamaica Estates/Jamaica Hills</option>
+            <option value="11433">11433: Jamaica</option>
+            <option value="11434">11434: Airport/South Jamaica/Springfield Gardens/St. Albans</option>
+            <option value="11435">11435: Briarwood/Jamaica</option>
+            <option value="11436">11436: South Jamaica/South Ozone Park</option>
+            <option value="11691">11691: Edgemere/Far Rockaway</option>
+            <option value="11692">11692: Arverne/Edgemere</option>
+            <option value="11693">11693: Arverne/Broad Channel</option>
+            <option value="11694">11694: Belle Harbor-Neponsit/Rockaway Park</option>
+            <option value="11697">11697: Breezy Point</option>
+        </select>
+    </div>
+
+    <button class="btn-primary" type="submit" style="float:right; width: 15%">Submit</button>
+</form>
+
+</main>
+
+
+
+
+
+
+</body>
+
+</html>

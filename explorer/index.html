@@ -31,6 +31,9 @@
     <!--Custom Explorer CSS-->
     <link href="css\explorer.css" rel="stylesheet">
 
+    <!--AA styles-->
+
+    <link rel="stylesheet" href="css/accessible-autocomplete.min.css">
 
 </head>
 
@@ -39,59 +42,287 @@
 <body>
 
     <div style="max-width:700px; margin: auto;">
-        <h1>COVID-19 data: ZIP Code Explorer</h2>
+        <h1>COVID-19 data: ZIP Code Explorer</h1>
+        <p>Get data on how COVID-19 has affected your neighborhood - and how your community is doing right now.</p>
 
-            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
-            <h3>Enter your ZIP Code</h3>
-            <p>Get data on how COVID-19 has affected your neighborhood - and how your community is doing right now. To
-                start, enter your ZIP code in the field below.</p>
+        <main>
+            <form id="zip-code-form">
+                <label for="last-location">Enter your ZIP Code or neighborhood
+                    name:</label>
+                <hr>
 
-            <form>
-                <label for="zipentry">Enter your ZIP code:</label>
-                <input type="text" id="zipentry" name="zipentry"><br>
+                <div class="autocomplete-wrapper" style="display:inline-block; width: 75%;">
+                    <select name="last-location" id="last-location">
+                        <option value="">Enter your ZIP Code or neighborhood name</option>
+                        <option value="10001">10001: Chelsea/NoMad/West Chelsea</option>
+                        <option value="10002">10002: Chinatown/Lower East Side</option>
+                        <option value="10003">10003: East Village/Gramercy/Greenwich Village</option>
+                        <option value="10004">10004: Financial District</option>
+                        <option value="10005">10005: Financial District</option>
+                        <option value="10006">10006: Financial District</option>
+                        <option value="10007">10007: TriBeCa</option>
+                        <option value="10009">10009: Alphabet City/East Village/Stuyvesant Town-Cooper Village
+                        </option>
+                        <option value="10010">10010: Flatiron/Gramercy/Kips Bay</option>
+                        <option value="10011">10011: Chelsea</option>
+                        <option value="10012">10012: Greenwich Village/SoHo</option>
+                        <option value="10013">10013: Hudson Square/Little Italy/SoHo/TriBeCa</option>
+                        <option value="10014">10014: Hudson Square/Meatpacking District/West Village</option>
+                        <option value="10016">10016: Kips Bay/Murray Hill/NoMad</option>
+                        <option value="10017">10017: East Midtown/Murray Hill</option>
+                        <option value="10018">10018: Hell's Kitchen/Midtown Manhattan</option>
+                        <option value="10019">10019: Hell's Kitchen/Midtown Manhattan</option>
+                        <option value="10021">10021: Lenox Hill/Upper East Side</option>
+                        <option value="10022">10022: East Midtown</option>
+                        <option value="10023">10023: Lincoln Square</option>
+                        <option value="10024">10024: Upper West Side</option>
+                        <option value="10025">10025: Manhattan Valley/Morningside Heights/Upper West Side</option>
+                        <option value="10026">10026: Central Harlem (South)</option>
+                        <option value="10027">10027: Central Harlem (South)/Morningside Heights/West Harlem</option>
+                        <option value="10028">10028: Upper East Side/Yorkville</option>
+                        <option value="10029">10029: East Harlem</option>
+                        <option value="10030">10030: Central Harlem (North)</option>
+                        <option value="10031">10031: Hamilton Heights/West Harlem</option>
+                        <option value="10032">10032: Washington Heights (South)</option>
+                        <option value="10033">10033: Washington Heights (North)/Washington Heights (South)</option>
+                        <option value="10034">10034: Inwood/Washington Heights (North)</option>
+                        <option value="10035">10035: East Harlem</option>
+                        <option value="10036">10036: Hell's Kitchen/Midtown Manhattan</option>
+                        <option value="10037">10037: Central Harlem (North)/East Harlem</option>
+                        <option value="10038">10038: Chinatown/Financial District</option>
+                        <option value="10039">10039: Central Harlem (North)/Washington Heights (South)</option>
+                        <option value="10040">10040: Washington Heights (North)</option>
+                        <option value="10044">10044: Roosevelt Island</option>
+                        <option value="10065">10065: Lenox Hill/Upper East Side</option>
+                        <option value="10069">10069: Lincoln Square</option>
+                        <option value="10075">10075: Lenox Hill/Upper East Side</option>
+                        <option value="10128">10128: Upper East Side/Yorkville</option>
+                        <option value="10280">10280: Battery Park City</option>
+                        <option value="10282">10282: Battery Park City</option>
+                        <option value="10301">10301: Silver Lake/St. George</option>
+                        <option value="10302">10302: Elm Park</option>
+                        <option value="10303">10303: Graniteville/Mariner's Harbor/Port Ivory</option>
+                        <option value="10304">10304: New Dorp/Todt Hill</option>
+                        <option value="10305">10305: Arrochar/Midland Beach/Shore Acres/South Beach Ocean Breeze
+                        </option>
+                        <option value="10306">10306: Lighthouse Hill/Midland Beach/New Dorp/Oakwood</option>
+                        <option value="10307">10307: Tottenville</option>
+                        <option value="10308">10308: Great Kills</option>
+                        <option value="10309">10309: Charleston/Prince's Bay/Woodrow</option>
+                        <option value="10310">10310: Port Richmond/Randall Manor/West Brighton</option>
+                        <option value="10312">10312: Annadale/Rossville</option>
+                        <option value="10314">10314: Bloomfield/Freshkills Park</option>
+                        <option value="10451">10451: Concourse/Melrose</option>
+                        <option value="10452">10452: Concourse/Highbridge</option>
+                        <option value="10453">10453: Morris Heights/Mount Hope/University Heights</option>
+                        <option value="10454">10454: Mott Haven/Port Morris</option>
+                        <option value="10455">10455: Mott Haven</option>
+                        <option value="10456">10456: Claremont/Morrisania</option>
+                        <option value="10457">10457: Belmont/Claremont/Mount Hope/Tremont</option>
+                        <option value="10458">10458: Belmont/Fordham University/Kingsbridge</option>
+                        <option value="10459">10459: Charlotte Gardens/Hunts Point</option>
+                        <option value="10460">10460: Charlotte Gardens/Tremont/Van Nest/West Farms</option>
+                        <option value="10461">10461: Morris Park/Pelham Bay/Westchester Square</option>
+                        <option value="10462">10462: Parkchester/Pelham Parkway/Van Nest/Westchester Square</option>
+                        <option value="10463">10463: Kingsbridge/Marble Hill/Riverdale/Spuyten Duyvil</option>
+                        <option value="10464">10464: City Island</option>
+                        <option value="10465">10465: Country Club/Throgs Neck</option>
+                        <option value="10466">10466: Edenwald/Wakefield</option>
+                        <option value="10467">10467: Allerton/Norwood/Pelham Parkway/Williamsbridge</option>
+                        <option value="10468">10468: Fordham/Kingsbridge/University Heights</option>
+                        <option value="10469">10469: Allerton/Baychester/Pelham Gardens/Williamsbridge</option>
+                        <option value="10470">10470: Wakefield/Woodlawn</option>
+                        <option value="10471">10471: Fieldston/North Riverdale/Riverdale</option>
+                        <option value="10472">10472: Soundview</option>
+                        <option value="10473">10473: Castle Hill/Clason Point/Soundview</option>
+                        <option value="10474">10474: Hunts Point</option>
+                        <option value="10475">10475: Co-op City/Edenwald</option>
+                        <option value="11004">11004: Bellerose/Douglaston-Little Neck</option>
+                        <option value="11101">11101: Astoria (South)/Long Island City/Sunnyside</option>
+                        <option value="11102">11102: Astoria (North)</option>
+                        <option value="11103">11103: Astoria (North)/Astoria (South)</option>
+                        <option value="11104">11104: Sunnyside</option>
+                        <option value="11105">11105: Ditmars Steinway</option>
+                        <option value="11106">11106: Astoria (South)</option>
+                        <option value="11109">11109: Long Island City</option>
+                        <option value="11201">11201: Brooklyn Heights/DUMBO/Downtown Brooklyn</option>
+                        <option value="11203">11203: East Flatbush (North)/East Flatbush (South)</option>
+                        <option value="11204">11204: Bensonhurst/Mapleton</option>
+                        <option value="11205">11205: Bedford-Stuyvesant (West)/Clinton Hill/Fort Greene</option>
+                        <option value="11206">11206: Williamsburg (South)</option>
+                        <option value="11207">11207: Cypress Hills/East New York</option>
+                        <option value="11208">11208: Cypress Hills/East New York</option>
+                        <option value="11209">11209: Bay Ridge/Fort Hamilton</option>
+                        <option value="11210">11210: Flatlands/Midwood</option>
+                        <option value="11211">11211: East Williamsburg/Williamsburg (North)/Williamsburg (South)
+                        </option>
+                        <option value="11212">11212: Ocean Hill-Brownsville</option>
+                        <option value="11213">11213: Crown Heights (East)</option>
+                        <option value="11214">11214: Bath Beach/Bensonhurst/Gravesend</option>
+                        <option value="11215">11215: Gowanus/Park Slope/Windsor Terrace</option>
+                        <option value="11216">11216: Bedford-Stuyvesant (West)/Crown Heights (West)</option>
+                        <option value="11217">11217: Boerum Hill/Park Slope</option>
+                        <option value="11218">11218: Kensington/Windsor Terrace</option>
+                        <option value="11219">11219: Borough Park</option>
+                        <option value="11220">11220: Sunset Park</option>
+                        <option value="11221">11221: Bedford-Stuyvesant (East)/Bushwick</option>
+                        <option value="11222">11222: Greenpoint</option>
+                        <option value="11223">11223: Gravesend/Homecrest</option>
+                        <option value="11224">11224: Brighton Beach/Coney Island/Seagate</option>
+                        <option value="11225">11225: Crown Heights (West)/Prospect Lefferts Gardens</option>
+                        <option value="11226">11226: Flatbush/Prospect Lefferts Gardens</option>
+                        <option value="11228">11228: Bath Beach/Dyker Heights</option>
+                        <option value="11229">11229: Gerritsen Beach/Homecrest/Sheepshead Bay</option>
+                        <option value="11230">11230: Midwood</option>
+                        <option value="11231">11231: Carroll Gardens/Cobble Hill/Red Hook</option>
+                        <option value="11232">11232: Sunset Park</option>
+                        <option value="11233">11233: Bedford-Stuyvesant (East)/Ocean Hill-Brownsville</option>
+                        <option value="11234">11234: Bergen Beach/Flatlands/Marine Park/Mill Basin</option>
+                        <option value="11235">11235: Brighton Beach/Manhattan Beach/Sheepshead Bay</option>
+                        <option value="11236">11236: Canarsie</option>
+                        <option value="11237">11237: Bushwick/East Williamsburg</option>
+                        <option value="11238">11238: Clinton Hill/Prospect Heights</option>
+                        <option value="11239">11239: East New York</option>
+                        <option value="11354">11354: Flushing/Murray Hill</option>
+                        <option value="11355">11355: Flushing/Murray Hill/Queensboro Hill</option>
+                        <option value="11356">11356: College Point</option>
+                        <option value="11357">11357: Whitestone</option>
+                        <option value="11358">11358: Auburndale/Murray Hill</option>
+                        <option value="11360">11360: Bayside (North)</option>
+                        <option value="11361">11361: Bayside (North)/Bayside (South)</option>
+                        <option value="11362">11362: Douglaston-Little Neck</option>
+                        <option value="11363">11363: Douglaston-Little Neck</option>
+                        <option value="11364">11364: Bayside (South)/Oakland Gardens</option>
+                        <option value="11365">11365: Auburndale/Fresh Meadows/Pomonok/Utopia</option>
+                        <option value="11366">11366: Fresh Meadows/Hillcrest</option>
+                        <option value="11367">11367: Kew Gardens Hills/Pomonok</option>
+                        <option value="11368">11368: Corona/North Corona</option>
+                        <option value="11369">11369: Airport/East Elmhurst</option>
+                        <option value="11370">11370: Jackson Heights/Rikers Island</option>
+                        <option value="11372">11372: Jackson Heights</option>
+                        <option value="11373">11373: Elmhurst</option>
+                        <option value="11374">11374: Rego Park</option>
+                        <option value="11375">11375: Forest Hills</option>
+                        <option value="11377">11377: Woodside</option>
+                        <option value="11378">11378: Maspeth</option>
+                        <option value="11379">11379: Middle Village</option>
+                        <option value="11385">11385: Glendale/Ridgewood</option>
+                        <option value="11411">11411: Cambria Heights</option>
+                        <option value="11412">11412: St. Albans</option>
+                        <option value="11413">11413: Laurelton/Rosedale</option>
+                        <option value="11414">11414: Hamilton Beach/Howard Beach/Lindenwood</option>
+                        <option value="11415">11415: Kew Gardens</option>
+                        <option value="11416">11416: Ozone Park</option>
+                        <option value="11417">11417: Ozone Park</option>
+                        <option value="11418">11418: Richmond Hill</option>
+                        <option value="11419">11419: Richmond Hill/South Ozone Park</option>
+                        <option value="11420">11420: South Ozone Park</option>
+                        <option value="11421">11421: Woodhaven</option>
+                        <option value="11422">11422: Rosedale</option>
+                        <option value="11423">11423: Hollis/Holliswood</option>
+                        <option value="11426">11426: Bellerose</option>
+                        <option value="11427">11427: Bellerose/Hollis Hills/Holliswood</option>
+                        <option value="11428">11428: Queens Village</option>
+                        <option value="11429">11429: Queens Village</option>
+                        <option value="11432">11432: Hillcrest/Jamaica Estates/Jamaica Hills</option>
+                        <option value="11433">11433: Jamaica</option>
+                        <option value="11434">11434: Airport/South Jamaica/Springfield Gardens/St. Albans</option>
+                        <option value="11435">11435: Briarwood/Jamaica</option>
+                        <option value="11436">11436: South Jamaica/South Ozone Park</option>
+                        <option value="11691">11691: Edgemere/Far Rockaway</option>
+                        <option value="11692">11692: Arverne/Edgemere</option>
+                        <option value="11693">11693: Arverne/Broad Channel</option>
+                        <option value="11694">11694: Belle Harbor-Neponsit/Rockaway Park</option>
+                        <option value="11697">11697: Breezy Point</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary" type="submit" style="float:right; width: 15%">Submit</button>
             </form>
 
-            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
-            <h3>Your ZIP Code: <span style="color:#ff34ce;">selected ZIP code</span></h3>
-            <div style="height: 150px; border: 1px dotted gray; width: 100%;">Neighborhood information</div>
+        </main>
+
+
+
+        <div class="submitted submitted--hidden">
+            <h3 style="margin-top: 50px;">Your neighborhood: <span class="submitted__last-location"
+                    style="color: #ff34ce"></span></h3>
+
+            <p>In your neighborhood, <span id="ns1" style="font-weight: bold; color: #ff34ce"></span>, <span id="case1"
+                    style="font-weight: bold;"></span> of your
+                neighbors have been
+                diagnosed with COVID-19 since the start of the pandemic. Of those, <span id="death1"
+                    style="font-weight: bold;"></span> have died.
+            </p>
+
+            <p>Adjusted for population, that's:<br>
+
+            <div style="display:inline-block; width: 49%;">
+                <p>Case rate of <span id="crzip" style="font-weight: bold;"></span>
+                <ul>
+                    <li><span id="hilo1"></span> than
+                        <span id="boro1"></span>'s case rate</li>
+                    <li><span id="hilo2"></span> than New York City's case rate</li>
+                </ul>
+                </p>
+            </div>
+
+            <div style="display:inline-block; padding-left: 5px; width: 49%;">
+                <p>Death rate of <span id="drzip" style="font-weight: bold;"></span>
+                <ul>
+                    <li><span id="hilo3"></span> than
+                        <span id="boro2"></span>'s death rate</li>
+                    <li><span id="hilo4"></span> than New York City's death rate</li>
+                </ul>
+                </p>
+            </div>
+
 
             <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
-            <h3>Totals since the start of the pandemic</h3>
+
+            <h4>Totals since the start of the pandemic</h4>
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Measure</th>
-                        <th scope="col">ZIP Code</th>
-                        <th scope="col">Borough</th>
-                        <th scope="col">NYC</th>
+                        <th scope="col"><span style="color: #6b6b6b">Measure</span></th>
+                        <th scope="col"><span id="ziptable"
+                                style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;Your
+                                ZIP Code&nbsp;</span></th>
+                        <th scope="col"><span id="borotable" style="font-weight:bold;background:#858585; color:white;">
+                                &nbsp;Borough&nbsp; </span></th>
+                        <th scope="col">
+                            <span style="font-weight:bold;background:black; color:white;">
+                                &nbsp;all of NYC&nbsp;
+                            </span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row"><span style="font-weight:bold">Test rate</span><br><span
+                        <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Test rate</span><br><span
                                 style="font-size: 12px; font-weight: normal;color: #3f3f3f;">People tested per 100,000
                                 people</span>
                         </th>
-                        <td>aaa</td>
+                        <td id="ziptestrate">aaa</td>
                         <td>bbb</td>
                         <td>ccc</td>
                     </tr>
                     <tr>
-                        <th scope="row"><span style="font-weight:bold">Case rate</span><br><span
+                        <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Case rate</span><br><span
                                 style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Confirmed cases per 100,000
                                 people</span>
                         </th>
-                        <td>mmm</td>
-                        <td>nnn</td>
-                        <td>ooo</td>
+                        <td id="zipcaserate">mmm</td>
+                        <td id="borocaserate">nnn</td>
+                        <td id="citycaserate">ooo</td>
                     </tr>
                     <tr>
-                        <th scope="row"><span style="font-weight:bold">Case rate</span><br><span
-                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Confirmed cases per 100,000
+                        <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Death rate</span><br><span
+                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Deaths per 100,000
                                 people</span></th>
-                        <td>XXX</td>
-                        <td>YYY</td>
-                        <td>ZZZ</td>
+                        <td id="zipdeathrate">XXX</td>
+                        <td id="borodeathrate">YYY</td>
+                        <td id="citydeathrate">ZZZ</td>
                     </tr>
                 </tbody>
             </table>
@@ -103,21 +334,59 @@
                     visit COVID-19 Data:
                     Totals</a>.</div>
 
+
             <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
-            <h3>Key metrics from the last 7 days</h3>
+            <h3>Key metrics: over the last 3 months</h3>
 
             <div>
-                <div id="trbutton" class="togglebutton " style=" width: 30%;display: inline-block;">
-                    <a> Testing Rate </a>
+                <div id="chartbtn1" class="chartbutton togglebutton highlight"
+                    style=" width: 30%;display: inline-block;">
+                    <a onclick="changeMetric(1)"> Testing Rate </a>
                 </div>
 
-                <div id="ppbutton" class="togglebutton highlight" style="width: 30%;display: inline-block;">
-                    <a>
+                <div id="chartbtn2" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
+                    <a onclick="changeMetric(2)">
                         Percent Positive </a>
                 </div>
 
-                <div id="crbutton" class="togglebutton" style="width: 30%;display: inline-block;">
-                    <a> Case Rate </a>
+                <div id="chartbtn3" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
+                    <a onclick="changeMetric(3)"> Case Rate </a>
+                </div>
+
+            </div>
+
+
+            <p style="font-size:14px; margin-top:15px;">
+                <span id="datalabel">People tested per 100,000</span> for:
+                <span id="chartzip" style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;your
+                    ZIP Code&nbsp;</span>
+                <span id="chartboro" style="font-weight:bold;background:#858585; color:white;">
+                    &nbsp; the Borough it's in&nbsp;
+                </span>
+                &nbsp;and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of NYC&nbsp;</span>
+            </p>
+
+            <div class="vis2" id="trchart">
+
+
+            </div>
+
+            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
+            <h3>Key metrics: over the last 7 days</h3>
+
+            <div id="mapbuttons">
+                <div id="mb1" data-num="1" class="mapbutton togglebutton highlight"
+                    style=" width: 30%;display: inline-block;">
+                    <a onclick="changeMap(1)"> Median Daily Test Rate </a>
+                </div>
+
+                <div id="mb2" data-num="2" class="mapbutton togglebutton" style="width: 30%;display: inline-block;">
+                    <a onclick="changeMap(2)">
+                        Percent Positive </a>
+                </div>
+
+                <div id="mb3" data-num="3" class="mapbutton togglebutton " style="width: 30%;display: inline-block;">
+                    <a onclick="changeMap(3)"> New Cases </a>
                 </div>
 
             </div>
@@ -126,38 +395,16 @@
             <div class="vis" id="map"></div>
 
 
-            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
-            <h3>Key metrics over the last 3 months</h3>
-
-            <div>
-                <div class="togglebutton highlight" style=" width: 30%;display: inline-block;">
-                    <a> Testing Rate </a>
-                </div>
-
-                <div class="togglebutton" style="width: 30%;display: inline-block;">
-                    <a>
-                        Percent Positive </a>
-                </div>
-
-                <div class="togglebutton" style="width: 30%;display: inline-block;">
-                    <a> Case Rate </a>
-                </div>
-
-            </div>
-
-            <div id="trchart">
-
-            </div>
-
+        </div>
 
 
 
     </div>
 
+    <!--D3-->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
 
-    <!--Explorer JS-->
-    <script src="js/explorer.js"></script>
 
     <!-- jQuery (full, compressed version) -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -174,6 +421,39 @@
 
     <!-- NYC template JS (RTL, search and language toggle, back to top)  -->
     <script src="https://nycehs.github.io/Portal-Core-Repo/js/main.js"></script>
+
+    <!--Explorer JS-->
+    <script src="js/explorer.js"></script>
+
+    <!--Accessible Autocomplete JS-->
+    <script type="text/javascript" src="js/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript">
+        var selectEl = document.querySelector('#last-location')
+        accessibleAutocomplete.enhanceSelectElement({
+            autoselect: true,
+            confirmOnBlur: true,
+            defaultValue: "",
+            minLength: 2,
+            selectElement: selectEl
+            , onConfirm: poop()
+        })
+
+        /*
+        var queryStringParameters = window.location.search
+        var previouslySubmitted = queryStringParameters.length > 0
+        if (previouslySubmitted) {
+            var submittedEl = document.querySelector('.submitted')
+            submittedEl.classList.remove('submitted--hidden')
+            var params = new URLSearchParams(document.location.search.split('?')[1])
+            document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
+        }
+        */
+        function poop() { console.log('hi ' + selectEl.value) };
+        console.log(selectEl.value);
+
+
+    </script>
+
 
 
 
