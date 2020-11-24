@@ -34,13 +34,17 @@ zipCodeForm.addEventListener('submit', function (event) {
     document.getElementById('zip').innerHTML = "&nbsp;" + zipCode + "&nbsp;";
     document.getElementById('city').innerHTML = "&nbsp;New York City&nbsp;";
 
-    console.log(chartSpec.layer[6]);
+
 
     //Draw ZIP line
     chartSpec.layer[6].encoding.y.field = zipCode;
     chartSpec.layer[6].encoding.y.title = zipCode;
+    chartSpec.layer[6].encoding.tooltip[0].field = zipCode;
+    chartSpec.layer[6].encoding.tooltip[0].title = zipCode;
     chartSpec.layer[6].encoding.color.value = "hotpink";
-    chartSpec.layer[6].mark.strokeWidth = 2;
+    chartSpec.layer[6].mark.strokeWidth = 3;
+
+    console.log(chartSpec.layer[6]);
 
     /*
     Layers: 
@@ -73,7 +77,7 @@ zipCodeForm.addEventListener('submit', function (event) {
         chartSpec.layer[4].mark.strokeWidth = 0.5;
 
         //style parent borough
-        chartSpec.layer[2].mark.strokeWidth = 3;
+        chartSpec.layer[2].mark.strokeWidth = 4;
     }
 
     else if (zipCode >= 10301 && zipCode <= 10314) {
@@ -113,7 +117,7 @@ zipCodeForm.addEventListener('submit', function (event) {
         chartSpec.layer[4].mark.strokeWidth = 0.5;
 
         //style parent borough
-        chartSpec.layer[1].mark.strokeWidth = 3;
+        chartSpec.layer[1].mark.strokeWidth = 4;
 
 
     } else if (zipCode >= 11104 && zipCode <= 11109 || zipCode >= 11354 && zipCode <= 11697) {
@@ -133,7 +137,7 @@ zipCodeForm.addEventListener('submit', function (event) {
         chartSpec.layer[4].mark.strokeWidth = 0.5;
 
         //style parent borough
-        chartSpec.layer[3].mark.strokeWidth = 3;
+        chartSpec.layer[3].mark.strokeWidth = 4;
     }
 
     else if (zipCode >= 11201 && zipCode <= 11239) {
@@ -153,7 +157,7 @@ zipCodeForm.addEventListener('submit', function (event) {
         chartSpec.layer[4].mark.strokeWidth = 0.5;
 
         //style parent borough
-        chartSpec.layer[0].mark.strokeWidth = 3;
+        chartSpec.layer[0].mark.strokeWidth = 4;
     };
 
 
@@ -398,13 +402,14 @@ var chartSpec = {
             "mark": {
                 "type": "line",
                 "point": {
-                    "filled": true,
+                    "filled": false,
+                    "fill": "white",
                     "size": 15,
                     "strokeWidth": 1
                 },
                 "tooltip": true,
                 "interpolate": "natural",
-                "strokeWidth": 1.5
+                "strokeWidth": 4
             },
             "encoding": {
                 "x": {
@@ -437,13 +442,14 @@ var chartSpec = {
             "mark": {
                 "type": "line",
                 "point": {
-                    "filled": true,
+                    "filled": false,
+                    "fill": "white",
                     "size": 15,
                     "strokeWidth": 1
                 },
                 "tooltip": true,
                 "interpolate": "natural",
-                "strokeWidth": 1.5
+                "strokeWidth": 0.5
             },
             "encoding": {
                 "x": {
@@ -457,7 +463,7 @@ var chartSpec = {
                     "title": null
                 },
                 "color": {
-                    "value": "black"
+                    "value": "white"
                 },
                 "tooltip": [
                     {
