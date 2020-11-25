@@ -15,16 +15,20 @@ var zipCodeForm = document.getElementById('zip-code-form');
 
 // set global instace of variables
 
-var zipCode;
-var zipCodeData;
-var zipString;
-var fullName;
-var parentBoro;
-var boroData;
-var fullData;
-var cityData;
-var cityTableData;
-var metric = "TESTRATE";
+var zipCode;        //holds the 5-digit zip code
+var zipCodeData;    // the ZIP's data from fullData (data-by-modzcta)
+var zipString;      // ZIP code, as a string
+var fullName;       // ZIP Code plus neighborhood name
+var parentBoro;     // ZIP's parent boro
+var boroData;       // Boro's data from by-boro
+var fullData;       // full data from data-by-modzcta
+var cityData;       // full data from by-boro
+var antibodyData;   // full data from antibody-by-modzcta
+var cityTableData;  // Citywide valuesfrom by-boro
+var metric = "TESTRATE"; // Initial map metric selection
+
+
+
 
 // This listens for submission of the zip code form
 zipCodeForm.addEventListener('submit', function (event) {
@@ -35,8 +39,6 @@ zipCodeForm.addEventListener('submit', function (event) {
     zipString = zipCode.toString(); // converts the numerical value to a string
     console.log('zip code is ' + zipCode);
     changeNeighborhood(zipCode); // runs the major display function
-
-    // console.log(event);
 });
 
 
@@ -48,120 +50,18 @@ zipCodeForm.addEventListener('submit', function (event) {
 d3.csv("data-by-modzcta.csv").then(function (data) {
     //console.log(data); // [{"Hello": "world"}, â€¦]
     fullData = data;
-    /* 
-    console.log(fullData);
-    */
 });
 
 // d3 code to pull in by-boro - will need to change to remote ref when live
 d3.csv("by-boro.csv").then(function (data) {
     //console.log(data); // [{"Hello": "world"}, â€¦]
     cityData = data;
-    /*
-    console.log(cityData);
-    */
 });
+
+
 
 //you now have fullData by modzcta, and citywide/boro data
 
-
-
-//This is the big fuction where most of the stuff happens, that runs on zip selection
-function changeNeighborhood(zipCode) {
-    document.querySelector('.submitted__last-location').innerHTML = zipCode; // shows ZIP
-    document.querySelector('.submitted').classList.remove('submitted--hidden'); // reveals Facts panel
-    zipCodeData = fullData.filter(neighborhood => neighborhood.MODIFIED_ZCTA == zipString); // Filters data-by-modzcta to just selected neighborhood
-    console.log(zipCodeData); // Look Ma, you can see it in the console
-    document.getElementById('ziptable').innerHTML = "&nbsp;" + zipString + "&nbsp;";
-    document.getElementById('zipcaserate').innerHTML = zipCodeData[0].COVID_CASE_RATE;
-    document.getElementById('zipdeathrate').innerHTML = zipCodeData[0].COVID_DEATH_RATE;
-
-    // getting boro data for cumulative table
-    parentBoro = zipCodeData[0].BOROUGH_GROUP;
-    console.log('the borough is: ' + parentBoro);
-    boroData = cityData.filter(boro => boro.BOROUGH_GROUP == parentBoro);
-    /*
-    console.log(boroData);
-    */
-    document.getElementById('borocaserate').innerHTML = boroData[0].CASE_RATE;
-    document.getElementById('borodeathrate').innerHTML = boroData[0].DEATH_RATE;
-    document.getElementById('borotable').innerHTML = "&nbsp;" + parentBoro + "&nbsp;";
-
-    //getting city data for cumulative table
-    cityTableData = cityData.filter(boro => boro.BOROUGH_GROUP == 'Citywide');
-    /*
-    console.log(cityTableData);
-    */
-    document.getElementById('citycaserate').innerHTML = cityTableData[0].CASE_RATE;
-    document.getElementById('citydeathrate').innerHTML = cityTableData[0].DEATH_RATE;
-
-    //Summary paragraph
-    document.getElementById('ns1').innerHTML = fullName;
-    document.getElementById('case1').innerHTML = "&nbsp;" + zipCodeData[0].COVID_CASE_COUNT + "&nbsp;";
-    document.getElementById('death1').innerHTML = "&nbsp;" + zipCodeData[0].COVID_DEATH_COUNT + "&nbsp;";
-    document.getElementById('crzip').innerHTML = zipCodeData[0].COVID_CASE_RATE + " per 100,000 people.";
-    document.getElementById('drzip').innerHTML = zipCodeData[0].COVID_DEATH_RATE + " per 100,000 people.";
-
-    if (zipCodeData[0].COVID_CASE_RATE > boroData[0].CASE_RATE) {
-        document.getElementById('hilo1').innerHTML = "&nbsp;Higher&nbsp;";
-        document.getElementById('hilo1').classList.add('higher');
-        document.getElementById('hilo1').classList.remove('lower');
-    } else {
-        document.getElementById('hilo1').innerHTML = "&nbsp;Lower&nbsp;";
-        document.getElementById('hilo1').classList.add('lower');
-        document.getElementById('hilo1').classList.remove('higher');
-    }
-
-    document.getElementById('boro1').innerHTML = parentBoro;
-    document.getElementById('boro2').innerHTML = parentBoro;
-
-    if (zipCodeData[0].COVID_DEATH_RATE > boroData[0].DEATH_RATE) {
-        document.getElementById('hilo2').innerHTML = "&nbsp;Higher&nbsp;"
-        document.getElementById('hilo2').classList.add('higher');
-        document.getElementById('hilo2').classList.remove('lower');
-    } else {
-        document.getElementById('hilo2').innerHTML = "&nbsp;Lower&nbsp;";
-        document.getElementById('hilo2').classList.add('lower');
-        document.getElementById('hilo2').classList.remove('higher');
-
-    }
-
-    if (zipCodeData[0].COVID_DEATH_RATE > cityTableData[0].DEATH_RATE) {
-        document.getElementById('hilo3').innerHTML = "&nbsp;Higher&nbsp;";
-        document.getElementById('hilo3').classList.add('higher');
-        document.getElementById('hilo3').classList.remove('lower');
-
-    } else {
-        document.getElementById('hilo3').innerHTML = "&nbsp;Lower&nbsp;";
-        document.getElementById('hilo3').classList.add('lower');
-        document.getElementById('hilo3').classList.remove('higher');
-
-    }
-
-
-    if (zipCodeData[0].COVID_DEATH_RATE > cityTableData[0].DEATH_RATE) {
-        document.getElementById('hilo4').innerHTML = "&nbsp;Higher&nbsp;";
-        document.getElementById('hilo4').classList.add('higher');
-        document.getElementById('hilo4').classList.remove('lower');
-
-    } else {
-        document.getElementById('hilo4').innerHTML = "&nbsp;Lower&nbsp;";
-        document.getElementById('hilo4').classList.add('lower');
-        document.getElementById('hilo4').classList.remove('higher');
-
-    }
-
-    console.log('zipString is ' + zipString + ', and metric is ' + metric);
-
-    // Draws the chart based on the ZIP!
-    chartDraw(zipString, metric);
-    document.getElementById('chartzip').innerHTML = "&nbsp;" + zipString + "&nbsp;";
-    document.getElementById('chartboro').innerHTML = "&nbsp;" + parentBoro + "&nbsp;";
-
-    // Draws the map upon neighborhood selection
-    showMap(vegaSpec);
-
-}
 
 
 
@@ -277,7 +177,7 @@ var vegaSpec =
                     {
                         "field": "people_positive",
                         "type": "quantitative",
-                        "title": "New Cases (reported to date)"
+                        "title": "People positive (reported to date)"
                     },
 
                     {
@@ -371,7 +271,7 @@ var vegaDotSpec = {
                         ]
                     },
                     "legend": {
-                        "title": `New Cases (Reported so far)`,
+                        "title": `People positive (reported so far)`,
                         "titleFontSize": 10,
                         "orient": "top-left",
                         "symbolLimit": 5,
@@ -410,7 +310,7 @@ var vegaDotSpec = {
                     {
                         "field": "people_positive",
                         "type": "quantitative",
-                        "title": "New Cases (reported to date)"
+                        "title": "People positive (reported to date)"
                     },
 
                     {
@@ -423,6 +323,78 @@ var vegaDotSpec = {
         }
     ]
 }
+
+
+
+
+
+
+
+
+var mapData;
+var mapZipData;
+var maxMDTR;
+var minMDTR;
+var minPP;
+var maxPP;
+var minPeople;
+var maxPeople;
+
+// d3 code to pull in last7days-by-modzcta - will need to change to remote ref when live
+d3.csv("last7days-by-modzcta.csv").then(function (data) {
+    //console.log(data); // [{"Hello": "world"}, â€¦]
+    mapData = data;
+    console.log('full map data:')
+    console.log(mapData);
+
+
+    function getMax(arr, prop) {
+        var max;
+        for (var i = 0; i < arr.length; i++) {
+            if (!max || parseInt(arr[i][prop]) > parseInt(max[prop]))
+                max = arr[i];
+        }
+        return max;
+    }
+
+    function getMin(arr, prop) {
+        var min;
+        for (var i = 0; i < arr.length; i++) {
+            if (!min || parseInt(arr[i][prop]) < parseInt(min[prop]))
+                min = arr[i];
+        }
+        return min;
+    }
+
+    maxMDTR = getMax(mapData, "median_daily_test_rate");
+    minMDTR = getMin(mapData, "median_daily_test_rate");
+    console.log('min mdtr is: ' + minMDTR.modzcta_name + ", " + minMDTR.median_daily_test_rate + " per 100,000");
+    console.log('max mdtr is: ' + maxMDTR.modzcta_name + ", " + maxMDTR.median_daily_test_rate + ' per 100,000');
+
+    minPP = getMin(mapData, "percentpositivity_7day");
+    maxPP = getMax(mapData, "percentpositivity_7day");
+    console.log('min PP is: ' + minPP.modzcta_name + ", " + minPP.percentpositivity_7day + "%");
+    console.log('max PP is: ' + maxPP.modzcta_name + ", " + maxPP.percentpositivity_7day + "%");
+
+    minPeople = getMin(mapData, "people_positive");
+    maxPeople = getMax(mapData, "people_positive");
+    console.log('min people positive is: ' + minPeople.modzcta_name + ", " + minPeople.people_positive);
+    console.log('max people positive is: ' + maxPeople.modzcta_name + ", " + maxPeople.people_positive);
+
+});
+
+
+
+
+
+//End min/max work.
+
+
+
+
+
+
+
 
 //Initial Map Render
 var opt = {
@@ -644,7 +616,6 @@ function chartDraw(zs, m) {
     } else if (metric === "CASERATE") {
         chartSpec.data.url = "https://raw.githubusercontent.com/nychealth/coronavirus-data/master/trends/caserate-by-modzcta.csv"
     };
-    console.log(chartSpec.data.url);
 
     // These update the encoding based on the metric, ZIP, and parent Boro
     chartSpec.layer[0].encoding.y.field = m + "_CITY";
@@ -661,3 +632,143 @@ function chartDraw(zs, m) {
     //and then this draws the chart
     vegaEmbed("#trchart", chartSpec);
 }
+
+
+
+
+
+
+
+//This is the big fuction where most of the stuff happens, that runs on zip selection. Putting this at the bottom to make sure everything is loaded when it happens. 
+function changeNeighborhood(zipCode) {
+    document.querySelector('.submitted__last-location').innerHTML = zipCode; // shows ZIP
+    document.querySelector('.submitted').classList.remove('submitted--hidden'); // reveals Facts panel
+    zipCodeData = fullData.filter(neighborhood => neighborhood.MODIFIED_ZCTA == zipString); // Filters data-by-modzcta to just selected neighborhood
+    console.log(zipCodeData); // Look Ma, you can see it in the console
+    document.getElementById('ziptable').innerHTML = "&nbsp;" + zipString + "&nbsp;";
+    document.getElementById('zipcaserate').innerHTML = zipCodeData[0].COVID_CASE_RATE;
+    document.getElementById('zipdeathrate').innerHTML = zipCodeData[0].COVID_DEATH_RATE;
+
+    // getting boro data for cumulative table
+    parentBoro = zipCodeData[0].BOROUGH_GROUP;
+    console.log('the borough is: ' + parentBoro);
+
+    // This makes it so that filtering cityData doesn't break via "Staten Island" but causes other problems
+    if (parentBoro === "Staten Island") {
+        parentBoro = "StatenIsland"
+    };
+    boroData = cityData.filter(boro => boro.BOROUGH_GROUP == parentBoro);
+
+    document.getElementById('borocaserate').innerHTML = boroData[0].CASE_RATE;
+    document.getElementById('borodeathrate').innerHTML = boroData[0].DEATH_RATE;
+    document.getElementById('borotable').innerHTML = "&nbsp;" + parentBoro + "&nbsp;";
+
+    //getting city data for cumulative table
+    cityTableData = cityData.filter(boro => boro.BOROUGH_GROUP == 'Citywide');
+    /*
+    console.log(cityTableData);
+    */
+    document.getElementById('citycaserate').innerHTML = cityTableData[0].CASE_RATE;
+    document.getElementById('citydeathrate').innerHTML = cityTableData[0].DEATH_RATE;
+
+    //Summary paragraph
+    document.getElementById('ns1').innerHTML = fullName;
+    document.getElementById('pop').innerHTML = Math.floor(zipCodeData[0].POP_DENOMINATOR);
+    document.getElementById('case1').innerHTML = "&nbsp;" + zipCodeData[0].COVID_CASE_COUNT + "&nbsp;";
+    document.getElementById('death1').innerHTML = "&nbsp;" + zipCodeData[0].COVID_DEATH_COUNT + "&nbsp;";
+    document.getElementById('crzip').innerHTML = zipCodeData[0].COVID_CASE_RATE + " per 100,000";
+    document.getElementById('drzip').innerHTML = zipCodeData[0].COVID_DEATH_RATE + " per 100,000";
+
+    if (zipCodeData[0].COVID_CASE_RATE > boroData[0].CASE_RATE) {
+        document.getElementById('hilo1').innerHTML = "&nbsp;Higher&nbsp;";
+        document.getElementById('hilo1').classList.add('higher');
+        document.getElementById('hilo1').classList.remove('lower');
+    } else {
+        document.getElementById('hilo1').innerHTML = "&nbsp;Lower&nbsp;";
+        document.getElementById('hilo1').classList.add('lower');
+        document.getElementById('hilo1').classList.remove('higher');
+    }
+
+    document.getElementById('boro1').innerHTML = parentBoro;
+    document.getElementById('boro2').innerHTML = parentBoro;
+
+    if (zipCodeData[0].COVID_DEATH_RATE > boroData[0].DEATH_RATE) {
+        document.getElementById('hilo2').innerHTML = "&nbsp;Higher&nbsp;"
+        document.getElementById('hilo2').classList.add('higher');
+        document.getElementById('hilo2').classList.remove('lower');
+    } else {
+        document.getElementById('hilo2').innerHTML = "&nbsp;Lower&nbsp;";
+        document.getElementById('hilo2').classList.add('lower');
+        document.getElementById('hilo2').classList.remove('higher');
+
+    }
+
+    if (zipCodeData[0].COVID_DEATH_RATE > cityTableData[0].DEATH_RATE) {
+        document.getElementById('hilo3').innerHTML = "&nbsp;Higher&nbsp;";
+        document.getElementById('hilo3').classList.add('higher');
+        document.getElementById('hilo3').classList.remove('lower');
+
+    } else {
+        document.getElementById('hilo3').innerHTML = "&nbsp;Lower&nbsp;";
+        document.getElementById('hilo3').classList.add('lower');
+        document.getElementById('hilo3').classList.remove('higher');
+
+    }
+
+
+    if (zipCodeData[0].COVID_DEATH_RATE > cityTableData[0].DEATH_RATE) {
+        document.getElementById('hilo4').innerHTML = "&nbsp;Higher&nbsp;";
+        document.getElementById('hilo4').classList.add('higher');
+        document.getElementById('hilo4').classList.remove('lower');
+
+    } else {
+        document.getElementById('hilo4').innerHTML = "&nbsp;Lower&nbsp;";
+        document.getElementById('hilo4').classList.add('lower');
+        document.getElementById('hilo4').classList.remove('higher');
+
+    }
+
+    console.log('zipString is ' + zipString + ', and metric is ' + metric);
+
+
+    // Draws the chart based on the ZIP!
+    chartDraw(zipString, metric);
+    document.getElementById('chartzip').innerHTML = "&nbsp;" + zipString + "&nbsp;";
+    document.getElementById('chartboro').innerHTML = "&nbsp;" + parentBoro + "&nbsp;";
+
+    // Draws the map upon neighborhood selection
+    showMap(vegaSpec);
+
+
+
+    // Filtering the map data
+    mapZipData = mapData.filter(neighborhood => neighborhood.modzcta == zipString);
+    console.log('zip map data:');
+    console.log(mapZipData);
+
+    document.getElementById('daterange').innerHTML = "(" + mapZipData[0].daterange + ")";
+
+    var mdtrmargin = 100 * (maxMDTR.median_daily_test_rate - mapZipData[0].median_daily_test_rate) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate);
+
+    var ppmargin = 100 * (maxPP.percentpositivity_7day - mapZipData[0].percentpositivity_7day) / (maxPP.percentpositivity_7day - minPP.percentpositivity_7day);
+
+    var posmargin = 100 * (maxPeople.people_positive - mapZipData[0].people_positive) / (maxPeople.people_positive - minPeople.people_positive)
+
+
+    // Update the range-chart values
+    document.getElementById('mdtrlow').innerHTML = minMDTR.median_daily_test_rate;
+    document.getElementById('mdtrhi').innerHTML = maxMDTR.median_daily_test_rate;
+    document.getElementById('mdtrvalue').innerHTML = mapZipData[0].median_daily_test_rate;
+    document.getElementById('mdtrvalue').style.marginRight = mdtrmargin + "%";
+
+    document.getElementById('pplow').innerHTML = minPP.percentpositivity_7day;
+    document.getElementById('pphi').innerHTML = maxPP.percentpositivity_7day;
+    document.getElementById('ppvalue').innerHTML = mapZipData[0].percentpositivity_7day;
+    document.getElementById('ppvalue').style.marginRight = ppmargin + "%"
+
+    document.getElementById('poslow').innerHTML = minPeople.people_positive;
+    document.getElementById('poshi').innerHTML = maxPeople.people_positive;
+    document.getElementById('posvalue').innerHTML = mapZipData[0].people_positive;
+    document.getElementById('posvalue').style.marginRight = posmargin + "%"
+
+};

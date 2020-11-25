@@ -51,7 +51,7 @@
                     name:</label>
                 <hr>
 
-                <div class="autocomplete-wrapper" style="display:inline-block; width: 75%;">
+                <div class="autocomplete-wrapper" style="display:inline-block; width: 80%;">
                     <select name="last-location" id="last-location">
                         <option value="">Enter your ZIP Code or neighborhood name</option>
                         <option value="10001">10001: Chelsea/NoMad/West Chelsea</option>
@@ -237,95 +237,97 @@
                     </select>
                 </div>
 
-                <button class="btn-primary" type="submit" style="float:right; width: 15%">Submit</button>
+                <button class="btn-primary" type="submit" style="float:right; width: 17%">Submit</button>
             </form>
 
         </main>
 
 
 
-        <div class="submitted submitted--hidden">
-            <h3 style="margin-top: 50px;">Your neighborhood: <span class="submitted__last-location"
-                    style="color: #ff34ce"></span></h3>
+        <div class="submitted submitted--hidden" style="margin-top: 50px;">
+            <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-map-marker-alt"></i></span>
+            <h3 class="fs-lg">Your neighborhood:
+                <span id="ns1" style="font-weight: bold; color: #ff34ce"></span></h3>
 
-            <p>In your neighborhood, <span id="ns1" style="font-weight: bold; color: #ff34ce"></span>, <span id="case1"
-                    style="font-weight: bold;"></span> of your
-                neighbors have been
-                diagnosed with COVID-19 since the start of the pandemic. Of those, <span id="death1"
-                    style="font-weight: bold;"></span> have died.
-            </p>
+            <p>The ZIP Code <span class="submitted__last-location" style="color: #ff34ce; font-weight: bold;"></span>
+                has a population of <span id="pop" style="font-weight: bold;"></span> people. Since the start of the
+                pandemic:
+            <ul>
+                <li><span id="case1" style="font-weight: bold;"></span>of your
+                    neighbors have been
+                    diagnosed with COVID-19</li>
+                <li><span id="death1" style="font-weight: bold;"></span> of them have died</li>
+            </ul>
+            <br>
+            <p>Adjusted for population <a href=""><i class="fas fa-question-circle"></i></a></p>
 
-            <p>Adjusted for population, that's:<br>
-
-            <div style="display:inline-block; width: 49%;">
-                <p>Case rate of <span id="crzip" style="font-weight: bold;"></span>
+            <div class="summary">
+                <p>Case rate: <span id="crzip" style="font-weight: bold;"></span>
                 <ul>
                     <li><span id="hilo1"></span> than
-                        <span id="boro1"></span>'s case rate</li>
-                    <li><span id="hilo2"></span> than New York City's case rate</li>
+                        <span id="boro1"></span>'s </li>
+                    <li><span id="hilo2"></span> than New York City's </li>
                 </ul>
                 </p>
             </div>
 
-            <div style="display:inline-block; padding-left: 5px; width: 49%;">
-                <p>Death rate of <span id="drzip" style="font-weight: bold;"></span>
+            <div class="summary" style="margin-left: 5px;">
+                <p>Death rate: <span id="drzip" style="font-weight: bold;"></span>
                 <ul>
                     <li><span id="hilo3"></span> than
-                        <span id="boro2"></span>'s death rate</li>
-                    <li><span id="hilo4"></span> than New York City's death rate</li>
+                        <span id="boro2"></span>'s</li>
+                    <li><span id="hilo4"></span> than New York City's </li>
                 </ul>
                 </p>
             </div>
 
 
-            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
 
-            <h4>Totals since the start of the pandemic</h4>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"><span style="color: #6b6b6b">Measure</span></th>
-                        <th scope="col"><span id="ziptable"
-                                style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;Your
-                                ZIP Code&nbsp;</span></th>
-                        <th scope="col"><span id="borotable" style="font-weight:bold;background:#858585; color:white;">
-                                &nbsp;Borough&nbsp; </span></th>
-                        <th scope="col">
-                            <span style="font-weight:bold;background:black; color:white;">
-                                &nbsp;all of NYC&nbsp;
-                            </span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Test rate</span><br><span
-                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">People tested per 100,000
-                                people</span>
-                        </th>
-                        <td id="ziptestrate">aaa</td>
-                        <td>bbb</td>
-                        <td>ccc</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Case rate</span><br><span
-                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Confirmed cases per 100,000
-                                people</span>
-                        </th>
-                        <td id="zipcaserate">mmm</td>
-                        <td id="borocaserate">nnn</td>
-                        <td id="citycaserate">ooo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Death rate</span><br><span
-                                style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Deaths per 100,000
-                                people</span></th>
-                        <td id="zipdeathrate">XXX</td>
-                        <td id="borodeathrate">YYY</td>
-                        <td id="citydeathrate">ZZZ</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="sr-only">
+                <h3 class="fs-lg" style="margin-top:50px;">
+                    Since the start of the pandemic
+                </h3>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col"><span style="color: #6b6b6b">Measure</span></th>
+                            <th scope="col" style="text-align:right;"><span id="ziptable"
+                                    style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;Your
+                                    ZIP Code&nbsp;</span></th>
+                            <th scope="col" style="text-align:right;"><span id="borotable"
+                                    style="font-weight:bold;background:#858585; color:white;">
+                                    &nbsp;Borough&nbsp; </span></th>
+                            <th scope="col" style="text-align:right;">
+                                <span style="font-weight:bold;background:black; color:white;">
+                                    &nbsp;all of NYC&nbsp;
+                                </span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Case rate</span><br><span
+                                    style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Confirmed cases per
+                                    100,000
+                                    people</span>
+                            </th>
+                            <td id="zipcaserate">mmm</td>
+                            <td id="borocaserate">nnn</td>
+                            <td id="citycaserate">ooo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Death rate</span><br><span
+                                    style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Deaths per 100,000
+                                    people</span></th>
+                            <td id="zipdeathrate">XXX</td>
+                            <td id="borodeathrate">YYY</td>
+                            <td id="citydeathrate">ZZZ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
 
 
 
@@ -334,68 +336,162 @@
                     visit COVID-19 Data:
                     Totals</a>.</div>
 
-
-            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
-            <h3>Key metrics: over the last 3 months</h3>
-
-            <div>
-                <div id="chartbtn1" class="chartbutton togglebutton highlight"
-                    style=" width: 30%;display: inline-block;">
-                    <a onclick="changeMetric(1)"> Testing Rate </a>
-                </div>
-
-                <div id="chartbtn2" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
-                    <a onclick="changeMetric(2)">
-                        Percent Positive </a>
-                </div>
-
-                <div id="chartbtn3" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
-                    <a onclick="changeMetric(3)"> Case Rate </a>
-                </div>
-
+            <div style="width:75%; margin:auto">
+                <hr style="margin-top:50px; margin-bottom:50px; border-top: 10px solid #c4c4c4">
             </div>
 
 
-            <p style="font-size:14px; margin-top:15px;">
-                <span id="datalabel">People tested per 100,000</span> for:
-                <span id="chartzip" style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;your
-                    ZIP Code&nbsp;</span>
-                <span id="chartboro" style="font-weight:bold;background:#858585; color:white;">
-                    &nbsp; the Borough it's in&nbsp;
-                </span>
-                &nbsp;and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of NYC&nbsp;</span>
-            </p>
-
-            <div class="vis2" id="trchart">
+            <span style="font-size: 36px; margin-top: 50px;"><i class="far fa-clock"></i></span>
 
 
-            </div>
+            <h3 class="fs-lg"></i>Key metrics: the
+                last 7 days of data <span id="daterange" style="font-weight: normal;" id="daterange"></span></h3>
+            <p>The daily test rate, percent positivity, and number of people who test positive can help show how
+                significantly the pandemic is affecting a neighborhood - and how concerned to be. For example, if a
+                neighborhood has a low testing rate but a high percent positivity, that can indicate a troubling
+                situation. Or, if a neighborhood has a lot of people testing positive but a high testing rate, it could
+                be due to a high volume of testing.</p>
+            <br><br>
+            <style>
 
-            <hr style="margin-top:50px; border-top: 10px solid #c4c4c4">
-            <h3>Key metrics: over the last 7 days</h3>
+            </style>
 
-            <div id="mapbuttons">
-                <div id="mb1" data-num="1" class="mapbutton togglebutton highlight"
-                    style=" width: 30%;display: inline-block;">
-                    <a onclick="changeMap(1)"> Median Daily Test Rate </a>
-                </div>
-
-                <div id="mb2" data-num="2" class="mapbutton togglebutton" style="width: 30%;display: inline-block;">
-                    <a onclick="changeMap(2)">
-                        Percent Positive </a>
-                </div>
-
-                <div id="mb3" data-num="3" class="mapbutton togglebutton " style="width: 30%;display: inline-block;">
-                    <a onclick="changeMap(3)"> New Cases </a>
-                </div>
-
-            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr style="font-size: 12px;">
+                        <th scope="col" style="width: 25%"><span style="color: #6b6b6b;">Measure</span></th>
+                        <th scope="col" style="text-align:right; border-left: 1px solid #858585">Lowest</th>
+                        <th scope="col" style="text-align:left; width: 45%; text-align: center; ">Your ZIP</th>
+                        <th scope="col" style="text-align:left;">Highest</th>
+                        <th scope="col" style="text-align:right;">Map</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="font-size: 12px; color: #3f3f3f;">
+                        <th scope="row" style="font-weight:bold; color: #6b6b6b">
 
 
-            <div class="vis" id="map"></div>
+                            <span style="font-size: 16px; color: #3f3f3f;">Daily Test Rate</span><br>
+                            per 100,000 people
 
+                        </th>
+                        <td id="mdtrlow" style="border-left: 1px solid #858585">AAA</td>
+                        <td>
+                            <div class="tablebar">
+
+                                <div id="mdtrvalue" class="tabledot" style="margin-right: 25%;">XXX</div>
+
+                            </div>
+                        </td>
+                        <td id="mdtrhi" style="text-align:left;">AAA</td>
+
+                        <td id="mb1" data-num="1" class="mapbutton togglebutton2 highlight">
+                            <a onclick="changeMap(1)"> <i class="fas fa-map-marked-alt h3"></i> </a>
+
+                        </td>
+                    </tr>
+
+                    <tr style="font-size: 12px; color: #3f3f3f;">
+                        <th scope="row"><span style="font-size: 16px; color: #3f3f3f;">Percent
+                                Positive</span><br>
+                            <span style="color: #3f3f3f;">(Molecular tests)</span>
+                        </th>
+                        <td id="pplow" style="border-left: 1px solid #858585">AAA</td>
+                        <td>
+                            <div class="tablebar">
+                                <div id="ppvalue" class="tabledot" style="margin-right: 75%;">XXX</div>
+                            </div>
 
         </div>
+        </td>
+        <td id="pphi" style="text-align:left;">AAA</td>
+        <td id="mb2" data-num="2" class="mapbutton togglebutton2">
+            <a onclick="changeMap(2)">
+                <i class="fas fa-map-marked-alt h3"></i> </a>
+        </td>
+        </tr>
+
+        <tr style="font-size: 12px; color: #3f3f3f;">
+            <th scope="row"><span style="font-size: 16px; color: #3f3f3f;">People positive</span><br>
+                <span style="color: #3f3f3f;">(Molecular tests)</span>
+            </th>
+            <td id="poslow" style="border-left: 1px solid #858585">AAA</td>
+            <td>
+                <div class="tablebar">
+                    <div id="posvalue" class="tabledot" style="margin-right: 25%;">XXX</div>
+                </div>
+
+    </div>
+    </td>
+    <td id="poshi" style="text-align:left;">AAA</td>
+    <td id="mb3" data-num="3" class="mapbutton togglebutton2">
+        <a onclick="changeMap(3)"><i class="fas fa-map-marked-alt h3"></i></a>
+    </td>
+
+    </tr>
+
+    </tbody>
+    </table>
+
+
+    <div class="vis" id="map"></div>
+
+
+
+
+
+
+    <div style="width:75%; margin:auto">
+        <hr style="margin-top:50px; margin-bottom:50px; border-top: 10px solid #c4c4c4">
+    </div>
+
+
+    <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-chart-line"></i></span>
+
+    <h3 class="fs-lg">Over the last 3 months</h3>
+    <p>Looking at weekly test rates, percent positivity, and case rates over the last 3 months can help provide valuable
+        context: are things getting better, getting worse, or staying stable?</p>
+    <p>The charts below compare data for your ZIP code to data for your borough, and the citywide value. So, they show
+        if your neighborhood is doing better - or worse - than these averages.</p>
+
+    <div>
+        <div id="chartbtn1" class="chartbutton togglebutton highlight" style=" width: 30%;display: inline-block;">
+            <a onclick="changeMetric(1)"> Testing Rate </a>
+        </div>
+
+        <div id="chartbtn2" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
+            <a onclick="changeMetric(2)">
+                Percent Positive </a>
+        </div>
+
+        <div id="chartbtn3" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
+            <a onclick="changeMetric(3)"> Case Rate </a>
+        </div>
+
+    </div>
+
+
+    <p style="font-size:14px; margin-top:15px;">
+        <span id="datalabel">People tested per 100,000</span> for:
+        <span id="chartzip" style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;your
+            ZIP Code&nbsp;</span>
+        <span id="chartboro" style="font-weight:bold;background:#858585; color:white;">
+            &nbsp; the Borough it's in&nbsp;
+        </span>
+        &nbsp;and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of NYC&nbsp;</span>
+    </p>
+
+    <div class="vis2" id="trchart">
+
+
+    </div>
+
+
+
+
+
+
+    </div>
 
 
 
@@ -448,7 +544,7 @@
             document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
         }
         */
-        function poop() { console.log('hi ' + selectEl.value) };
+        function poop() { console.log('hi from autocomplete ' + selectEl.value) };
         console.log(selectEl.value);
 
 

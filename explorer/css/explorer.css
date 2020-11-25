@@ -1,125 +1,154 @@
 h3 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .background {
-    fill: transparent;
-    stroke: transparent !important;
+  fill: transparent;
+  stroke: transparent !important;
 }
+
 .togglebutton {
-    font-size: 16;
-    padding: 2px 6px;
-    border-radius: 5px;
-    font-weight: 400;
-    background-color: #eeeeee;
-    color: #696969 !important;
-    box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0, 07);
-    cursor: pointer;
-    display: inline-block;
-    padding-top: 7px;
-    padding-bottom: 5px;
-    text-align: center;
-    height: 40px!important;
+  font-size: 16;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-weight: 400;
+  background-color: #eeeeee;
+  color: #696969 !important;
+  box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0, 07);
+  cursor: pointer;
+  display: inline-block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  height: 40px!important;
 }
+
 .togglebutton:hover {
-    background-color: #bce3ff;
-    text-decoration: none;
+  background-color: #bce3ff;
+  text-decoration: none;
+}
+
+.togglebutton2 {
+    height: 100% !important;
+  font-size: 16;
+  border-radius: 5px;
+  font-weight: 400;
+  background-color: #eeeeee;
+  color: #696969 !important;
+  box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0, 07);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.togglebutton2:hover {
+  background-color: #bce3ff;
+  text-decoration: none;
 }
 
 .highlight {
-    background-color: #429ddd !important;
-    color: #ffffff !important;
-    font-weight: 550;
+  background-color: #429ddd !important;
+  color: #ffffff !important;
+  font-weight: 550;
 }
 
 html {
-    font-family: helvetica;
+  font-family: helvetica;
 }
+
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
+
 .inactivelink:hover {
-    background-color: #e7caec;
+  background-color: #e7caec;
 }
 
 .toplink {
-    padding: 1px 6px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 400;
-    box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.07);
-    cursor: pointer;
-    margin-bottom: 15px;
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .toplink2 {
-    padding: 1px 6px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: 200;
-    box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.07);
-    cursor: pointer;
-    margin-top: 10px;
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 200;
+  box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 .activelink {
-    background: #803D8D;
-    color: #ffffff;
-
+  background: #803D8D;
+  color: #ffffff;
 }
 
 .higher {
-    background-color: purple;
-    color: white;
-    font-weight: bold;
+  background-color: purple;
+  color: white;
+  font-weight: bold;
 }
 
 .lower {
-    background-color: green;
-    color: white;
-    font-weight: bold;
+  background-color: green;
+  color: white;
+  font-weight: bold;
 }
 
 .inactivelink {
-    background: #f9f9f9;
-    color: #5f5f5f;
+  background: #f9f9f9;
+  color: #5f5f5f;
 }
 
 .boroughs {
-    background: #424242;
-    color: #e0e0e0;
+  background: #424242;
+  color: #e0e0e0;
 }
+
 .boroughs:hover {
-    background: #464b79!important;
+  background: #464b79!important;
 }
 
 .vis {
-    height: 85vmin;
-    width: 85%;
-    fill: transparent;
-    stroke: transparent !important;
+  height: 90vmin;
+  width: 100%;
+  fill: transparent;
+  stroke: transparent !important;
 }
 
 .vis2 {
-    height: 400px;
-    width: 100%;
-    fill: transparent;
-    stroke: transparent !important;
+  height: 400px;
+  width: 100%;
+  fill: transparent;
+  stroke: transparent !important;
 }
 
+
+
 /* Styles from example */
+
+
+
+
 /* Example page specific styling. */
+
+
 html {
-    color: #111;
-    background: #FFF;
-    font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
+  color: #111;
+  background: #FFF;
+  font-family: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 body {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 h1,
@@ -128,55 +157,57 @@ h3,
 h4,
 h5,
 h6 {
-    line-height: normal;
+  line-height: normal;
 }
 
 label {
-    display: block;
-    margin-bottom: 0.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 code {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    background: #EFEFEF;
-    font-weight: normal;
-    font-family: monospace;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background: #EFEFEF;
+  font-weight: normal;
+  font-family: monospace;
 }
 
 main {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .autocomplete-wrapper {
-    max-width: 40em;
+  max-width: 40em;
 }
 
 .submitted--hidden {
-    display: none;
+  display: none;
 }
+
+
 
 
 
 /* Map chart CSS */
+
+
 .grid-container {
   display: grid;
   grid-gap: 10px 0px;
-    font-size: 12px;
-    font-family: helvetica;
-      padding-top: 8px;
+  font-size: 12px;
+  font-family: helvetica;
+  padding-top: 8px;
   padding-bottom: 8px;
 }
 
-
 .grid-item {
   padding-left: 2px;
-
 }
 
 .item1 {
-  grid-column: 1 ;
+  grid-column: 1;
   text-align: right;
 }
 
@@ -187,19 +218,47 @@ main {
 
 #lowbar {
   height: 100%;
-    background: #979797;
+  background: #979797;
 }
 
 #yourbar {
-    background: #979797;
+  background: #979797;
 }
 
 #highbar {
-    background: #979797;
+  background: #979797;
 }
 
 .barcontent {
   color: white;
   padding-right: 5px;
   font-weight: bold;
+}
+
+.summary {
+  display: inline-block;
+  width: 49%;
+  border-left: 5px solid #bfbfbf;
+  padding-left: 5px;
+  background-color: #f2f2f2;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+td {
+  text-align: right;
+}
+
+.tablebar {
+  height: 100%;
+  background-color: rgb(182, 240, 182);
+  padding-right: 3px;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.tabledot {
+  border-right: 5px solid #858585;
+  display: inline-block;
 }
