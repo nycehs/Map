@@ -238,6 +238,8 @@
                 </div>
 
                 <button class="btn-primary" type="submit" style="float:right; width: 17%">Submit</button>
+                <span style="font-size: 12px;"><em>We don't save any information on the neighborhoods you
+                        enter.</em></span>
             </form>
 
         </main>
@@ -245,41 +247,107 @@
 
 
         <div class="submitted submitted--hidden" style="margin-top: 50px;">
+
             <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-map-marker-alt"></i></span>
+
+
+
+
             <h3 class="fs-lg">Your neighborhood:
                 <span id="ns1" style="font-weight: bold; color: #ff34ce"></span></h3>
 
-            <p>The ZIP Code <span class="submitted__last-location" style="color: #ff34ce; font-weight: bold;"></span>
-                has a population of <span id="pop" style="font-weight: bold;"></span> people. Since the start of the
-                pandemic:
-            <ul>
-                <li><span id="case1" style="font-weight: bold;"></span>of your
-                    neighbors have been
-                    diagnosed with COVID-19</li>
-                <li><span id="death1" style="font-weight: bold;"></span> of them have died</li>
-            </ul>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" style="width: 20%;">Key Facts</th>
+                        <th scope="col" style="width: 15%;"></th>
+                        <th scope="col" style="width: 65%;"></th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">Population:</th>
+                        <td><span id="pop" class="data-in"></span> </td>
+                        <td style="text-align: left;">people.</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Cases:</th>
+                        <td><span id="case1" class="data-in"></span></td>
+                        <td style="text-align: left;">of your neighbors have been diagnosed with COVID-19. <br>That's
+                            <span class="data-in">1
+                                out of every </span><span id="pc1" class="data-in"></span> people in your
+                            neighborhood.</td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Deaths:</th>
+                        <td><span id="death1" class="data-in"></span></td>
+                        <td style="text-align: left;">of your neighbors have died of COVID-19. <br>That's <span
+                                class="data-in">1
+                                out of every </span><span id="pc2" class="data-in"></span>
+                            people in your neighborhood.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" style="width: 20%;">Rates</th>
+                        <th scope="col" style="width: 15%;"></th>
+                        <th scope="col" style="width: 65%;"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row">Case rate:</th>
+                        <td><span id="crzip" class="data-in"></span><br>
+                            <span style="font-size: 12px; font-weight: normal;">per 100,000 </span></td>
+                        <td style="text-align: left;"><span id="hilo1"></span> than
+                            <span id="boro1"></span>'s case rate of <span id="bcr" class="data-in"></span>.<br>
+                            <span id="hilo2"></span> than New York City's case rate of <span id="nycr"
+                                class="data-in"></span>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Death rate:</th>
+                        <td><span id="drzip" class="data-in"></span><br>
+                            <span style="font-size: 12px; font-weight: normal;">per 100,000</span></td>
+                        <td style="text-align: left;"><span id="hilo3"></span> than
+                            <span id="boro2"></span>'s death rate of <span id="bdr" class="data-in"></span>.<br>
+                            <span id="hilo4"></span> than New York City's death rate of <span id="nydr"
+                                class="data-in"></span>.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="sr-only">
+                <p>Data for the ZIP Code <span class="submitted__last-location"
+                        style="color: #ff34ce; font-weight: bold;"></span>.
+            </div>
+
+
+
+
             <br>
-            <p>Adjusted for population <a href=""><i class="fas fa-question-circle"></i></a></p>
 
             <div class="summary">
-                <p>Case rate: <span id="crzip" style="font-weight: bold;"></span>
-                <ul>
-                    <li><span id="hilo1"></span> than
-                        <span id="boro1"></span>'s </li>
-                    <li><span id="hilo2"></span> than New York City's </li>
-                </ul>
-                </p>
+                <p><i class="fas fa-question-circle"></i>&nbsp;<strong>About rates:</strong> Rates are ways that numbers
+                    are "adjusted for population" (like percent, or per capita). Rates are presented as a number of
+                    something "per unit of population" - in this
+                    case, the number of cases or deaths per 100,000 people. They let you can compare the effect of a
+                    disease in areas with
+                    different size populations. A number tells us <em>how many</em> cases or deaths there are, but a
+                    rate tells us <em>how common</em> they are.</p>
+
             </div>
 
-            <div class="summary" style="margin-left: 5px;">
-                <p>Death rate: <span id="drzip" style="font-weight: bold;"></span>
-                <ul>
-                    <li><span id="hilo3"></span> than
-                        <span id="boro2"></span>'s</li>
-                    <li><span id="hilo4"></span> than New York City's </li>
-                </ul>
-                </p>
-            </div>
+
 
 
 
@@ -347,20 +415,19 @@
             <h3 class="fs-lg"></i>Key metrics: the
                 last 7 days of data <span id="daterange" style="font-weight: normal;" id="daterange"></span></h3>
             <p>The daily test rate, percent positivity, and number of people who test positive can help show how
-                significantly the pandemic is affecting a neighborhood - and how concerned to be. For example, if a
-                neighborhood has a low testing rate but a high percent positivity, that can indicate a troubling
-                situation. Or, high numbers of people testing positive can be due to a higher testing rate.</p>
-            <br><br>
-            <style>
-
-            </style>
+                the pandemic is affecting your neighborhood. The range charts below show your ZIP code and the median
+                value. The median is the value in the middle of all the values (half
+                the neighborhoods are higher, and half are lower).</p>
 
             <table class="table table-hover">
                 <thead>
                     <tr style="font-size: 12px;">
                         <th scope="col" style="width: 25%"><span style="color: #6b6b6b;">Measure</span></th>
-                        <th scope="col" style="text-align:right; border-left: 1px solid #858585">Lowest</th>
-                        <th scope="col" style="text-align:left; width: 45%; text-align: center; ">Your ZIP</th>
+                        <th scope="col" style="text-align:right;">Lowest</th>
+                        <th scope="col" style="text-align:left; width: 45%; text-align: center;"><span
+                                style="border-right: 5px solid #ff34ce;">Your ZIP</span> &nbsp;&nbsp;&nbsp; <span
+                                class="median">Median</span>
+                        </th>
                         <th scope="col" style="text-align:left;">Highest</th>
                         <th scope="col" style="text-align:right;">Map</th>
                     </tr>
@@ -371,18 +438,21 @@
 
 
                             <span style="font-size: 16px; color: #3f3f3f;">Daily Test Rate</span><br>
-                            per 100,000 people
+                            <span style="color: #3f3f3f; font-weight: normal;">per 100,000 people</span>
 
                         </th>
-                        <td id="mdtrlow" style="border-left: 1px solid #858585">AAA</td>
+                        <td id="mdtrlow" class="lohi">AAA</td>
                         <td>
                             <div class="tablebar">
-
                                 <div id="mdtrvalue" class="tabledot" style="margin-right: 25%;">XXX</div>
-
                             </div>
+
+                            <div class="median" id="mdtrmedian">
+                                <p style="text-align: center;"><span id="trm"></span></p>
+                            </div>
+
                         </td>
-                        <td id="mdtrhi" style="text-align:left;">AAA</td>
+                        <td id="mdtrhi" class="lohi" style="text-align:left;">AAA</td>
 
                         <td id="mb1" data-num="1" class="mapbutton togglebutton2 highlight">
                             <a onclick="changeMap(1)"> <i class="fas fa-map-marked-alt h3"></i> </a>
@@ -393,17 +463,21 @@
                     <tr style="font-size: 12px; color: #3f3f3f;">
                         <th scope="row"><span style="font-size: 16px; color: #3f3f3f;">Percent
                                 Positive</span><br>
-                            <span style="color: #3f3f3f;">(Molecular tests)</span>
+                            <span style="color: #3f3f3f; font-weight: normal;">Molecular tests</span>
                         </th>
-                        <td id="pplow" style="border-left: 1px solid #858585">AAA</td>
+                        <td id="pplow" class="lohi">AAA</td>
                         <td>
                             <div class="tablebar">
                                 <div id="ppvalue" class="tabledot" style="margin-right: 75%;">XXX</div>
                             </div>
 
+                            <div class="median" id="ppmedian">
+                                <p style="text-align: center;"><span id="ppm"></span></p>
+                            </div>
+
         </div>
         </td>
-        <td id="pphi" style="text-align:left;">AAA</td>
+        <td id="pphi" class="lohi" style="text-align:left;">AAA</td>
         <td id="mb2" data-num="2" class="mapbutton togglebutton2">
             <a onclick="changeMap(2)">
                 <i class="fas fa-map-marked-alt h3"></i> </a>
@@ -411,18 +485,22 @@
         </tr>
 
         <tr style="font-size: 12px; color: #3f3f3f;">
-            <th scope="row"><span style="font-size: 16px; color: #3f3f3f;">People positive</span><br>
-                <span style="color: #3f3f3f;">(Molecular tests)</span>
+            <th scope="row"><span style="font-size: 16px; color: #3f3f3f;">New positives</span><br>
+                <span style="color: #3f3f3f; font-weight: normal;">Excluding previous positives</span>
             </th>
-            <td id="poslow" style="border-left: 1px solid #858585">AAA</td>
+            <td id="poslow" class="lohi">AAA</td>
             <td>
                 <div class="tablebar">
                     <div id="posvalue" class="tabledot" style="margin-right: 25%;">XXX</div>
                 </div>
 
+                <div class="median" id="posmedian">
+                    <p style="text-align: center;"><span id="posm"></span></p>
+                </div>
+
     </div>
     </td>
-    <td id="poshi" style="text-align:left;">AAA</td>
+    <td id="poshi" class="lohi" style="text-align:left;">AAA</td>
     <td id="mb3" data-num="3" class="mapbutton togglebutton2">
         <a onclick="changeMap(3)"><i class="fas fa-map-marked-alt h3"></i></a>
     </td>
@@ -432,12 +510,18 @@
     </tbody>
     </table>
 
+    <a onclick="hideMap()">
+        <div id="hidemap" style="float: right; font-size: 12px;" class="togglebutton highlight">Toggle map</div>
+    </a>
 
-    <div class="vis" id="map"></div>
+    <div class="row no-gutters">
+        <div id="mapcont" class="col-12 mx-auto">
+            <div class="vis" id="map"></div>
+        </div>
+        <div class="col-md-2">
 
-
-
-
+        </div>
+    </div>
 
 
     <div style="width:75%; margin:auto">
@@ -448,23 +532,31 @@
     <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-chart-line"></i></span>
 
     <h3 class="fs-lg">Over the last 3 months</h3>
-    <p>Looking at weekly test rates, percent positivity, and case rates over the last 3 months can help provide valuable
-        context: are things getting better, getting worse, or staying stable?</p>
-    <p>The charts below compare data for your ZIP code to data for your borough, and the citywide value. So, they show
+    <p>Looking at weekly test rates, percent positivity, and case rates over the last 3 months can show whether things
+        are getting better, getting worse, or staying stable. It's best to have high test rates, low percent positivity,
+        and low case rates.</p>
+    <p>The charts below compare data for <span id="chartzip"
+            style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;your
+            ZIP Code&nbsp;</span> to data for <span id="chartboro"
+            style="font-weight:bold;background:#858585; color:white;">
+            &nbsp; the Borough it's in&nbsp;
+        </span> and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of NYC&nbsp;</span>. So,
+        they show
         if your neighborhood is doing better - or worse - than these averages.</p>
-    <p>It's good to have a high test rate, low percent positivity, and a low case rate.</p>
+    <p>It's best to have high test rates, low percent positivity,
+        and low case rates.</p>
 
     <div>
-        <div id="chartbtn1" class="chartbutton togglebutton highlight" style=" width: 30%;display: inline-block;">
+        <div id="chartbtn1" class="chartbutton togglebutton highlight" style="display: inline-block;">
             <a onclick="changeMetric(1)"> Testing Rate </a>
         </div>
 
-        <div id="chartbtn2" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
+        <div id="chartbtn2" class="chartbutton togglebutton" style="display: inline-block;">
             <a onclick="changeMetric(2)">
                 Percent Positive </a>
         </div>
 
-        <div id="chartbtn3" class="chartbutton togglebutton" style="width: 30%;display: inline-block;">
+        <div id="chartbtn3" class="chartbutton togglebutton" style="display: inline-block;">
             <a onclick="changeMetric(3)"> Case Rate </a>
         </div>
 
@@ -472,19 +564,39 @@
 
 
     <p style="font-size:14px; margin-top:15px;">
-        <span id="datalabel">People tested per 100,000</span> for:
-        <span id="chartzip" style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;your
-            ZIP Code&nbsp;</span>
-        <span id="chartboro" style="font-weight:bold;background:#858585; color:white;">
-            &nbsp; the Borough it's in&nbsp;
-        </span>
-        &nbsp;and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of NYC&nbsp;</span>
+        <span id="datalabel">People tested per 100,000</span>
     </p>
 
     <div class="vis2" id="trchart">
 
 
     </div>
+
+    <div style="width:75%; margin:auto">
+        <hr style="margin-top:50px; margin-bottom:50px; border-top: 10px solid #c4c4c4">
+    </div>
+
+    <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-info-circle"></i></span>
+    <h3>Stay safe.</h3>
+    <p>The best way to protect yourself and your family from COVID-19 is to:
+    <ul>
+        <li><strong>Keep physical distance:</strong> stay at least 6 feet away from other people</li>
+        <li><strong>Wear a mask</strong> that covers your nose and mouth, since you can be contagious without feeling
+            sick</li>
+        <li><strong>Get tested.</strong> <a
+                href="https://www1.nyc.gov/site/coronavirus/resources/covid-testing.page">Look for a testing site near
+                you</a>.</li>
+    </ul>
+    <a href="https://www1.nyc.gov/site/doh/covid/covid-19-main.page">Click here for the Department of Health's guidance
+        on how to stay safe during the COVID-19 public health emergency.</a>
+    </p>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
 
 
 

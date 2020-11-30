@@ -7,18 +7,21 @@ h3 {
   stroke: transparent !important;
 }
 
+#hidemap {
+  font-size: 12!important;
+  padding: 10px 10px 1px;
+}
+
 .togglebutton {
   font-size: 16;
-  padding: 2px 6px;
-  border-radius: 5px;
+  border-radius: 20px;
   font-weight: 400;
+  padding: 7px 15px 1px;
   background-color: #eeeeee;
   color: #696969 !important;
   box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0, 07);
   cursor: pointer;
   display: inline-block;
-  padding-top: 5px;
-  padding-bottom: 5px;
   text-align: center;
   height: 40px!important;
 }
@@ -237,7 +240,7 @@ main {
 
 .summary {
   display: inline-block;
-  width: 49%;
+  width: 100%;
   border-left: 5px solid #bfbfbf;
   padding-left: 5px;
   background-color: #f2f2f2;
@@ -249,16 +252,53 @@ td {
   text-align: right;
 }
 
-.tablebar {
+.tablebar2 {
   height: 100%;
-  background-color: rgb(182, 240, 182);
+  background-color: rgb(218, 240, 218);
   padding-right: 3px;
   font-weight: bold;
   border-radius: 10px;
   width: 100%;
 }
 
+.tablebar {
+  height: 100%;
+    width: 100%;
+      padding-right: 3px;
+      border-bottom: 3px solid rgb(133, 175, 133);
+      border-radius: 3px;
+
+}
+
 .tabledot {
-  border-right: 5px solid #858585;
+  border-right: 5px solid #ff34ce;
   display: inline-block;
 }
+
+table th {
+  color: #4e4e4e ! important;
+}
+
+.table .thead-dark th {
+  color: #fff ! important;
+  background-color: #343a40;
+  border-color: #454d55;
+}
+
+.data-in {
+  font-weight: bold;
+  background-color: #707579;
+  color: #fff;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.median {
+  border-right: 4px solid #858585;
+  display: inline-block;
+}
+
+.lohi {
+  line-height: 38px;
+}
+
