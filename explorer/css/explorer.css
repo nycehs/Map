@@ -264,9 +264,8 @@ td {
 .tablebar {
   height: 100%;
     width: 100%;
-      padding-right: 3px;
-      border-bottom: 3px solid rgb(133, 175, 133);
-      border-radius: 3px;
+      border-bottom: 5px solid rgb(189, 201, 189);
+      border-radius: 2px;
 
 }
 
@@ -294,7 +293,7 @@ table th {
 }
 
 .median {
-  border-right: 4px solid #858585;
+  border-right: 5px solid #858585;
   display: inline-block;
 }
 

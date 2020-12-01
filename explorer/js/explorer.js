@@ -44,6 +44,14 @@ var ppArray = [];
 var numMedian
 var numArray = [];
 
+var rangeLo;
+var rangeHi;
+var rangeZip;
+var zipMargin;
+var medMargin;
+var rangeMed;
+var rangeArray = [];
+
 
 
 
@@ -194,7 +202,7 @@ var vegaSpec =
                     {
                         "field": "people_positive",
                         "type": "quantitative",
-                        "title": "People positive (reported to date)"
+                        "title": "New people positive (reported so far)"
                     },
 
                     {
@@ -288,7 +296,7 @@ var vegaDotSpec = {
                         ]
                     },
                     "legend": {
-                        "title": `People positive (reported so far)`,
+                        "title": `New people positive (reported so far)`,
                         "titleFontSize": 10,
                         "orient": "top-left",
                         "symbolLimit": 5,
@@ -386,7 +394,6 @@ d3.csv("last7days-by-modzcta.csv").then(function (data) {
     mdtrArray.splice(0, 88); // removes first 88 of 177 modzctas. 
     console.log('MDTR median: ' + mdtrArray[0]); // gets the lowest value
     mdtrMedian = mdtrArray[0]; // assigns this median value to your variable
-    document.getElementById('trm').innerHTML = mdtrMedian;
 
 
     for (let i = 0; i < mapData.length; i++) {
@@ -396,7 +403,6 @@ d3.csv("last7days-by-modzcta.csv").then(function (data) {
     ppArray.splice(0, 88); // removes first 88. then you'll get the lowest value
     console.log('PP median: ' + ppArray[0]);
     ppMedian = ppArray[0];
-    document.getElementById('ppm').innerHTML = ppMedian;
 
     for (let i = 0; i < mapData.length; i++) {
         numArray.push(mapData[i].people_positive);
@@ -405,7 +411,6 @@ d3.csv("last7days-by-modzcta.csv").then(function (data) {
     numArray.splice(0, 88); // removes first 88. then you'll get the lowest value
     console.log('number median: ' + numArray[0]);
     numMedian = numArray[0];
-    document.getElementById('posm').innerHTML = numMedian;
 
 
     maxMDTR = getMax(mapData, "median_daily_test_rate");
@@ -452,40 +457,13 @@ function showMap(spec) {
     }).catch(console.error);
 }
 
-//Change map on button click
-function changeMap(x) {
-    let btn = document.getElementById(`mb${x}`);
-    //Turns off highlights
-    for (let button of document.querySelectorAll('.mapbutton')) button.classList.remove('highlight');
-    btn.classList.add('highlight');
 
-    if (x === 1) {
-        vegaSpec.layer[1].encoding.color.field = 'median_daily_test_rate';
-        vegaSpec.layer[1].encoding.color.legend.title = 'Median daily test rate (per 100,000)';
-        vegaSpec.layer[1].encoding.color.scale.scheme.name = "goldgreen";
-        document.getElementById('mb1').setAttribute('aria-label', 'Tab selected');
-        console.log('One fired');
-        vegaEmbed('#map', vegaSpec);
-        document.getElementById('mapcont').classList.remove('sr-only');
-    } else if (x === 2) {
-        vegaSpec.layer[1].encoding.color.field = 'percentpositivity_7day';
-        vegaSpec.layer[1].encoding.color.legend.title = 'Percent Positive';
-        vegaSpec.layer[1].encoding.color.scale.scheme.name = "orangered";
-        console.log('two fired');
-        vegaEmbed('#map', vegaSpec);
-        document.getElementById('mapcont').classList.remove('sr-only');
 
-    } else if (x === 3) {
-        showMap(vegaDotSpec);
-        document.getElementById('mapcont').classList.remove('sr-only');
-    }
-
-};
-
+/*
 function hideMap() {
     document.getElementById('mapcont').classList.toggle('sr-only');
 }
-
+*/
 
 //DEFAULT CHART SPEC 
 var chartSpec = {
@@ -820,39 +798,103 @@ function changeNeighborhood(zipCode) {
 
     document.getElementById('daterange').innerHTML = "(" + mapZipData[0].daterange + ")";
 
-    var mdtrmargin = 100 * (maxMDTR.median_daily_test_rate - mapZipData[0].median_daily_test_rate) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate);
+    //Sending initial min, max, median, values to range chart
+    document.getElementById('lozip').innerHTML = minMDTR.median_daily_test_rate;;
+    document.getElementById('hizip').innerHTML = maxMDTR.median_daily_test_rate;
+    document.getElementById('zrv').innerHTML = mapZipData[0].median_daily_test_rate;
+    document.getElementById('zrmv').innerHTML = mdtrMedian;
 
-    console.log('in function, mdtrMedian is ' + mdtrMedian);
+    document.getElementById('zrv').style.marginRight = 100 * (maxMDTR.median_daily_test_rate - mapZipData[0].median_daily_test_rate) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate) + "%";
 
-    var medMargin1 = 100 * (maxMDTR.median_daily_test_rate - mdtrMedian) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate);
+    document.getElementById('zrm').style.marginRight = 100 * (maxMDTR.median_daily_test_rate - mdtrMedian) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate) + "%";
 
-    var ppmargin = 100 * (maxPP.percentpositivity_7day - mapZipData[0].percentpositivity_7day) / (maxPP.percentpositivity_7day - minPP.percentpositivity_7day);
+    console.log("median margin: " + 100 * (maxMDTR.median_daily_test_rate - mdtrMedian) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate) + "%");
 
-    var medMargin2 = 100 * (maxPP.percentpositivity_7day - ppMedian) / (maxPP.percentpositivity_7day - minPP.percentpositivity_7day);
+    changeMap(1);
 
-    var posmargin = 100 * (maxPeople.people_positive - mapZipData[0].people_positive) / (maxPeople.people_positive - minPeople.people_positive)
-
-    var medMargin3 = 100 * (maxPeople.people_positive - numMedian) / (maxPeople.people_positive - minPeople.people_positive)
-
-    document.getElementById('mdtrmedian').style.marginRight = medMargin1 + "%";
-    document.getElementById('ppmedian').style.marginRight = medMargin2 + "%";
-    document.getElementById('posmedian').style.marginRight = medMargin3 + "%";
-
-
-    // Update the range-chart values
-    document.getElementById('mdtrlow').innerHTML = minMDTR.median_daily_test_rate;
-    document.getElementById('mdtrhi').innerHTML = maxMDTR.median_daily_test_rate;
-    document.getElementById('mdtrvalue').innerHTML = mapZipData[0].median_daily_test_rate;
-    document.getElementById('mdtrvalue').style.marginRight = mdtrmargin + "%";
-
-    document.getElementById('pplow').innerHTML = minPP.percentpositivity_7day;
-    document.getElementById('pphi').innerHTML = maxPP.percentpositivity_7day;
-    document.getElementById('ppvalue').innerHTML = mapZipData[0].percentpositivity_7day;
-    document.getElementById('ppvalue').style.marginRight = ppmargin + "%"
-
-    document.getElementById('poslow').innerHTML = minPeople.people_positive;
-    document.getElementById('poshi').innerHTML = maxPeople.people_positive;
-    document.getElementById('posvalue').innerHTML = mapZipData[0].people_positive;
-    document.getElementById('posvalue').style.marginRight = posmargin + "%"
 
 };
+
+
+
+
+
+
+
+//Change map on button click
+function changeMap(x) {
+    let btn = document.getElementById(`mb${x}`);
+    //Turns off highlights
+    for (let button of document.querySelectorAll('.mapbutton')) button.classList.remove('highlight');
+    btn.classList.add('highlight');
+
+    if (x === 1) {
+        vegaSpec.layer[1].encoding.color.field = 'median_daily_test_rate';
+        vegaSpec.layer[1].encoding.color.legend.title = 'Median daily test rate (per 100,000)';
+        vegaSpec.layer[1].encoding.color.scale.scheme.name = "goldgreen";
+        document.getElementById('mb1').setAttribute('aria-label', 'Tab selected');
+        console.log('One fired');
+        vegaEmbed('#map', vegaSpec);
+        document.getElementById('mapmetric').innerHTML = "Daily test rate, per 100,000 people";
+
+
+        rangeLo = minMDTR.median_daily_test_rate;
+        rangeHi = maxMDTR.median_daily_test_rate;
+
+        zipMargin = 100 * (maxMDTR.median_daily_test_rate - mapZipData[0].median_daily_test_rate) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate);
+        rangeZip = mapZipData[0].median_daily_test_rate;
+
+        rangeMed = mdtrMedian
+        medMargin = 100 * (maxMDTR.median_daily_test_rate - mdtrMedian) / (maxMDTR.median_daily_test_rate - minMDTR.median_daily_test_rate);
+
+    }
+
+
+    else if (x === 2) {
+        vegaSpec.layer[1].encoding.color.field = 'percentpositivity_7day';
+        vegaSpec.layer[1].encoding.color.legend.title = 'Percent Positive';
+        vegaSpec.layer[1].encoding.color.scale.scheme.name = "orangered";
+        console.log('two fired');
+        vegaEmbed('#map', vegaSpec);
+        document.getElementById('mapmetric').innerHTML = "Percent positive";
+        rangeLo = minPP.percentpositivity_7day;
+        rangeHi = maxPP.percentpositivity_7day;
+        rangeZip = mapZipData[0].percentpositivity_7day
+        rangeMed = ppMedian;
+
+        zipMargin = 100 * (maxPP.percentpositivity_7day - mapZipData[0].percentpositivity_7day) / (maxPP.percentpositivity_7day - minPP.percentpositivity_7day);
+        medMargin = 100 * (maxPP.percentpositivity_7day - ppMedian) / (maxPP.percentpositivity_7day - minPP.percentpositivity_7day);
+
+    }
+
+
+    else if (x === 3) {
+        showMap(vegaDotSpec);
+        document.getElementById('mapmetric').innerHTML = "New people positive";
+        rangeLo = minPeople.people_positive;
+        rangeHi = maxPeople.people_positive;
+
+        rangeZip = mapZipData[0].people_positive;
+        rangeMed = numMedian;
+
+        zipMargin = 100 * (maxPeople.people_positive - mapZipData[0].people_positive) / (maxPeople.people_positive - minPeople.people_positive);
+        medMargin = 100 * (maxPeople.people_positive - numMedian) / (maxPeople.people_positive - minPeople.people_positive);
+
+    };
+
+    // Update range chart
+    document.getElementById('lozip').innerHTML = rangeLo;
+    document.getElementById('hizip').innerHTML = rangeHi;
+    document.getElementById('zrv').innerHTML = rangeZip;
+    document.getElementById('zrmv').innerHTML = rangeMed;
+    document.getElementById('zrv').style.marginRight = zipMargin + "%";
+    document.getElementById('zrm').style.marginRight = medMargin + "%";
+
+
+
+
+
+};
+
+
+
