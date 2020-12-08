@@ -72,13 +72,13 @@ zipCodeForm.addEventListener('submit', function (event) {
 
 
 // d3 code to pull in data-by-modzcta - will need to change to remote ref when live
-d3.csv("data-by-modzcta.csv").then(function (data) {
+d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/totals/data-by-modzcta.csv").then(function (data) {
     //console.log(data); // [{"Hello": "world"}, â€¦]
     fullData = data;
 });
 
 // d3 code to pull in by-boro - will need to change to remote ref when live
-d3.csv("by-boro.csv").then(function (data) {
+d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/totals/by-boro.csv").then(function (data) {
     //console.log(data); // [{"Hello": "world"}, â€¦]
     cityData = data;
 });
@@ -359,7 +359,7 @@ var vegaDotSpec = {
 
 
 // d3 code to pull in last7days-by-modzcta - will need to change to remote ref when live
-d3.csv("last7days-by-modzcta.csv").then(function (data) {
+d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/latest/last7days-by-modzcta.csv").then(function (data) {
     //console.log(data); // [{"Hello": "world"}, â€¦]
     mapData = data;
     console.log('full map data:')
