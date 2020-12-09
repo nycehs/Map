@@ -59,10 +59,9 @@ var rangeArray = [];
 zipCodeForm.addEventListener('submit', function (event) {
     event.preventDefault(); // prevent page re-load
     fullName = event.target[0].value; // assign selected value to fullName variable
-    console.log(event.target[0].value);
+    console.log("Selected neighborhood:" + event.target[0].value);
     zipCode = event.target[0].value.slice(0, 5); // trims it down to just the ZIP
     zipString = zipCode.toString(); // converts the numerical value to a string
-    console.log('zip code is ' + zipCode);
     changeNeighborhood(zipCode); // runs the major display function
 });
 
@@ -362,8 +361,11 @@ var vegaDotSpec = {
 d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/latest/last7days-by-modzcta.csv").then(function (data) {
     //console.log(data); // [{"Hello": "world"}, â€¦]
     mapData = data;
+
+    /*
     console.log('full map data:')
     console.log(mapData);
+    */
 
 
     function getMax(arr, prop) {
@@ -392,7 +394,7 @@ d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/late
     };
     mdtrArray.sort(function (a, b) { return a - b }); // sorts in ascending order
     mdtrArray.splice(0, 88); // removes first 88 of 177 modzctas. 
-    console.log('MDTR median: ' + mdtrArray[0]); // gets the lowest value
+    // console.log('MDTR median: ' + mdtrArray[0]); // gets the lowest value
     mdtrMedian = mdtrArray[0]; // assigns this median value to your variable
 
 
@@ -401,7 +403,7 @@ d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/late
     };
     ppArray.sort(function (a, b) { return a - b });
     ppArray.splice(0, 88); // removes first 88. then you'll get the lowest value
-    console.log('PP median: ' + ppArray[0]);
+    // console.log('PP median: ' + ppArray[0]);
     ppMedian = ppArray[0];
 
     for (let i = 0; i < mapData.length; i++) {
@@ -409,24 +411,24 @@ d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/late
     };
     numArray.sort(function (a, b) { return a - b });
     numArray.splice(0, 88); // removes first 88. then you'll get the lowest value
-    console.log('number median: ' + numArray[0]);
+    // console.log('number median: ' + numArray[0]);
     numMedian = numArray[0];
 
 
     maxMDTR = getMax(mapData, "median_daily_test_rate");
     minMDTR = getMin(mapData, "median_daily_test_rate");
-    console.log('min mdtr is: ' + minMDTR.modzcta_name + ", " + minMDTR.median_daily_test_rate + " per 100,000");
-    console.log('max mdtr is: ' + maxMDTR.modzcta_name + ", " + maxMDTR.median_daily_test_rate + ' per 100,000');
+    // console.log('min mdtr is: ' + minMDTR.modzcta_name + ", " + minMDTR.median_daily_test_rate + " per 100,000");
+    // console.log('max mdtr is: ' + maxMDTR.modzcta_name + ", " + maxMDTR.median_daily_test_rate + ' per 100,000');
 
     minPP = getMin(mapData, "percentpositivity_7day");
     maxPP = getMax(mapData, "percentpositivity_7day");
-    console.log('min PP is: ' + minPP.modzcta_name + ", " + minPP.percentpositivity_7day + "%");
-    console.log('max PP is: ' + maxPP.modzcta_name + ", " + maxPP.percentpositivity_7day + "%");
+    // console.log('min PP is: ' + minPP.modzcta_name + ", " + minPP.percentpositivity_7day + "%");
+    // console.log('max PP is: ' + maxPP.modzcta_name + ", " + maxPP.percentpositivity_7day + "%");
 
     minPeople = getMin(mapData, "people_positive");
     maxPeople = getMax(mapData, "people_positive");
-    console.log('min people positive is: ' + minPeople.modzcta_name + ", " + minPeople.people_positive);
-    console.log('max people positive is: ' + maxPeople.modzcta_name + ", " + maxPeople.people_positive);
+    // console.log('min people positive is: ' + minPeople.modzcta_name + ", " + minPeople.people_positive);
+    // console.log('max people positive is: ' + maxPeople.modzcta_name + ", " + maxPeople.people_positive);
 
 });
 
@@ -634,7 +636,7 @@ function chartDraw(zs, m) {
     else if (parentBoro === "Queens") { boroLabel = "QN" }
     else { boroLabel = "SI" };
 
-    console.log('boroLabel is ' + boroLabel);
+    // console.log('boroLabel is ' + boroLabel);
 
     //This updates the chart URL based on the metric
     if (metric === "TESTRATE") {
@@ -672,6 +674,7 @@ function changeNeighborhood(zipCode) {
     document.querySelector('.submitted__last-location').innerHTML = zipCode; // shows ZIP
     document.querySelector('.submitted').classList.remove('submitted--hidden'); // reveals Facts panel
     zipCodeData = fullData.filter(neighborhood => neighborhood.MODIFIED_ZCTA == zipString); // Filters data-by-modzcta to just selected neighborhood
+    console.log("Data for your ZIP:");
     console.log(zipCodeData); // Look Ma, you can see it in the console
     document.getElementById('ziptable').innerHTML = "&nbsp;" + zipString + "&nbsp;";
     document.getElementById('zipcaserate').innerHTML = zipCodeData[0].COVID_CASE_RATE;
@@ -679,7 +682,7 @@ function changeNeighborhood(zipCode) {
 
     // getting boro data for cumulative table
     parentBoro = zipCodeData[0].BOROUGH_GROUP;
-    console.log('the borough is: ' + parentBoro);
+    console.log('the parent boro is: ' + parentBoro);
 
     // This makes it so that filtering cityData doesn't break via "Staten Island" but causes other problems
     if (parentBoro === "Staten Island") {
@@ -708,15 +711,15 @@ function changeNeighborhood(zipCode) {
     }
     pop = numberWithCommas(pop);
 
+    //ZIP Code Summary facts
     document.getElementById('pop').innerHTML = pop;
     document.getElementById('case1').innerHTML = "&nbsp;" + zipCodeData[0].COVID_CASE_COUNT + "&nbsp;";
-
     document.getElementById('death1').innerHTML = "&nbsp;" + zipCodeData[0].COVID_DEATH_COUNT + "&nbsp;";
     document.getElementById('crzip').innerHTML = zipCodeData[0].COVID_CASE_RATE;
     document.getElementById('drzip').innerHTML = zipCodeData[0].COVID_DEATH_RATE;
 
 
-
+    // 'per capita' (1 out of every XX) assignments
     var pc1 = 1 / (zipCodeData[0].COVID_CASE_COUNT / zipCodeData[0].POP_DENOMINATOR);
     document.getElementById('pc1').innerHTML = Math.floor(pc1);
 
@@ -724,6 +727,9 @@ function changeNeighborhood(zipCode) {
     document.getElementById('pc2').innerHTML = Math.floor(pc2);
 
 
+    //Higher/Lower assignments
+
+    // Case rate, ZIP to Boro:
     if (zipCodeData[0].COVID_CASE_RATE > boroData[0].CASE_RATE) {
         document.getElementById('hilo1').innerHTML = "&nbsp;Higher&nbsp;";
         document.getElementById('hilo1').classList.add('higher');
@@ -736,16 +742,19 @@ function changeNeighborhood(zipCode) {
 
     document.getElementById('boro1').innerHTML = parentBoro;
     document.getElementById('boro2').innerHTML = parentBoro;
-
     document.getElementById('bcr').innerHTML = boroData[0].CASE_RATE;
     document.getElementById('nycr').innerHTML = cityTableData[0].CASE_RATE;
     document.getElementById('bdr').innerHTML = boroData[0].DEATH_RATE;
     document.getElementById('nydr').innerHTML = cityTableData[0].DEATH_RATE;
 
-    if (zipCodeData[0].COVID_DEATH_RATE > boroData[0].DEATH_RATE) {
-        document.getElementById('hilo2').innerHTML = "&nbsp;Higher&nbsp;"
+
+
+    //Case rate, ZIp to City
+    if (zipCodeData[0].COVID_CASE_RATE > cityTableData[0].CASE_RATE) {
+        document.getElementById('hilo2').innerHTML = "&nbsp;Higher&nbsp;";
         document.getElementById('hilo2').classList.add('higher');
         document.getElementById('hilo2').classList.remove('lower');
+
     } else {
         document.getElementById('hilo2').innerHTML = "&nbsp;Lower&nbsp;";
         document.getElementById('hilo2').classList.add('lower');
@@ -753,11 +762,11 @@ function changeNeighborhood(zipCode) {
 
     }
 
-    if (zipCodeData[0].COVID_DEATH_RATE > cityTableData[0].DEATH_RATE) {
-        document.getElementById('hilo3').innerHTML = "&nbsp;Higher&nbsp;";
+    // Death rate, ZIP to boro
+    if (zipCodeData[0].COVID_DEATH_RATE > boroData[0].DEATH_RATE) {
+        document.getElementById('hilo3').innerHTML = "&nbsp;Higher&nbsp;"
         document.getElementById('hilo3').classList.add('higher');
         document.getElementById('hilo3').classList.remove('lower');
-
     } else {
         document.getElementById('hilo3').innerHTML = "&nbsp;Lower&nbsp;";
         document.getElementById('hilo3').classList.add('lower');
@@ -765,7 +774,7 @@ function changeNeighborhood(zipCode) {
 
     }
 
-
+    //Death rate, zip to city
     if (zipCodeData[0].COVID_DEATH_RATE > cityTableData[0].DEATH_RATE) {
         document.getElementById('hilo4').innerHTML = "&nbsp;Higher&nbsp;";
         document.getElementById('hilo4').classList.add('higher');
@@ -833,7 +842,6 @@ function changeMap(x) {
         vegaSpec.layer[1].encoding.color.legend.title = 'Median daily test rate (per 100,000)';
         vegaSpec.layer[1].encoding.color.scale.scheme.name = "goldgreen";
         document.getElementById('mb1').setAttribute('aria-label', 'Tab selected');
-        console.log('One fired');
         vegaEmbed('#map', vegaSpec);
         document.getElementById('mapmetric').innerHTML = "Daily test rate, per 100,000 people";
 
@@ -854,7 +862,6 @@ function changeMap(x) {
         vegaSpec.layer[1].encoding.color.field = 'percentpositivity_7day';
         vegaSpec.layer[1].encoding.color.legend.title = 'Percent Positive';
         vegaSpec.layer[1].encoding.color.scale.scheme.name = "orangered";
-        console.log('two fired');
         vegaEmbed('#map', vegaSpec);
         document.getElementById('mapmetric').innerHTML = "Percent positive";
         rangeLo = minPP.percentpositivity_7day;
