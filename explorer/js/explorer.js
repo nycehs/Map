@@ -70,22 +70,20 @@ zipCodeForm.addEventListener('submit', function (event) {
 //you know have values for zipCode, fullName, and zipString
 
 
-// d3 code to pull in data-by-modzcta - will need to change to remote ref when live
+// d3 code to pull in data-by-modzcta 
 d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/totals/data-by-modzcta.csv").then(function (data) {
-    //console.log(data); // [{"Hello": "world"}, â€¦]
     fullData = data;
 });
 
-// d3 code to pull in by-boro - will need to change to remote ref when live
+// d3 code to pull in by-boro 
 d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/totals/by-boro.csv").then(function (data) {
-    //console.log(data); // [{"Hello": "world"}, â€¦]
     cityData = data;
 });
 
-
-
 //you now have fullData by modzcta, and citywide/boro data
 
+
+// d3 code to pull in ACS data into Object
 
 
 
@@ -431,10 +429,6 @@ d3.csv("https://raw.githubusercontent.com/nychealth/coronavirus-data/master/late
     // console.log('max people positive is: ' + maxPeople.modzcta_name + ", " + maxPeople.people_positive);
 
 });
-
-
-
-
 
 //End min/max/median work.
 
