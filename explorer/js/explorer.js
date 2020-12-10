@@ -20,6 +20,7 @@ var zipCodeData;    // the ZIP's data from fullData (data-by-modzcta)
 var zipString;      // ZIP code, as a string
 var fullName;       // ZIP Code plus neighborhood name
 var parentBoro;     // ZIP's parent boro
+var parentBoroDisplay; // Special display mode for BX, SI
 var boroData;       // Boro's data from by-boro
 var fullData;       // full data from data-by-modzcta
 var cityData;       // full data from by-boro
@@ -684,9 +685,18 @@ function changeNeighborhood(zipCode) {
     };
     boroData = cityData.filter(boro => boro.BOROUGH_GROUP == parentBoro);
 
+    // This affords proper display of The Bronx, and Staten Island. parentBoro is used to filter data, parentBoroDisplay is used to print HTML
+    if (parentBoro === "StatenIsland") {
+        parentBoroDisplay = "Staten Island"
+    } else if (parentBoro === "Bronx") {
+        parentBoroDisplay = "The Bronx"
+    } else {
+        parentBoroDisplay = parentBoro
+    }
+
     document.getElementById('borocaserate').innerHTML = boroData[0].CASE_RATE;
     document.getElementById('borodeathrate').innerHTML = boroData[0].DEATH_RATE;
-    document.getElementById('borotable').innerHTML = "&nbsp;" + parentBoro + "&nbsp;";
+    document.getElementById('borotable').innerHTML = "&nbsp;" + parentBoroDisplay + "&nbsp;";
 
     //getting city data for cumulative table
     cityTableData = cityData.filter(boro => boro.BOROUGH_GROUP == 'Citywide');
@@ -734,8 +744,8 @@ function changeNeighborhood(zipCode) {
         document.getElementById('hilo1').classList.remove('higher');
     }
 
-    document.getElementById('boro1').innerHTML = parentBoro;
-    document.getElementById('boro2').innerHTML = parentBoro;
+    document.getElementById('boro1').innerHTML = parentBoroDisplay;
+    document.getElementById('boro2').innerHTML = parentBoroDisplay;
     document.getElementById('bcr').innerHTML = boroData[0].CASE_RATE;
     document.getElementById('nycr').innerHTML = cityTableData[0].CASE_RATE;
     document.getElementById('bdr').innerHTML = boroData[0].DEATH_RATE;

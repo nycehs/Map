@@ -411,13 +411,29 @@
 
             <span style="font-size: 36px; margin-top: 50px;"><i class="far fa-clock"></i></span>
 
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <h3 class="fs-lg" style="margin-bottom: 0px;">Latest Data: Over
+                        last 7 days</h3>
+                </div>
+                <div class="col-6">
+                    <span style="font-weight: normal; font-size: 13px; float:right">Date range: <span id="daterange"
+                            id="daterange"></span></span>
+                </div>
 
-            <h3 class="fs-lg"></i>Key metrics: the
-                last 7 days of data <span id="daterange" style="font-weight: normal;" id="daterange"></span></h3>
-            <p>The daily test rate, percent positivity, and number of people who test positive can help show how
-                the pandemic is affecting your neighborhood. The range charts below show your ZIP code and the median
-                value. The median is the value in the middle of all the values (half
-                the neighborhoods are higher, and half are lower).</p>
+            </div>
+
+
+
+
+            <p class="mt-2">The daily test rate, percent positivity, and number of people who test positive
+                shows how
+                the pandemic is affecting your neighborhood right now. It's best to have a high test rate, low percent
+                positivity,
+                and fewer new cases.</p>
+
+            <p>The range charts show where your ZIP code falls among all the neighborhoods.</p>
+
 
             <div>
                 <div id="mb1" data-num="1" class="mapbutton togglebutton highlight" style="display: inline-block;">
@@ -489,9 +505,12 @@
                 <div id="mapcont" class="col-12 mx-auto">
                     <div class="vis" id="map"></div>
                 </div>
-                <div class="col-md-2">
+            </div>
 
-                </div>
+            <div class="summary">
+                <p><i class="fas fa-question-circle"></i>&nbsp;<strong>About medians:</strong> The range charts include
+                    the median value - the value in the middle of the other values. So half of the neighborhoods have a
+                    higher value than the median, and half have a lower value.</p>
             </div>
 
 
@@ -502,8 +521,8 @@
 
             <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-chart-line"></i></span>
 
-            <h3 class="fs-lg">Over the last 3 months</h3>
-            <p>Looking at weekly test rates, percent positivity, and case rates over the last 3 months can show whether
+            <h3 class="fs-lg">Trends over the last 3 months</h3>
+            <p>Looking at data from the last 3 months can show whether
                 things
                 are getting better, getting worse, or staying stable.</p>
             <p>The charts below compare data for <span id="chartzip"
@@ -514,10 +533,10 @@
                 </span> and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of
                     NYC&nbsp;</span>. So,
                 they show
-                if your neighborhood is doing better - or worse - than these averages. It's best to have high test
-                rates, low percent
+                if your neighborhood is doing better - or worse - than these averages. It's best to have a high test
+                rate, low percent
                 positivity,
-                and low case rates.</p>
+                and a low case rate.</p>
 
             <div>
                 <div id="chartbtn1" class="chartbutton togglebutton highlight" style="display: inline-block;">
