@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID-19: NYC Zip Code Explorer</title>
+    <title>COVID-19 Neighborhood Profiles</title>
 
     <!-- Import vega dependencies that are compatible with IE11-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.11/core.js"></script>
@@ -42,13 +42,13 @@
 <body>
 
     <div style="max-width:700px; margin: auto;">
-        <h1>COVID-19 data: ZIP Code Explorer</h1>
-        <p>Get data on how COVID-19 has affected your neighborhood - and how your community is doing right now.</p>
+        <h1>COVID-19 Neighborhood Profiles</h1>
+        <p>Search for data summaries of NYC neighborhoods by ZIP Code, and see how COVID-19 is affecting your community.
+        </p>
 
         <main>
             <form id="zip-code-form">
-                <label for="last-location">Enter your ZIP Code or neighborhood
-                    name:</label>
+                <label for="last-location">Enter your ZIP Code or neighborhood:</label>
                 <hr>
 
                 <div class="autocomplete-wrapper" style="display:inline-block; width: 80%;">
@@ -238,8 +238,9 @@
                 </div>
 
                 <button class="btn-primary" type="submit" style="float:right; width: 17%">Submit</button>
+                <!--
                 <span style="font-size: 12px;"><em>We don't save any information on the neighborhoods you
-                        enter.</em></span>
+                        enter.</em></span>-->
             </form>
 
         </main>
@@ -248,18 +249,20 @@
 
         <div class="submitted submitted--hidden" style="margin-top: 50px;">
 
-            <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-map-marker-alt"></i></span>
 
 
 
 
-            <h3 class="fs-lg">Your neighborhood:
-                <span id="ns1" style="font-weight: bold; color: #ff34ce"></span></h3>
+
+            <h3 class="fs-lg"><span style="font-size: 24px; margin-top: 50px;"><i
+                        class="fas fa-map-marker-alt"></i></span>&nbsp;Your neighborhood:
+                <span id="ns1" style="font-weight: bold; color: #ff34ce"></span>
+            </h3>
 
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col" style="width: 20%;">Key Facts</th>
+                        <th scope="col" style="width: 20%;">Totals</th>
                         <th scope="col" style="width: 15%;"></th>
                         <th scope="col" style="width: 65%;"></th>
                     </tr>
@@ -276,19 +279,19 @@
                     <tr>
                         <th scope="row">Cases:</th>
                         <td><span id="case1" class="data-in"></span></td>
-                        <td style="text-align: left;">of your neighbors have been diagnosed with COVID-19. <br>That's
-                            <span class="data-in">1
-                                out of every </span><span id="pc1" class="data-in"></span> people in your
-                            neighborhood.</td>
+                        <td style="text-align: left;">
+                            <span class="data-in">One
+                                out of every </span><span id="pc1" class="data-in"></span> people in this
+                            neighborhood.
+                        </td>
                     </tr>
 
                     <tr>
                         <th scope="row">Deaths:</th>
                         <td><span id="death1" class="data-in"></span></td>
-                        <td style="text-align: left;">of your neighbors have died of COVID-19. <br>That's <span
-                                class="data-in">1
+                        <td style="text-align: left;"><span class="data-in">One
                                 out of every </span><span id="pc2" class="data-in"></span>
-                            people in your neighborhood.</td>
+                            people in this neighborhood.</td>
                     </tr>
                 </tbody>
             </table>
@@ -296,7 +299,7 @@
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th scope="col" style="width: 20%;">Rates</th>
+                        <th scope="col" style="width: 20%;">Comparisons</th>
                         <th scope="col" style="width: 15%;"></th>
                         <th scope="col" style="width: 65%;"></th>
                     </tr>
@@ -306,7 +309,8 @@
                     <tr>
                         <th scope="row">Case rate:</th>
                         <td><span id="crzip" class="data-in"></span><br>
-                            <span style="font-size: 12px; font-weight: normal;">per 100,000 </span></td>
+                            <span style="font-size: 12px; font-weight: normal;">per 100,000 </span>
+                        </td>
                         <td style="text-align: left;"><span id="hilo1"></span> than
                             <span id="boro1"></span>'s case rate of <span id="bcr" class="data-in"></span>.<br>
                             <span id="hilo2"></span> than New York City's case rate of <span id="nycr"
@@ -316,7 +320,8 @@
                     <tr>
                         <th scope="row">Death rate:</th>
                         <td><span id="drzip" class="data-in"></span><br>
-                            <span style="font-size: 12px; font-weight: normal;">per 100,000</span></td>
+                            <span style="font-size: 12px; font-weight: normal;">per 100,000</span>
+                        </td>
                         <td style="text-align: left;"><span id="hilo3"></span> than
                             <span id="boro2"></span>'s death rate of <span id="bdr" class="data-in"></span>.<br>
                             <span id="hilo4"></span> than New York City's death rate of <span id="nydr"
@@ -337,70 +342,21 @@
             <br>
 
             <div class="summary">
-                <p><i class="fas fa-question-circle"></i>&nbsp;<strong>About rates:</strong> Rates are ways that numbers
-                    are "adjusted for population" (like percent, or per capita). Rates are presented as a number of
-                    something "per unit of population" - in this
-                    case, the number of cases or deaths per 100,000 people. They let you can compare the effect of a
-                    disease in areas with
-                    different size populations. A number tells us <em>how many</em> cases or deaths there are, but a
-                    rate tells us <em>how common</em> they are.</p>
+                <p><strong>Rates</strong> are ways that numbers
+                    are "adjusted for population" (like percent, or per capita). These rates show the number of
+                    COVID-19 cases or deaths per 100,000 people. They help us compare areas with
+                    different population sizes by showing how common cases or deaths are.</p>
 
             </div>
 
-
-
-
-
-            <div class="sr-only">
-                <h3 class="fs-lg" style="margin-top:50px;">
-                    Since the start of the pandemic
-                </h3>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col"><span style="color: #6b6b6b">Measure</span></th>
-                            <th scope="col" style="text-align:right;"><span id="ziptable"
-                                    style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;Your
-                                    ZIP Code&nbsp;</span></th>
-                            <th scope="col" style="text-align:right;"><span id="borotable"
-                                    style="font-weight:bold;background:#858585; color:white;">
-                                    &nbsp;Borough&nbsp; </span></th>
-                            <th scope="col" style="text-align:right;">
-                                <span style="font-weight:bold;background:black; color:white;">
-                                    &nbsp;all of NYC&nbsp;
-                                </span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Case rate</span><br><span
-                                    style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Confirmed cases per
-                                    100,000
-                                    people</span>
-                            </th>
-                            <td id="zipcaserate">mmm</td>
-                            <td id="borocaserate">nnn</td>
-                            <td id="citycaserate">ooo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><span style="font-weight:bold; color: #6b6b6b">Death rate</span><br><span
-                                    style="font-size: 12px; font-weight: normal;color: #3f3f3f;">Deaths per 100,000
-                                    people</span></th>
-                            <td id="zipdeathrate">XXX</td>
-                            <td id="borodeathrate">YYY</td>
-                            <td id="citydeathrate">ZZZ</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
 
 
 
 
             <br>
-            <div style="text-align:right; font-style: italic; font-size: 12px;"><a href="">For more cumulative data,
+            <div style="text-align:right; font-style: italic; font-size: 12px;"><a
+                    href="https://www1.nyc.gov/site/doh/covid/covid-19-data-totals.page">For more cumulative data,
                     visit COVID-19 Data:
                     Totals</a>.</div>
 
@@ -409,12 +365,12 @@
             </div>
 
 
-            <span style="font-size: 36px; margin-top: 50px;"><i class="far fa-clock"></i></span>
+
 
             <div class="row no-gutters">
                 <div class="col-6">
-                    <h3 class="fs-lg" style="margin-bottom: 0px;">Latest Data: Over
-                        last 7 days</h3>
+                    <h3 class="fs-lg" style="margin-bottom: 0px;"><span style="font-size: 24px; margin-top: 50px;"><i
+                                class="far fa-clock"></i></span>&nbsp;Last 7 Days</h3>
                 </div>
                 <div class="col-6">
                     <span style="font-weight: normal; font-size: 13px; float:right">Date range: <span id="daterange"
@@ -432,7 +388,7 @@
                 positivity,
                 and fewer new cases.</p>
 
-            <p>The range charts show where your ZIP code falls among all the neighborhoods.</p>
+            <p>The range charts compare the selected neighborhood code to all NYC neighborhoods.</p>
 
 
             <div>
@@ -508,10 +464,15 @@
             </div>
 
             <div class="summary">
-                <p><i class="fas fa-question-circle"></i>&nbsp;<strong>About medians:</strong> The range charts include
-                    the median value - the value in the middle of the other values. So half of the neighborhoods have a
+                <p>The <strong>median</strong> is the value in the middle of
+                    the other values. Half of the neighborhoods have a
                     higher value than the median, and half have a lower value.</p>
             </div>
+            <br>
+            <div style="text-align:right; font-style: italic; font-size: 12px;"><a
+                    href="https://www1.nyc.gov/site/doh/covid/covid-19-data.page">For more recent data,
+                    visit COVID-19 Data:
+                    Latest</a>.</div>
 
 
             <div style="width:75%; margin:auto">
@@ -519,21 +480,15 @@
             </div>
 
 
-            <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-chart-line"></i></span>
 
-            <h3 class="fs-lg">Trends over the last 3 months</h3>
-            <p>Looking at data from the last 3 months can show whether
+
+            <h3 class="fs-lg"><span style="font-size: 24px; margin-top: 50px;"><i class="fas fa-chart-line"></i></span>
+                &nbsp;Trends (Last 3 Months)</h3>
+            <p>These charts compare data for your selected ZIP code to the borough it's in and citywide. They show
+                whether
                 things
-                are getting better, getting worse, or staying stable.</p>
-            <p>The charts below compare data for <span id="chartzip"
-                    style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;your
-                    ZIP Code&nbsp;</span> to data for <span id="chartboro"
-                    style="font-weight:bold;background:#858585; color:white;">
-                    &nbsp; the Borough it's in&nbsp;
-                </span> and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of
-                    NYC&nbsp;</span>. So,
-                they show
-                if your neighborhood is doing better - or worse - than these averages. It's best to have a high test
+                are getting better, getting worse, or staying stable. It's best to
+                have a high test
                 rate, low percent
                 positivity,
                 and a low case rate.</p>
@@ -556,26 +511,43 @@
 
 
             <p style="font-size:14px; margin-top:15px;">
-                <span id="datalabel">People tested per 100,000</span>
+                <span id="datalabel">People tested per 100,000 </span> in <span id="chartzip"
+                    style="font-weight: bold; background:#ff34ce; color: white;">&nbsp;your
+                    ZIP Code&nbsp;</span>, <span id="chartboro"
+                    style="font-weight:bold;background:#858585; color:white;">
+                    &nbsp; the Borough it's in&nbsp;
+                </span>, and <span style="font-weight: bold; background:black; color: white;">&nbsp;all of
+                    NYC&nbsp;</span>
             </p>
 
             <div class="vis2" id="trchart">
 
 
             </div>
+            <br>
+            <div style="text-align:right; font-style: italic; font-size: 12px;"><a
+                    href="https://www1.nyc.gov/site/doh/covid/covid-19-trends.page">For more trend data,
+                    visit COVID-19 Data:
+                    Trends</a>.</div>
 
             <div style="width:75%; margin:auto">
                 <hr style="margin-top:50px; margin-bottom:50px; border-top: 7px solid #998bc0; border-radius: 5px;">
             </div>
 
-            <span style="font-size: 36px; margin-top: 50px;"><i class="fas fa-info-circle"></i></span>
-            <h3>Stay safe.</h3>
-            <p><a
-                    href="https://nycgov.maps.arcgis.com/apps/instant/lookup/index.html?appid=021940a41da04314827e2782d3d1986f">Find
-                    out if your neighborhood is in a COVID Zone</a>, and whether there are additional precautions you
-                can
-                take.</p>
 
+            <h3><span style="font-size: 24px; margin-top: 50px;"><i
+                        class="fas fa-info-circle"></i></span>&nbsp;Additional resources</h3>
+
+            <ul>
+                <li><a
+                        href="https://nycgov.maps.arcgis.com/apps/instant/lookup/index.html?appid=021940a41da04314827e2782d3d1986f">COVID-19
+                        Zone Finder</a></li>
+                <li><a href="https://www1.nyc.gov/site/doh/covid/covid-19-data.page#aboutthedata">About the Data</a>
+                </li>
+            </ul>
+
+
+            <!--
             <p>The best way to protect yourself and your family from COVID-19 is to:
             <ul>
                 <li><strong>Keep physical distance:</strong> stay at least 6 feet away from other people</li>
@@ -591,9 +563,10 @@
             <a href="https://www1.nyc.gov/site/doh/covid/covid-19-main.page">Get
                 guidance
                 on how to stay safe during the COVID-19 public health emergency.</a>
+                
 
 
-            </p>
+            </p>-->
             <br>
             <br>
             <br>

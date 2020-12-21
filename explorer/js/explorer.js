@@ -671,9 +671,6 @@ function changeNeighborhood(zipCode) {
     zipCodeData = fullData.filter(neighborhood => neighborhood.MODIFIED_ZCTA == zipString); // Filters data-by-modzcta to just selected neighborhood
     console.log("Data for your ZIP:");
     console.log(zipCodeData); // Look Ma, you can see it in the console
-    document.getElementById('ziptable').innerHTML = "&nbsp;" + zipString + "&nbsp;";
-    document.getElementById('zipcaserate').innerHTML = zipCodeData[0].COVID_CASE_RATE;
-    document.getElementById('zipdeathrate').innerHTML = zipCodeData[0].COVID_DEATH_RATE;
 
     // getting boro data for cumulative table
     parentBoro = zipCodeData[0].BOROUGH_GROUP;
@@ -694,17 +691,14 @@ function changeNeighborhood(zipCode) {
         parentBoroDisplay = parentBoro
     }
 
-    document.getElementById('borocaserate').innerHTML = boroData[0].CASE_RATE;
-    document.getElementById('borodeathrate').innerHTML = boroData[0].DEATH_RATE;
-    document.getElementById('borotable').innerHTML = "&nbsp;" + parentBoroDisplay + "&nbsp;";
+
 
     //getting city data for cumulative table
     cityTableData = cityData.filter(boro => boro.BOROUGH_GROUP == 'Citywide');
     /*
     console.log(cityTableData);
     */
-    document.getElementById('citycaserate').innerHTML = cityTableData[0].CASE_RATE;
-    document.getElementById('citydeathrate').innerHTML = cityTableData[0].DEATH_RATE;
+
 
     //Summary paragraph
     document.getElementById('ns1').innerHTML = fullName;
@@ -809,7 +803,7 @@ function changeNeighborhood(zipCode) {
     console.log('zip map data:');
     console.log(mapZipData);
 
-    document.getElementById('daterange').innerHTML = "(" + mapZipData[0].daterange + ")";
+    document.getElementById('daterange').innerHTML = mapZipData[0].daterange;
 
     //Sending initial min, max, median, values to range chart
     document.getElementById('lozip').innerHTML = minMDTR.median_daily_test_rate;;
